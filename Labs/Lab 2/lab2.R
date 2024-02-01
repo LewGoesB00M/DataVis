@@ -4,7 +4,7 @@ library(tidyverse)
 # library(GGally)
 # Used to generate a correlation matrix.
 
-interviews <- read.csv("Lab 2/data/interviews_plotting.csv")
+interviews <- read.csv("Labs/Lab 2/data/interviews_plotting.csv")
 # summary(interviews)
 
 # ggcorr(interviews, label = T, label_alpha = 0.3)
