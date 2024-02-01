@@ -10,8 +10,11 @@ depth_dist <- depth_dist + geom_bar(aes(fill = cut), position = "dodge")
 
 
 ggplot(diamonds, aes(x, y)) # Empty graph, nothing going on.
+# This is because nothing was actually defined - ggplot itself just makes the axes,
+# then you'd add something like geom_point() or geom_bar() to populate the graph.
 
 ggplot(diamonds, aes(x, y, color = price)) + geom_point() # Scatter graph coloured by price
 ggplot(diamonds, aes(x, y)) + geom_point(aes(color = price)) # Functionally the same.
 # A trend line could be added using geom_smooth() but this is extremely resource intensive.
+# Or something else was causing an issue that made this lag my laptop.
 
