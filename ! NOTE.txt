@@ -1,2 +1,5 @@
 Do not delete the .idea directory.
 Wipes project IDE settings.
+
+Working directory is the root folder. Could bypass with setwd or moving files to root while working
+on them. Alternatively, use extended file paths as seen in lab 2; "Labs/Lab 2/data" for example.
