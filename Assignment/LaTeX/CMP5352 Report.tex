@@ -1,11 +1,11 @@
 \documentclass[12pt]{report}
 \usepackage{graphicx} % Required for inserting images
-\usepackage[a4paper, margin=2.5cm]{geometry}
-\graphicspath{images/}
+\usepackage[a4paper, margin=3cm]{geometry}
+\graphicspath{{images/}}
 
 \title{CMP5352 Report}
 \author{Lewis Higgins - Student ID 22133848}
-\date{January - March, 2024}
+\date{December 2023}
 
 
 \usepackage[utf8]{inputenc}
@@ -13,74 +13,15 @@
 \usepackage{float} % here for H placement parameter
 \usepackage{subcaption}
 
-\usepackage{filecontents}
-\usepackage[
-    firstinits=true, % render first and middle names as initials
-    useprefix=true,
-    maxcitenames=3,
-    maxbibnames=99,
-    style=authoryear,
-    dashed=false, % re-print recurring author names in bibliography
-    natbib=true,
-    url=false
-]{biblatex}
-
-\renewbibmacro*{volume+number+eid}{%
-    \printfield{volume}%
-%  \setunit*{\adddot}% DELETED
-    \setunit*{\addnbspace}% NEW (optional); there's also \addnbthinspace
-    \printfield{number}%
-    \setunit{\addcomma\space}%
-    \printfield{eid}}
-\DeclareFieldFormat[article]{number}{\mkbibparens{#1}}
-
-\addbibresource{report.bib}
-
-% Use single quotes around titles:
-\usepackage[british]{babel}
-\usepackage{csquotes}
-
-\usepackage{hyperref}
-
-\hypersetup{
-    colorlinks=true,
-    linkcolor=black,
-    filecolor=magenta,
-    urlcolor=blue,
-    citecolor=black,
-}
-
-
-\urlstyle{same}
 
 
 % To prevent "Chapter N" display for each chapter
 \usepackage[compact]{titlesec}
-\usepackage{wasysym}
-\usepackage{import}
+\usepackage{color}
 
 \titlespacing*{\chapter}{0pt}{-2cm}{0.5cm}
 \titleformat{\chapter}[display]
 {\normalfont\bfseries}{}{0pt}{\Huge}
-
-\newcommand\blfootnote[1]{
-    \begingroup
-    \renewcommand\thefootnote{}\footnote{#1}
-    \addtocounter{footnote}{-1}
-    \endgroup
-}
-
-\usepackage{fancyhdr}
-\usepackage{calc}
-\pagestyle{fancy}
-
-\setlength\headheight{37pt}
-
-\renewcommand{\chaptermark}[1]{%
-    \markboth{#1}{}}
-
-\lhead{Lewis Higgins - ID 22133848~~~~~~~~~~~~~~~\includegraphics[width=1.75cm]{bcu logo}}
-\fancyhead[R]{\leftmark}
 
 \begin{document}
 
@@ -90,8 +31,7 @@
     \begin{titlepage}
         \begin{center}
             \includegraphics[width=0.7\linewidth]{bcu logo}\\[4ex]
-            {\huge \bfseries  \@title }\\[2ex]
-            {\huge \bfseries  DRAFT VERSION }\\[2ex]
+            {\large \bfseries  \@title }\\[2ex]
             {\@author}\\[50ex]
             {\large \@date}
         \end{center}
@@ -104,8 +44,20 @@
 
     \tableofcontents
 
-    \chapter{Introduction}\label{ch:introduction}
+    \begin{abstract}
+        text
+
+        text
+
+        text
+
+    \end{abstract}
+
+
+    \chapter*{Introduction}\label{ch:introduction}
     \addcontentsline{toc}{chapter}{Introduction}
+
+    Text text text
 
     \chapter{Motivation and objectives}\label{ch:sec1}
     \input{section1}
@@ -116,7 +68,5 @@
     \chapter{Summary \& conclusion}\label{ch:sec3}
     \input{section3}
 
-
-    \printbibliography
 
 \end{document}
