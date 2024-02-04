@@ -1,39 +1,99 @@
 \documentclass[12pt]{report}
 \usepackage{graphicx} % Required for inserting images
-\usepackage[a4paper, margin=3cm]{geometry}
+\usepackage[a4paper, margin=2.5cm]{geometry}
 \graphicspath{{images/}}
-
-\title{CMP5352 Report}
-\author{Lewis Higgins - Student ID 22133848}
-\date{December 2023}
-
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{float} % here for H placement parameter
 \usepackage{subcaption}
 
+\usepackage{filecontents}
+\usepackage[
+    firstinits=true, % render first and middle names as initials
+    useprefix=true,
+    maxcitenames=3,
+    maxbibnames=99,
+    style=authoryear,
+    dashed=false, % re-print recurring author names in bibliography
+    natbib=true,
+    url=false
+]{biblatex}
+
+\renewbibmacro*{volume+number+eid}{%
+    \printfield{volume}%
+%  \setunit*{\adddot}% DELETED
+    \setunit*{\addnbspace}% NEW (optional); there's also \addnbthinspace
+    \printfield{number}%
+    \setunit{\addcomma\space}%
+    \printfield{eid}}
+\DeclareFieldFormat[article]{number}{\mkbibparens{#1}}
+
+\addbibresource{report.bib}
+
+% Use single quotes around titles:
+\usepackage[british]{babel}
+\usepackage{csquotes}
+
+\usepackage{hyperref}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=magenta,
+    urlcolor=blue,
+    citecolor=black,
+}
+
+
+\urlstyle{same}
 
 
 % To prevent "Chapter N" display for each chapter
 \usepackage[compact]{titlesec}
-\usepackage{color}
+\usepackage{wasysym}
+\usepackage{import}
 
 \titlespacing*{\chapter}{0pt}{-2cm}{0.5cm}
 \titleformat{\chapter}[display]
 {\normalfont\bfseries}{}{0pt}{\Huge}
 
+\newcommand\blfootnote[1]{
+    \begingroup
+    \renewcommand\thefootnote{}\footnote{#1}
+    \addtocounter{footnote}{-1}
+    \endgroup
+}
+
+\usepackage{fancyhdr}
+\usepackage{calc}
+\pagestyle{fancy}
+
+\setlength\headheight{37pt}
+
+\renewcommand{\chaptermark}[1]{%
+    \markboth{#1}{}}
+
+\lhead{Lewis Higgins - ID 22133848~~~~~~~~~~~~~~~\includegraphics[width=1.75cm]{bcu logo}}
+\fancyhead[R]{\leftmark}
+
+\title{CMP5352 Report - TITLE NEEDED}
+\author{Lewis Higgins - Student ID 22133848}
+\date{April 2024}
+
+
 \begin{document}
 
-    \pagecolor{yellow}
+    \pagecolor{yellow} % Change in final
 
     \makeatletter
     \begin{titlepage}
         \begin{center}
             \includegraphics[width=0.7\linewidth]{bcu logo}\\[4ex]
             {\large \bfseries  \@title }\\[2ex]
-            {\@author}\\[50ex]
-            {\large \@date}
+            {\large \bfseries  DRAFT VERSION }\\[2ex]
+            {\@author}\\[30ex]
+            {Word count: XXXX}\\[20ex]
         \end{center}
     \end{titlepage}
     \makeatother
@@ -41,8 +101,6 @@
     \newpage
 
     \pagecolor{white}
-
-    \tableofcontents
 
     \begin{abstract}
         text
@@ -52,6 +110,8 @@
         text
 
     \end{abstract}
+
+    \tableofcontents
 
 
     \chapter*{Introduction}\label{ch:introduction}

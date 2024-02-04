@@ -1,9 +1,9 @@
 [0] Config.pm:307> INFO - This is Biber 2.19
 [0] Config.pm:310> INFO - Logfile is 'CMP5352 Report.blg'
-[156] biber-MSWIN64:340> INFO - === 
-[217] Biber.pm:419> INFO - Reading 'CMP5352 Report.bcf'
-[429] Biber.pm:979> INFO - Found 0 citekeys in bib section 0
-[450] bbl.pm:660> INFO - Writing 'CMP5352 Report.bbl' with encoding 'UTF-8'
-[451] bbl.pm:763> INFO - Output to CMP5352 Report.bbl
-[451] Biber.pm:131> WARN - The file 'CMP5352 Report.bcf' does not contain any citations!
-[451] Biber.pm:133> INFO - WARNINGS: 1
+[85] biber-MSWIN64:340> INFO - === 
+[122] Biber.pm:419> INFO - Reading 'CMP5352 Report.bcf'
+[217] Biber.pm:979> INFO - Found 0 citekeys in bib section 0
+[227] bbl.pm:660> INFO - Writing 'CMP5352 Report.bbl' with encoding 'UTF-8'
+[227] bbl.pm:763> INFO - Output to CMP5352 Report.bbl
+[227] Biber.pm:131> WARN - The file 'CMP5352 Report.bcf' does not contain any citations!
+[227] Biber.pm:133> INFO - WARNINGS: 1
