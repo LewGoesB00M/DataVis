@@ -120,17 +120,20 @@
     \setcounter{page}{0} % Page counter bullshit to make it ACTUALLY start from 1
 
     \chapter*{Introduction}\label{ch:introduction}
-    \addcontentsline{toc}{chapter}{Introduction}
+    \addcontentsline{toc}{section}{Introduction} % chapter or section?
 
     Text text text
 
-    \chapter{Motivation and objectives}\label{ch:sec1}
+    \chapter*{Motivation and objectives}\label{ch:sec1}
+    \addcontentsline{toc}{chapter}{Motivation and objectives}
     \input{section1}
 
-    \chapter{Experimental results}\label{ch:sec2}
+    \chapter*{Experimental results}\label{ch:sec2}
+    \addcontentsline{toc}{chapter}{Experimental results}
     \input{section2}
 
-    \chapter{Summary \& conclusion}\label{ch:sec3}
+    \chapter*{Summary \& conclusion}\label{ch:sec3}
+    \addcontentsline{toc}{chapter}{Summary \& conclusion}
     \input{section3}
 
 
