@@ -111,8 +111,13 @@
 
     \end{abstract}
 
-    \tableofcontents
+    \setcounter{page}{0} % Page counter bullshit to make it ACTUALLY start from 1
 
+    \tableofcontents
+    \thispagestyle{empty}
+
+
+    \setcounter{page}{0} % Page counter bullshit to make it ACTUALLY start from 1
 
     \chapter*{Introduction}\label{ch:introduction}
     \addcontentsline{toc}{chapter}{Introduction}
