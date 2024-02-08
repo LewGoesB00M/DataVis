@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.2.8)  8 FEB 2024 11:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.1.30)  8 FEB 2024 14:29
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -923,7 +923,12 @@ l.115     \end{abstract}
 \openout4 = `CMP5352_Report.pyg'.
 
  (auxil/_minted-CMP5352_Report/default.pygstyle)
-(auxil/_minted-CMP5352_Report/B50AE8F0AC1272BFE737F537D95C43BDCB7C2B7C9689413DD
+runsystem(pygmentize -l "R" -f latex -P commandprefix=PYG -F tokenmerge -P stri
+pnl="False" -o ./auxil/_minted-CMP5352_Report/2830EA5C81B3500FF0E88090819C2221C
+B7C2B7C9689413DDD24C45AC78FBA5C.pygtex ./auxil/CMP5352_Report.pyg)...executed.
+
+
+(auxil/_minted-CMP5352_Report/2830EA5C81B3500FF0E88090819C2221CB7C2B7C9689413DD
 D24C45AC78FBA5C.pygtex
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 1
 .
@@ -931,21 +936,30 @@ LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 1
 (C:\Users\Lewis\AppData\Local\Programs\MiKTeX\tex/latex/base\t1cmtt.fd
 File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
-LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <12> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 5.
-)
+LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 
+12.
+
+(C:\Users\Lewis\AppData\Local\Programs\MiKTeX\tex/latex/base\ts1cmtt.fd
+File: ts1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
+))
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.145     \chapter
+l.161     \chapter
                   *{Motivation and objectives}\label{ch:sec1} [1
 
-] (section1.tex) [2
+{C:/Users/Lewis/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/cm-super/cm-super
+-ts1.enc}]
+(section1.tex) [2
 
 ] (section2.tex) [3
 
-] (section3.tex) [4
+] (section3.tex)
+runsystem(del .\auxil\_minted-CMP5352_Report\02D7E7B9F4304FA176EBF72AE8D112DECB
+7C2B7C9689413DDD24C45AC78FBA5C.pygtex)...executed.
+
+ [4
 
 ]
 (C:/Users\Lewis\DataspellProjects\DataVis\Assignment\LaTeX\auxil\CMP5352 Report
@@ -1062,9 +1076,10 @@ CMP5352 Report.out
 CMP5352 Report.out
 images/bcu logo.png
 "./auxil/_minted-CMP5352_Report/default.pygstyle"
-./auxil/_minted-CMP5352_Report/B50AE8F0AC1272BFE737F537D95C43BDCB7C2B7C9689413D
+./auxil/_minted-CMP5352_Report/2830EA5C81B3500FF0E88090819C2221CB7C2B7C9689413D
 DD24C45AC78FBA5C.pygtex
   t1cmtt.fd    2023/04/13 v2.5m Standard LaTeX font definitions
+ ts1cmtt.fd    2023/04/13 v2.5m Standard LaTeX font definitions
 section1.tex
 section2.tex
 section3.tex
@@ -1079,23 +1094,24 @@ Package logreq Info: Writing requests to '"CMP5352 Report".run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 23570 strings out of 474542
- 431577 string characters out of 5744447
- 1926978 words of memory out of 5000000
- 45497 multiletter control sequences out of 15000+600000
- 562537 words of font info for 43 fonts, out of 8000000 for 9000
+ 23595 strings out of 474541
+ 432461 string characters out of 5744425
+ 1929978 words of memory out of 5000000
+ 45516 multiletter control sequences out of 15000+600000
+ 563913 words of font info for 46 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  77i,6n,81p,691b,2365s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Lewis/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfb
 x1200.pfb><C:/Users/Lewis/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-s
 uper/sfbx1440.pfb><C:/Users/Lewis/AppData/Local/Programs/MiKTeX/fonts/type1/pub
 lic/cm-super/sfbx2488.pfb><C:/Users/Lewis/AppData/Local/Programs/MiKTeX/fonts/t
-ype1/public/cm-super/sfrm1200.pfb><C:/Users/Lewis/AppData/Local/Programs/MiKTeX
-/fonts/type1/public/cm-super/sftt1200.pfb>
+ype1/public/cm-super/sfit1000.pfb><C:/Users/Lewis/AppData/Local/Programs/MiKTeX
+/fonts/type1/public/cm-super/sfrm1200.pfb><C:/Users/Lewis/AppData/Local/Program
+s/MiKTeX/fonts/type1/public/cm-super/sftt1000.pfb>
 Output written on "C:/Users\Lewis\DataspellProjects\DataVis\Assignment\LaTeX\ou
-t\CMP5352 Report.pdf" (7 pages, 187632 bytes).
+t\CMP5352 Report.pdf" (7 pages, 213593 bytes).
 PDF statistics:
- 88 PDF objects out of 1000 (max. 8388607)
+ 97 PDF objects out of 1000 (max. 8388607)
  11 named destinations out of 1000 (max. 500000)
  38 words of extra memory for PDF output out of 10000 (max. 10000000)
 
