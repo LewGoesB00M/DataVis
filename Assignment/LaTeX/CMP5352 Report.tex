@@ -77,11 +77,14 @@
 \lhead{Lewis Higgins - ID 22133848~~~~~~~~~~~~~~~\includegraphics[width=1.75cm]{bcu logo}}
 \fancyhead[R]{\leftmark}
 
+
+
 \title{CMP5352 Report - TITLE NEEDED}
 \author{Lewis Higgins - Student ID 22133848}
 \date{April 2024}
 
-
+\usepackage[outputdir=./auxil]{minted}
+\listfiles
 \begin{document}
 
     \pagecolor{yellow} % Change in final
@@ -124,6 +127,21 @@
 
     Text text text
 
+    % Change build options to add shell escape for minted.
+    \begin{minted}{R}
+
+    A <- matrix(c(0.15, 0.01, 0,
+               0.14, 0.36, 0.07,
+               0.15, 0.13, 0.3), ncol = 3, byrow = TRUE)
+    I = diag(nrow = nrow(A))
+
+    \end{minted}
+
+    Text text text
+    aaaaaaaaa
+
+
+    bbbbbb
     \chapter*{Motivation and objectives}\label{ch:sec1}
     \addcontentsline{toc}{chapter}{Motivation and objectives}
     \input{section1}

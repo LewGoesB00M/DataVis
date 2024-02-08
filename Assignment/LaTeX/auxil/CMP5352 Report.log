@@ -1,26 +1,26 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.12.6)  5 FEB 2024 13:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.2.8)  8 FEB 2024 11:48
 entering extended mode
- restricted \write18 enabled.
+ \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
 **"./CMP5352 Report.tex"
 (CMP5352 Report.tex
-LaTeX2e <2023-11-01>
-L3 programming layer <2023-11-09>
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-01-22>
 (C:\Users\Lewis\AppData\Local\Programs\MiKTeX\tex/latex/base\report.cls
 Document Class: report 2023/05/17 v1.4n Standard LaTeX document class
 (C:\Users\Lewis\AppData\Local\Programs\MiKTeX\tex/latex/base\size12.clo
 File: size12.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
 )
-\c@part=\count186
-\c@chapter=\count187
-\c@section=\count188
-\c@subsection=\count189
-\c@subsubsection=\count190
-\c@paragraph=\count191
-\c@subparagraph=\count192
-\c@figure=\count193
-\c@table=\count194
+\c@part=\count187
+\c@chapter=\count188
+\c@section=\count189
+\c@subsection=\count190
+\c@subsubsection=\count191
+\c@paragraph=\count192
+\c@subparagraph=\count193
+\c@figure=\count194
+\c@table=\count195
 \abovecaptionskip=\skip48
 \belowcaptionskip=\skip49
 \bibindent=\dimen140
@@ -59,9 +59,9 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 (C:\Users\Lewis\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
 Package: iftex 2022/02/03 v1.0f TeX engine tests
 ))
-\Gm@cnth=\count195
-\Gm@cntv=\count196
-\c@Gm@tempcnt=\count197
+\Gm@cnth=\count196
+\Gm@cntv=\count197
+\c@Gm@tempcnt=\count198
 \Gm@bindingoffset=\dimen143
 \Gm@wd@mp=\dimen144
 \Gm@odd@mp=\dimen145
@@ -83,7 +83,7 @@ Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
 )
 (C:\Users\Lewis\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count198
+\c@float@type=\count199
 \float@exts=\toks21
 \float@box=\box51
 \@float@everytoks=\toks22
@@ -107,14 +107,14 @@ Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
 \caption@hangindent=\dimen158
 Package caption Info: Standard document class detected.
 )
-\c@caption@flags=\count199
-\c@continuedfloat=\count266
+\c@caption@flags=\count266
+\c@continuedfloat=\count267
 Package caption Info: float package is loaded.
 )
 Package caption Info: New subtype `subfigure' on input line 238.
-\c@subfigure=\count267
+\c@subfigure=\count268
 Package caption Info: New subtype `subtable' on input line 238.
-\c@subtable=\count268
+\c@subtable=\count269
 )
 (C:\Users\Lewis\AppData\Local\Programs\MiKTeX\tex/latex/filecontents\fileconten
 ts.sty
@@ -139,14 +139,14 @@ ty
 Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
 )
 (C:\Users\Lewis\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
-Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
+Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
 )
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
 ) (C:\Users\Lewis\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty
 Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count269
+\etb@tempcnta=\count270
 )
 (C:\Users\Lewis\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
 Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
@@ -155,7 +155,7 @@ Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
 )) (C:\Users\Lewis\AppData\Local\Programs\MiKTeX\tex/latex/logreq\logreq.sty
 Package: logreq 2010/08/04 v1.0 xml request logger
-\lrq@indent=\count270
+\lrq@indent=\count271
 
 (C:\Users\Lewis\AppData\Local\Programs\MiKTeX\tex/latex/logreq\logreq.def
 File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
@@ -167,49 +167,49 @@ Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
 \Urlmuskip=\muskip16
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-\c@tabx@nest=\count271
-\c@listtotal=\count272
-\c@listcount=\count273
-\c@liststart=\count274
-\c@liststop=\count275
-\c@citecount=\count276
-\c@citetotal=\count277
-\c@multicitecount=\count278
-\c@multicitetotal=\count279
-\c@instcount=\count280
-\c@maxnames=\count281
-\c@minnames=\count282
-\c@maxitems=\count283
-\c@minitems=\count284
-\c@citecounter=\count285
-\c@maxcitecounter=\count286
-\c@savedcitecounter=\count287
-\c@uniquelist=\count288
-\c@uniquename=\count289
-\c@refsection=\count290
-\c@refsegment=\count291
-\c@maxextratitle=\count292
-\c@maxextratitleyear=\count293
-\c@maxextraname=\count294
-\c@maxextradate=\count295
-\c@maxextraalpha=\count296
-\c@abbrvpenalty=\count297
-\c@highnamepenalty=\count298
-\c@lownamepenalty=\count299
-\c@maxparens=\count300
-\c@parenlevel=\count301
-\blx@tempcnta=\count302
-\blx@tempcntb=\count303
-\blx@tempcntc=\count304
-\c@blx@maxsection=\count305
-\blx@maxsegment@0=\count306
-\blx@notetype=\count307
-\blx@parenlevel@text=\count308
-\blx@parenlevel@foot=\count309
-\blx@sectionciteorder@0=\count310
-\blx@sectionciteorderinternal@0=\count311
-\blx@entrysetcounter=\count312
-\blx@biblioinstance=\count313
+\c@tabx@nest=\count272
+\c@listtotal=\count273
+\c@listcount=\count274
+\c@liststart=\count275
+\c@liststop=\count276
+\c@citecount=\count277
+\c@citetotal=\count278
+\c@multicitecount=\count279
+\c@multicitetotal=\count280
+\c@instcount=\count281
+\c@maxnames=\count282
+\c@minnames=\count283
+\c@maxitems=\count284
+\c@minitems=\count285
+\c@citecounter=\count286
+\c@maxcitecounter=\count287
+\c@savedcitecounter=\count288
+\c@uniquelist=\count289
+\c@uniquename=\count290
+\c@refsection=\count291
+\c@refsegment=\count292
+\c@maxextratitle=\count293
+\c@maxextratitleyear=\count294
+\c@maxextraname=\count295
+\c@maxextradate=\count296
+\c@maxextraalpha=\count297
+\c@abbrvpenalty=\count298
+\c@highnamepenalty=\count299
+\c@lownamepenalty=\count300
+\c@maxparens=\count301
+\c@parenlevel=\count302
+\blx@tempcnta=\count303
+\blx@tempcntb=\count304
+\blx@tempcntc=\count305
+\c@blx@maxsection=\count306
+\blx@maxsegment@0=\count307
+\blx@notetype=\count308
+\blx@parenlevel@text=\count309
+\blx@parenlevel@foot=\count310
+\blx@sectionciteorder@0=\count311
+\blx@sectionciteorderinternal@0=\count312
+\blx@entrysetcounter=\count313
+\blx@biblioinstance=\count314
 \labelnumberwidth=\skip50
 \labelalphawidth=\skip51
 \biblabelsep=\skip52
@@ -221,9 +221,9 @@ Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 \blx@bcfin=\read2
 \blx@bcfout=\write3
 \blx@langwohyphens=\language79
-\c@mincomprange=\count314
-\c@maxcomprange=\count315
-\c@mincompwidth=\count316
+\c@mincomprange=\count315
+\c@maxcomprange=\count316
+\c@mincompwidth=\count317
 Package biblatex Info: Trying to load biblatex default data model...
 Package biblatex Info: ... file 'blx-dm.def' found.
 
@@ -234,74 +234,74 @@ Package biblatex Info: Trying to load biblatex style data model...
 Package biblatex Info: ... file 'authoryear.dbx' not found.
 Package biblatex Info: Trying to load biblatex custom data model...
 Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
-\c@afterword=\count317
-\c@savedafterword=\count318
-\c@annotator=\count319
-\c@savedannotator=\count320
-\c@author=\count321
-\c@savedauthor=\count322
-\c@bookauthor=\count323
-\c@savedbookauthor=\count324
-\c@commentator=\count325
-\c@savedcommentator=\count326
-\c@editor=\count327
-\c@savededitor=\count328
-\c@editora=\count329
-\c@savededitora=\count330
-\c@editorb=\count331
-\c@savededitorb=\count332
-\c@editorc=\count333
-\c@savededitorc=\count334
-\c@foreword=\count335
-\c@savedforeword=\count336
-\c@holder=\count337
-\c@savedholder=\count338
-\c@introduction=\count339
-\c@savedintroduction=\count340
-\c@namea=\count341
-\c@savednamea=\count342
-\c@nameb=\count343
-\c@savednameb=\count344
-\c@namec=\count345
-\c@savednamec=\count346
-\c@translator=\count347
-\c@savedtranslator=\count348
-\c@shortauthor=\count349
-\c@savedshortauthor=\count350
-\c@shorteditor=\count351
-\c@savedshorteditor=\count352
-\c@labelname=\count353
-\c@savedlabelname=\count354
-\c@institution=\count355
-\c@savedinstitution=\count356
-\c@lista=\count357
-\c@savedlista=\count358
-\c@listb=\count359
-\c@savedlistb=\count360
-\c@listc=\count361
-\c@savedlistc=\count362
-\c@listd=\count363
-\c@savedlistd=\count364
-\c@liste=\count365
-\c@savedliste=\count366
-\c@listf=\count367
-\c@savedlistf=\count368
-\c@location=\count369
-\c@savedlocation=\count370
-\c@organization=\count371
-\c@savedorganization=\count372
-\c@origlocation=\count373
-\c@savedoriglocation=\count374
-\c@origpublisher=\count375
-\c@savedorigpublisher=\count376
-\c@publisher=\count377
-\c@savedpublisher=\count378
-\c@language=\count379
-\c@savedlanguage=\count380
-\c@origlanguage=\count381
-\c@savedoriglanguage=\count382
-\c@pageref=\count383
-\c@savedpageref=\count384
+\c@afterword=\count318
+\c@savedafterword=\count319
+\c@annotator=\count320
+\c@savedannotator=\count321
+\c@author=\count322
+\c@savedauthor=\count323
+\c@bookauthor=\count324
+\c@savedbookauthor=\count325
+\c@commentator=\count326
+\c@savedcommentator=\count327
+\c@editor=\count328
+\c@savededitor=\count329
+\c@editora=\count330
+\c@savededitora=\count331
+\c@editorb=\count332
+\c@savededitorb=\count333
+\c@editorc=\count334
+\c@savededitorc=\count335
+\c@foreword=\count336
+\c@savedforeword=\count337
+\c@holder=\count338
+\c@savedholder=\count339
+\c@introduction=\count340
+\c@savedintroduction=\count341
+\c@namea=\count342
+\c@savednamea=\count343
+\c@nameb=\count344
+\c@savednameb=\count345
+\c@namec=\count346
+\c@savednamec=\count347
+\c@translator=\count348
+\c@savedtranslator=\count349
+\c@shortauthor=\count350
+\c@savedshortauthor=\count351
+\c@shorteditor=\count352
+\c@savedshorteditor=\count353
+\c@labelname=\count354
+\c@savedlabelname=\count355
+\c@institution=\count356
+\c@savedinstitution=\count357
+\c@lista=\count358
+\c@savedlista=\count359
+\c@listb=\count360
+\c@savedlistb=\count361
+\c@listc=\count362
+\c@savedlistc=\count363
+\c@listd=\count364
+\c@savedlistd=\count365
+\c@liste=\count366
+\c@savedliste=\count367
+\c@listf=\count368
+\c@savedlistf=\count369
+\c@location=\count370
+\c@savedlocation=\count371
+\c@organization=\count372
+\c@savedorganization=\count373
+\c@origlocation=\count374
+\c@savedoriglocation=\count375
+\c@origpublisher=\count376
+\c@savedorigpublisher=\count377
+\c@publisher=\count378
+\c@savedpublisher=\count379
+\c@language=\count380
+\c@savedlanguage=\count381
+\c@origlanguage=\count382
+\c@savedoriglanguage=\count383
+\c@pageref=\count384
+\c@savedpageref=\count385
 \shorthandwidth=\skip58
 \shortjournalwidth=\skip59
 \shortserieswidth=\skip60
@@ -326,19 +326,19 @@ Package biblatex Info: Trying to load generic definitions...
 Package biblatex Info: ... file 'biblatex.def' found.
  (C:\Users\Lewis\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\biblatex.def
 File: biblatex.def 2023/03/05 v3.19 biblatex compatibility (PK/MW)
-\c@textcitecount=\count385
-\c@textcitetotal=\count386
-\c@textcitemaxnames=\count387
-\c@biburlbigbreakpenalty=\count388
-\c@biburlbreakpenalty=\count389
-\c@biburlnumpenalty=\count390
-\c@biburlucpenalty=\count391
-\c@biburllcpenalty=\count392
+\c@textcitecount=\count386
+\c@textcitetotal=\count387
+\c@textcitemaxnames=\count388
+\c@biburlbigbreakpenalty=\count389
+\c@biburlbreakpenalty=\count390
+\c@biburlnumpenalty=\count391
+\c@biburlucpenalty=\count392
+\c@biburllcpenalty=\count393
 \biburlbigskip=\muskip17
 \biburlnumskip=\muskip18
 \biburlucskip=\muskip19
 \biburllcskip=\muskip20
-\c@smartand=\count393
+\c@smartand=\count394
 )
 Package biblatex Info: Trying to load natbib compatibility...
 Package biblatex Info: ... file 'blx-natbib.def' found.
@@ -360,8 +360,8 @@ Package biblatex Info: ... file 'standard.bbx' found.
 (C:\Users\Lewis\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/bbx\standard.b
 bx
 File: standard.bbx 2023/03/05 v3.19 biblatex bibliography style (PK/MW)
-\c@bbx:relatedcount=\count394
-\c@bbx:relatedtotal=\count395
+\c@bbx:relatedcount=\count395
+\c@bbx:relatedtotal=\count396
 ))
 Package biblatex Info: Trying to load citation style 'authoryear'...
 Package biblatex Info: ... file 'authoryear.cbx' found.
@@ -390,16 +390,16 @@ Package biblatex Warning: 'firstinits' option is deprecated.
 Package biblatex Info: Input encoding 'utf8' detected.
 Package biblatex Info: Document encoding is UTF8 ....
 (C:\Users\Lewis\AppData\Local\Programs\MiKTeX\tex/latex/l3kernel\expl3.sty
-Package: expl3 2023-11-09 L3 programming layer (loader) 
+Package: expl3 2024-01-22 L3 programming layer (loader) 
 
 (C:\Users\Lewis\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
 tex.def
-File: l3backend-pdftex.def 2023-11-09 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count396
+File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count397
 \l__pdf_internal_box=\box53
 ))
 Package biblatex Info: ... and expl3
-(biblatex)             2023-11-09 L3 programming layer (loader) 
+(biblatex)             2024-01-22 L3 programming layer (loader) 
 (biblatex)             is new enough (at least 2020/04/06),
 (biblatex)             setting 'casechanger=expl3'.
 
@@ -412,14 +412,14 @@ Package: xparse 2023-10-10 L3 Experimental document command parser
 Package: blx-case-expl3 2023/03/05 v3.19 expl3 case changing code for biblatex
 ))
 (C:\Users\Lewis\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.sty
-Package: babel 2023/11/11 v3.97 The Babel package
-\babel@savecnt=\count397
+Package: babel 2024/01/07 v24.1 The Babel package
+\babel@savecnt=\count398
 \U@D=\dimen159
 \l@unhyphenated=\language80
 
 (C:\Users\Lewis\AppData\Local\Programs\MiKTeX\tex/generic/babel\txtbabel.def)
 \bbl@readstream=\read3
-\bbl@dirlevel=\count398
+\bbl@dirlevel=\count399
 
 *************************************
 * Local config file bblopts.cfg used
@@ -449,12 +449,12 @@ Package babel Info: Importing font and identification data for british
 )
 (C:\Users\Lewis\AppData\Local\Programs\MiKTeX\tex/latex/csquotes\csquotes.sty
 Package: csquotes 2022-09-14 v5.2n context-sensitive quotations (JAW)
-\csq@reset=\count399
-\csq@gtype=\count400
-\csq@glevel=\count401
-\csq@qlevel=\count402
-\csq@maxlvl=\count403
-\csq@tshold=\count404
+\csq@reset=\count400
+\csq@gtype=\count401
+\csq@glevel=\count402
+\csq@qlevel=\count403
+\csq@maxlvl=\count404
+\csq@tshold=\count405
 \csq@ltx@everypar=\toks23
 
 (C:\Users\Lewis\AppData\Local\Programs\MiKTeX\tex/latex/csquotes\csquotes.def
@@ -467,7 +467,7 @@ Package csquotes Info: ... configuration file loaded successfully.
 File: csquotes.cfg 
 )) (C:\Users\Lewis\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.st
 y
-Package: hyperref 2023-11-26 v7.01g Hypertext links for LaTeX
+Package: hyperref 2024-01-20 v7.01h Hypertext links for LaTeX
 
 (C:\Users\Lewis\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefine
 keys.sty
@@ -478,12 +478,7 @@ ty
 Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
 ) (C:\Users\Lewis\AppData\Local\Programs\MiKTeX\tex/latex/hycolor\hycolor.sty
 Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
-)
-(C:\Users\Lewis\AppData\Local\Programs\MiKTeX\tex/latex/letltxmacro\letltxmacro
-.sty
-Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
-)
-(C:\Users\Lewis\AppData\Local\Programs\MiKTeX\tex/latex/auxhook\auxhook.sty
+) (C:\Users\Lewis\AppData\Local\Programs\MiKTeX\tex/latex/auxhook\auxhook.sty
 Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
 )
 (C:\Users\Lewis\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
@@ -496,36 +491,36 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 lestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count405
+\c@section@level=\count406
 )
 \@linkdim=\dimen160
-\Hy@linkcounter=\count406
-\Hy@pagecounter=\count407
+\Hy@linkcounter=\count407
+\Hy@pagecounter=\count408
 
 (C:\Users\Lewis\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
-File: pd1enc.def 2023-11-26 v7.01g Hyperref: PDFDocEncoding definition (HO)
+File: pd1enc.def 2024-01-20 v7.01h Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
 )
 (C:\Users\Lewis\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
-\Hy@SavedSpaceFactor=\count408
+\Hy@SavedSpaceFactor=\count409
 
 (C:\Users\Lewis\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def
-File: puenc.def 2023-11-26 v7.01g Hyperref: PDF Unicode definition (HO)
+File: puenc.def 2024-01-20 v7.01h Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
 ... no UTF-8 mapping file for font encoding PU
 )
-Package hyperref Info: Hyper figures OFF on input line 4181.
-Package hyperref Info: Link nesting OFF on input line 4186.
-Package hyperref Info: Hyper index ON on input line 4189.
-Package hyperref Info: Plain pages OFF on input line 4196.
-Package hyperref Info: Backreferencing OFF on input line 4201.
+Package hyperref Info: Hyper figures OFF on input line 4179.
+Package hyperref Info: Link nesting OFF on input line 4184.
+Package hyperref Info: Hyper index ON on input line 4187.
+Package hyperref Info: Plain pages OFF on input line 4194.
+Package hyperref Info: Backreferencing OFF on input line 4199.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
-Package hyperref Info: Bookmarks ON on input line 4448.
-\c@Hy@tempcnt=\count409
-LaTeX Info: Redefining \url on input line 4786.
+Package hyperref Info: Bookmarks ON on input line 4446.
+\c@Hy@tempcnt=\count410
+LaTeX Info: Redefining \url on input line 4784.
 \XeTeXLinkMargin=\dimen161
 
 (C:\Users\Lewis\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
@@ -536,36 +531,36 @@ Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count410
+\Fld@menulength=\count411
 \Field@Width=\dimen162
 \Fld@charsize=\dimen163
-Package hyperref Info: Hyper figures OFF on input line 6065.
-Package hyperref Info: Link nesting OFF on input line 6070.
-Package hyperref Info: Hyper index ON on input line 6073.
-Package hyperref Info: backreferencing OFF on input line 6080.
-Package hyperref Info: Link coloring OFF on input line 6085.
-Package hyperref Info: Link coloring with OCG OFF on input line 6090.
-Package hyperref Info: PDF/A mode OFF on input line 6095.
+Package hyperref Info: Hyper figures OFF on input line 6063.
+Package hyperref Info: Link nesting OFF on input line 6068.
+Package hyperref Info: Hyper index ON on input line 6071.
+Package hyperref Info: backreferencing OFF on input line 6078.
+Package hyperref Info: Link coloring OFF on input line 6083.
+Package hyperref Info: Link coloring with OCG OFF on input line 6088.
+Package hyperref Info: PDF/A mode OFF on input line 6093.
 
 (C:\Users\Lewis\AppData\Local\Programs\MiKTeX\tex/latex/base\atbegshi-ltx.sty
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 )
-\Hy@abspage=\count411
-\c@Item=\count412
-\c@Hfootnote=\count413
+\Hy@abspage=\count412
+\c@Item=\count413
+\c@Hfootnote=\count414
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 (C:\Users\Lewis\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
-File: hpdftex.def 2023-11-26 v7.01g Hyperref driver for pdfTeX
+File: hpdftex.def 2024-01-20 v7.01h Hyperref driver for pdfTeX
 
 (C:\Users\Lewis\AppData\Local\Programs\MiKTeX\tex/latex/base\atveryend-ltx.sty
 Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend pac
 kage
 with kernel methods
 )
-\Fld@listcount=\count414
-\c@bookmark@seq@number=\count415
+\Fld@listcount=\count415
+\c@bookmark@seq@number=\count416
 
 (C:\Users\Lewis\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfil
 echeck.sty
@@ -618,64 +613,207 @@ Package: fancyhdr 2022/11/09 v4.1 Extensive control of page headers and footers
 )
 (C:\Users\Lewis\AppData\Local\Programs\MiKTeX\tex/latex/tools\calc.sty
 Package: calc 2023/07/08 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count416
-\calc@Bcount=\count417
+\calc@Acount=\count417
+\calc@Bcount=\count418
 \calc@Adimen=\dimen169
 \calc@Bdimen=\dimen170
 \calc@Askip=\skip84
 \calc@Bskip=\skip85
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count418
+\calc@Ccount=\count419
 \calc@Cskip=\skip86
 )
+(C:\Users\Lewis\AppData\Local\Programs\MiKTeX\tex/latex/minted\minted.sty
+Package: minted 2023/12/18 v2.9 Yet another Pygments shim for LaTeX
+
+(C:\Users\Lewis\AppData\Local\Programs\MiKTeX\tex/latex/fvextra\fvextra.sty
+Package: fvextra 2023/11/28 v1.6.1 fvextra - extensions and patches for fancyvr
+b
+
+(C:\Users\Lewis\AppData\Local\Programs\MiKTeX\tex/latex/fancyvrb\fancyvrb.sty
+Package: fancyvrb 2024/01/20 4.5c verbatim text (tvz,hv)
+\FV@CodeLineNo=\count420
+\FV@InFile=\read4
+\FV@TabBox=\box55
+\c@FancyVerbLine=\count421
+\FV@StepNumber=\count422
+\FV@OutFile=\write4
+)
+(C:\Users\Lewis\AppData\Local\Programs\MiKTeX\tex/latex/upquote\upquote.sty
+Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verba
+tim
+
+(C:\Users\Lewis\AppData\Local\Programs\MiKTeX\tex/latex/base\textcomp.sty
+Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
+))
+(C:\Users\Lewis\AppData\Local\Programs\MiKTeX\tex/latex/lineno\lineno.sty
+Package: lineno 2023/05/20 line numbers on paragraphs v5.3
+\linenopenalty=\count423
+\output=\toks25
+\linenoprevgraf=\count424
+\linenumbersep=\dimen171
+\linenumberwidth=\dimen172
+\c@linenumber=\count425
+\c@pagewiselinenumber=\count426
+\c@LN@truepage=\count427
+\c@internallinenumber=\count428
+\c@internallinenumbers=\count429
+\quotelinenumbersep=\dimen173
+\bframerule=\dimen174
+\bframesep=\dimen175
+\bframebox=\box56
+
+
+LaTeX Warning: Command \@parboxrestore  has changed.
+               Check if current package is valid.
+
+LaTeX Info: Redefining \\ on input line 3180.
+)
+
+Package fvextra Warning: csquotes should be loaded after fvextra, to avoid a wa
+rning from the lineno package on input line 36.
+
+\c@FancyVerbWriteLine=\count430
+\c@FancyVerbBufferIndex=\count431
+\c@FancyVerbBufferLength=\count432
+\c@FancyVerbBufferLine=\count433
+\c@FV@oldbufferlength=\count434
+\c@FV@TrueTabGroupLevel=\count435
+\c@FV@TrueTabCounter=\count436
+\FV@TabBox@Group=\box57
+\FV@TmpLength=\skip87
+\c@FV@HighlightLinesStart=\count437
+\c@FV@HighlightLinesStop=\count438
+\FV@LoopCount=\count439
+\FV@NCharsBox=\box58
+\FV@BreakIndent=\dimen176
+\FV@BreakIndentNChars=\count440
+\FV@BreakSymbolSepLeft=\dimen177
+\FV@BreakSymbolSepLeftNChars=\count441
+\FV@BreakSymbolSepRight=\dimen178
+\FV@BreakSymbolSepRightNChars=\count442
+\FV@BreakSymbolIndentLeft=\dimen179
+\FV@BreakSymbolIndentLeftNChars=\count443
+\FV@BreakSymbolIndentRight=\dimen180
+\FV@BreakSymbolIndentRightNChars=\count444
+\c@FancyVerbLineBreakLast=\count445
+\FV@LineBox=\box59
+\FV@LineIndentBox=\box60
+\c@FV@BreakBufferDepth=\count446
+\FV@LineWidth=\dimen181
+) (C:\Users\Lewis\AppData\Local\Programs\MiKTeX\tex/latex/tools\shellesc.sty
+Package: shellesc 2023/07/08 v1.0d unified shell escape interface for LaTeX
+Package shellesc Info: Unrestricted shell escape enabled on input line 75.
+)
+(C:\Users\Lewis\AppData\Local\Programs\MiKTeX\tex/latex/ifplatform\ifplatform.s
+ty
+Package: ifplatform 2017/10/13 v0.4a Testing for the operating system
+
+(C:\Users\Lewis\AppData\Local\Programs\MiKTeX\tex/generic/catchfile\catchfile.s
+ty
+Package: catchfile 2019/12/09 v1.8 Catch the contents of a file (HO)
+
+(C:\Users\Lewis\AppData\Local\Programs\MiKTeX\tex/generic/etexcmds\etexcmds.sty
+Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
+)) (C:\Users\Lewis\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifluatex.sty
+Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
+)) (C:\Users\Lewis\AppData\Local\Programs\MiKTeX\tex/latex/xstring\xstring.sty
+(C:\Users\Lewis\AppData\Local\Programs\MiKTeX\tex/generic/xstring\xstring.tex
+\xs_counta=\count447
+\xs_countb=\count448
+)
+Package: xstring 2023/08/22 v1.86 String manipulations (CT)
+) (C:\Users\Lewis\AppData\Local\Programs\MiKTeX\tex/latex/framed\framed.sty
+Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
+\OuterFrameSep=\skip88
+\fb@frw=\dimen182
+\fb@frh=\dimen183
+\FrameRule=\dimen184
+\FrameSep=\dimen185
+)
+\minted@appexistsfile=\read5
+\minted@bgbox=\box61
+\minted@code=\write5
+\c@minted@FancyVerbLineTemp=\count449
+\c@minted@pygmentizecounter=\count450
+\@float@every@listing=\toks26
+\c@listing=\count451
+)
+runsystem(if not exist .\auxil\_minted-CMP5352_Report mkdir .\auxil\_minted-CMP
+5352_Report)...executed.
+
+
 
 Package biblatex Warning: Conflicting options.
 (biblatex)                '<namepart>inits' conflicts with 'uniquename=full'.
-(biblatex)                Setting 'uniquename=init' on input line 85.
+(biblatex)                Setting 'uniquename=init' on input line 88.
 
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'british'.
+(C:\Users\Lewis\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
+Package: xcolor 2023/11/15 v3.01 LaTeX color extensions (UK)
+
+(C:\Users\Lewis\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 274.
+(C:\Users\Lewis\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1350.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1354.
+Package xcolor Info: Model `RGB' extended on input line 1366.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1368.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1370.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1371.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1372.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1373.
+)
+runsystem(for ^%i in (pygmentize.exe pygmentize.bat pygmentize.cmd) do set > CM
+P5352_Report.aex <nul: /p x=^%~$PATH:i>> CMP5352_Report.aex)...executed.
+
+runsystem(del CMP5352_Report.aex)...executed.
+
 
 (C:/Users\Lewis\DataspellProjects\DataVis\Assignment\LaTeX\auxil\CMP5352 Report
 .aux)
 \openout1 = `"CMP5352 Report.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 88.
+LaTeX Font Info:    ... okay on input line 88.
 
 (C:\Users\Lewis\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
 ii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count419
-\scratchdimen=\dimen171
-\scratchbox=\box55
-\nofMPsegments=\count420
-\nofMParguments=\count421
-\everyMPshowfont=\toks25
-\MPscratchCnt=\count422
-\MPscratchDim=\dimen172
-\MPnumerator=\count423
-\makeMPintoPDFobject=\count424
-\everyMPtoPDFconversion=\toks26
+\scratchcounter=\count452
+\scratchdimen=\dimen186
+\scratchbox=\box62
+\nofMPsegments=\count453
+\nofMParguments=\count454
+\everyMPshowfont=\toks27
+\MPscratchCnt=\count455
+\MPscratchDim=\dimen187
+\MPnumerator=\count456
+\makeMPintoPDFobject=\count457
+\everyMPtoPDFconversion=\toks28
 )
 (C:\Users\Lewis\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
 ase.sty
@@ -747,31 +885,21 @@ Package biblatex Info: ... file '"CMP5352 Report".bbl' found.
 
 (C:/Users\Lewis\DataspellProjects\DataVis\Assignment\LaTeX\auxil\CMP5352 Report
 .bbl)
-Package biblatex Info: Reference section=0 on input line 85.
-Package biblatex Info: Reference segment=0 on input line 85.
-
-(C:\Users\Lewis\AppData\Local\Programs\MiKTeX\tex/latex/graphics\color.sty
-Package: color 2022/01/06 v1.3d Standard LaTeX Color (DPC)
-
-(C:\Users\Lewis\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
-File: color.cfg 2016/01/02 v1.6 sample color configuration
-)
-Package color Info: Driver file: pdftex.def on input line 149.
-(C:\Users\Lewis\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx)
-)
-Package hyperref Info: Link coloring ON on input line 85.
+Package biblatex Info: Reference section=0 on input line 88.
+Package biblatex Info: Reference segment=0 on input line 88.
+Package hyperref Info: Link coloring ON on input line 88.
 
 (C:/Users\Lewis\DataspellProjects\DataVis\Assignment\LaTeX\auxil\CMP5352 Report
 .out)
 (C:/Users\Lewis\DataspellProjects\DataVis\Assignment\LaTeX\auxil\CMP5352 Report
 .out)
-\@outlinefile=\write4
-\openout4 = `"CMP5352 Report.out"'.
+\@outlinefile=\write6
+\openout6 = `"CMP5352 Report.out"'.
 
 <images/bcu logo.png, id=19, 621.32124pt x 404.51125pt>
 File: images/bcu logo.png Graphic file (type png)
 <use images/bcu logo.png>
-Package pdftex.def Info: images/bcu logo.png  used on input line 92.
+Package pdftex.def Info: images/bcu logo.png  used on input line 95.
 (pdftex.def)             Requested size: 318.66948pt x 207.47075pt.
  [1
 
@@ -782,32 +910,35 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.112     \end{abstract}
+l.115     \end{abstract}
                          [1]
 (C:/Users\Lewis\DataspellProjects\DataVis\Assignment\LaTeX\auxil\CMP5352 Report
-.toc
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 2.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 2.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 2.
-LaTeX Font Info:    Trying to load font information for U+wasy on input line 2.
+.toc)
+\tf@toc=\write7
+\openout7 = `"CMP5352 Report.toc"'.
 
- (C:\Users\Lewis\AppData\Local\Programs\MiKTeX\tex/latex/wasysym\uwasy.fd
-File: uwasy.fd 2020/01/19 v2.4 Wasy-2 symbol font definitions
-))
-\tf@toc=\write5
-\openout5 = `"CMP5352 Report.toc"'.
-
-[0
+ [0
 
 ]
+\openout4 = `CMP5352_Report.pyg'.
+
+ (auxil/_minted-CMP5352_Report/default.pygstyle)
+(auxil/_minted-CMP5352_Report/B50AE8F0AC1272BFE737F537D95C43BDCB7C2B7C9689413DD
+D24C45AC78FBA5C.pygtex
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 1
+.
+
+(C:\Users\Lewis\AppData\Local\Programs\MiKTeX\tex/latex/base\t1cmtt.fd
+File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <12> not available
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 5.
+)
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.127     \chapter
+l.145     \chapter
                   *{Motivation and objectives}\label{ch:sec1} [1
 
 ] (section1.tex) [2
@@ -820,32 +951,151 @@ l.127     \chapter
 (C:/Users\Lewis\DataspellProjects\DataVis\Assignment\LaTeX\auxil\CMP5352 Report
 .aux)
  ***********
-LaTeX2e <2023-11-01>
-L3 programming layer <2023-11-09>
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-01-22>
  ***********
+
+
+ *File List*
+  report.cls    2023/05/17 v1.4n Standard LaTeX document class
+  size12.clo    2023/05/17 v1.4n Standard LaTeX file (size option)
+graphicx.sty    2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+  keyval.sty    2022/05/29 v1.15 key=value parser (DPC)
+graphics.sty    2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
+    trig.sty    2021/08/11 v1.11 sin cos tan (DPC)
+graphics.cfg    2016/06/04 v1.11 sample graphics configuration
+  pdftex.def    2022/09/22 v1.2b Graphics/color driver for pdftex
+geometry.sty    2020/01/02 v5.9 Page Geometry
+  ifvtex.sty    2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+   iftex.sty    2022/02/03 v1.0f TeX engine tests
+geometry.cfg
+inputenc.sty    2021/02/14 v1.3d Input encoding file
+ fontenc.sty    2021/04/29 v2.0v Standard LaTeX package
+   float.sty    2001/11/08 v1.3d Float enhancements (AL)
+subcaption.sty    2023/07/28 v1.6b Sub-captions (AR)
+ caption.sty    2023/08/05 v3.6o Customizing captions (AR)
+caption3.sty    2023/07/31 v2.4d caption3 kernel (AR)
+filecontents.sty    2023/04/02 v1.5a Create an external file from within a LaTe
+X document
+biblatex.sty    2023/03/05 v3.19 programmable bibliographies (PK/MW)
+pdftexcmds.sty    2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
+infwarerr.sty    2019/12/03 v1.5 Providing info/warning/error messages (HO)
+ ltxcmds.sty    2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
+etoolbox.sty    2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+kvoptions.sty    2022-06-15 v3.15 Key value format for package options (HO)
+kvsetkeys.sty    2022-10-05 v1.19 Key value parser (HO)
+  logreq.sty    2010/08/04 v1.0 xml request logger
+  logreq.def    2010/08/04 v1.0 logreq spec v1.0
+  ifthen.sty    2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
+     url.sty    2013/09/16  ver 3.4  Verb mode for urls, etc.
+  blx-dm.def    2023/03/05 v3.19 biblatex localization (PK/MW)
+blx-compat.def    2023/03/05 v3.19 biblatex compatibility (PK/MW)
+biblatex.def    2023/03/05 v3.19 biblatex compatibility (PK/MW)
+blx-natbib.def    2023/03/05 v3.19 biblatex compatibility (PK/MW)
+standard.bbx    2023/03/05 v3.19 biblatex bibliography style (PK/MW)
+authoryear.bbx    2023/03/05 v3.19 biblatex bibliography style (PK/MW)
+authoryear.cbx    2023/03/05 v3.19 biblatex citation style (PK/MW)
+biblatex.cfg    
+   expl3.sty    2024-01-22 L3 programming layer (loader) 
+l3backend-pdftex.def    2024-01-04 L3 backend support: PDF output (pdfTeX)
+blx-case-expl3.sty    2023/03/05 v3.19 expl3 case changing code for biblatex
+  xparse.sty    2023-10-10 L3 Experimental document command parser
+   babel.sty    2024/01/07 v24.1 The Babel package
+ bblopts.cfg    2005/09/08 v0.1 add Arabic and Farsi to "declared" options of b
+abel
+ british.ldf    2017/06/06 v3.3r English support from the babel system
+babel-british.tex
+csquotes.sty    2022-09-14 v5.2n context-sensitive quotations (JAW)
+csquotes.def    2022-09-14 v5.2n csquotes generic definitions (JAW)
+csquotes.cfg    
+hyperref.sty    2024-01-20 v7.01h Hypertext links for LaTeX
+kvdefinekeys.sty    2019-12-19 v1.6 Define keys (HO)
+pdfescape.sty    2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+ hycolor.sty    2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+ auxhook.sty    2019-12-17 v1.6 Hooks for auxiliary files (HO)
+ nameref.sty    2023-11-26 v2.56 Cross-referencing by name of section
+refcount.sty    2019/12/15 v3.6 Data extraction from label references (HO)
+gettitlestring.sty    2019/12/15 v1.6 Cleanup title references (HO)
+  pd1enc.def    2024-01-20 v7.01h Hyperref: PDFDocEncoding definition (HO)
+ intcalc.sty    2019/12/15 v1.3 Expandable calculations with integers (HO)
+   puenc.def    2024-01-20 v7.01h Hyperref: PDF Unicode definition (HO)
+  bitset.sty    2019/12/09 v1.3 Handle bit-vector datatype (HO)
+bigintcalc.sty    2019/12/15 v1.5 Expandable calculations on big integers (HO)
+atbegshi-ltx.sty    2021/01/10 v1.0c Emulation of the original atbegshi
+package with kernel methods
+ hpdftex.def    2024-01-20 v7.01h Hyperref driver for pdfTeX
+atveryend-ltx.sty    2020/08/19 v1.0a Emulation of the original atveryend packa
+ge
+with kernel methods
+rerunfilecheck.sty    2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
+uniquecounter.sty    2019/12/15 v1.4 Provide unlimited unique counter (HO)
+titlesec.sty    2023/10/27 v2.16 Sectioning titles
+ wasysym.sty    2020/01/19 v2.4 Wasy-2 symbol support package
+  import.sty    2020/04/01  v 6.2
+fancyhdr.sty    2022/11/09 v4.1 Extensive control of page headers and footers
+    calc.sty    2023/07/08 v4.3 Infix arithmetic (KKT,FJ)
+  minted.sty    2023/12/18 v2.9 Yet another Pygments shim for LaTeX
+ fvextra.sty    2023/11/28 v1.6.1 fvextra - extensions and patches for fancyvrb
+
+fancyvrb.sty    2024/01/20 4.5c verbatim text (tvz,hv)
+ upquote.sty    2012/04/19 v1.3 upright-quote and grave-accent glyphs in verbat
+im
+textcomp.sty    2020/02/02 v2.0n Standard LaTeX package
+  lineno.sty    2023/05/20 line numbers on paragraphs v5.3
+shellesc.sty    2023/07/08 v1.0d unified shell escape interface for LaTeX
+ifplatform.sty    2017/10/13 v0.4a Testing for the operating system
+catchfile.sty    2019/12/09 v1.8 Catch the contents of a file (HO)
+etexcmds.sty    2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
+ifluatex.sty    2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
+ xstring.sty    2023/08/22 v1.86 String manipulations (CT)
+  framed.sty    2011/10/22 v 0.96: framed or shaded text with page breaks
+  xcolor.sty    2023/11/15 v3.01 LaTeX color extensions (UK)
+   color.cfg    2016/01/02 v1.6 sample color configuration
+mathcolor.ltx
+supp-pdf.mkii
+epstopdf-base.sty    2020-01-24 v2.11 Base part for package epstopdf
+epstopdf-sys.cfg    2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
+ english.lbx    2023/03/05 v3.19 biblatex localization (PK/MW)
+ british.lbx    2023/03/05 v3.19 biblatex localization (PK/MW)
+CMP5352 Report.bbl
+CMP5352 Report.out
+CMP5352 Report.out
+images/bcu logo.png
+"./auxil/_minted-CMP5352_Report/default.pygstyle"
+./auxil/_minted-CMP5352_Report/B50AE8F0AC1272BFE737F537D95C43BDCB7C2B7C9689413D
+DD24C45AC78FBA5C.pygtex
+  t1cmtt.fd    2023/04/13 v2.5m Standard LaTeX font definitions
+section1.tex
+section2.tex
+section3.tex
+ ***********
+
 Package rerunfilecheck Info: File `"CMP5352 Report".out' has not changed.
-(rerunfilecheck)             Checksum: 229F5D4906117046F5E7AA7917A04240;579.
+(rerunfilecheck)             Checksum: 3A00CD70605E80FB846DBE1155CCFE10;579.
+runsystem(del .\auxil\\CMP5352_Report.pyg)...executed.
+
 Package logreq Info: Writing requests to '"CMP5352 Report".run.xml'.
 \openout1 = `"CMP5352 Report.run.xml"'.
 
  ) 
 Here is how much of TeX's memory you used:
- 20118 strings out of 474587
- 357120 string characters out of 5745702
- 1926558 words of memory out of 5000000
- 42052 multiletter control sequences out of 15000+600000
- 565319 words of font info for 53 fonts, out of 8000000 for 9000
+ 23570 strings out of 474542
+ 431577 string characters out of 5744447
+ 1926978 words of memory out of 5000000
+ 45497 multiletter control sequences out of 15000+600000
+ 562537 words of font info for 43 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 67i,6n,81p,691b,2365s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 77i,6n,81p,691b,2365s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Lewis/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfb
 x1200.pfb><C:/Users/Lewis/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-s
 uper/sfbx1440.pfb><C:/Users/Lewis/AppData/Local/Programs/MiKTeX/fonts/type1/pub
 lic/cm-super/sfbx2488.pfb><C:/Users/Lewis/AppData/Local/Programs/MiKTeX/fonts/t
-ype1/public/cm-super/sfrm1200.pfb>
+ype1/public/cm-super/sfrm1200.pfb><C:/Users/Lewis/AppData/Local/Programs/MiKTeX
+/fonts/type1/public/cm-super/sftt1200.pfb>
 Output written on "C:/Users\Lewis\DataspellProjects\DataVis\Assignment\LaTeX\ou
-t\CMP5352 Report.pdf" (7 pages, 155071 bytes).
+t\CMP5352 Report.pdf" (7 pages, 187632 bytes).
 PDF statistics:
- 83 PDF objects out of 1000 (max. 8388607)
+ 88 PDF objects out of 1000 (max. 8388607)
  11 named destinations out of 1000 (max. 500000)
  38 words of extra memory for PDF output out of 10000 (max. 10000000)
 
