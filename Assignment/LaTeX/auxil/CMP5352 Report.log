@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.1.30)  8 FEB 2024 14:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.2.8)  15 FEB 2024 09:12
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -923,11 +923,6 @@ l.115     \end{abstract}
 \openout4 = `CMP5352_Report.pyg'.
 
  (auxil/_minted-CMP5352_Report/default.pygstyle)
-runsystem(pygmentize -l "R" -f latex -P commandprefix=PYG -F tokenmerge -P stri
-pnl="False" -o ./auxil/_minted-CMP5352_Report/2830EA5C81B3500FF0E88090819C2221C
-B7C2B7C9689413DDD24C45AC78FBA5C.pygtex ./auxil/CMP5352_Report.pyg)...executed.
-
-
 (auxil/_minted-CMP5352_Report/2830EA5C81B3500FF0E88090819C2221CB7C2B7C9689413DD
 D24C45AC78FBA5C.pygtex
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 1
@@ -955,11 +950,7 @@ l.161     \chapter
 
 ] (section2.tex) [3
 
-] (section3.tex)
-runsystem(del .\auxil\_minted-CMP5352_Report\02D7E7B9F4304FA176EBF72AE8D112DECB
-7C2B7C9689413DDD24C45AC78FBA5C.pygtex)...executed.
-
- [4
+] (section3.tex) [4
 
 ]
 (C:/Users\Lewis\DataspellProjects\DataVis\Assignment\LaTeX\auxil\CMP5352 Report
@@ -1094,10 +1085,10 @@ Package logreq Info: Writing requests to '"CMP5352 Report".run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 23595 strings out of 474541
- 432461 string characters out of 5744425
+ 23592 strings out of 474542
+ 432213 string characters out of 5744447
  1929978 words of memory out of 5000000
- 45516 multiletter control sequences out of 15000+600000
+ 45512 multiletter control sequences out of 15000+600000
  563913 words of font info for 46 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  77i,6n,81p,691b,2365s stack positions out of 10000i,1000n,20000p,200000b,200000s

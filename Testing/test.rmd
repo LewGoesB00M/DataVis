@@ -1,0 +1,50 @@
+---
+title: "R Notebook"
+output: latex_fragment
+---
+
+The [R plugin](https://www.jetbrains.com/help/pycharm/r-plugin-support.html) for IntelliJ-based IDEs provides
+handy capabilities to work with the [R Markdown](https://www.jetbrains.com/help/pycharm/r-markdown.html) files.
+To [add](https://www.jetbrains.com/help/pycharm/r-markdown.html#add-code-chunk) a new R chunk,
+```{r}
+# Lewis Higgins, Student ID 22133848
+# Code for CMP5352 Data Visualisation Quiz 1
+
+# Necessary for diamonds and mpg dataset, and the graph plotting.
+library(ggplot2)
+
+# Question 1
+# First graph shows the relation of carats and price by color.
+qplot(log(carat), log(price), data = diamonds, color = color, geom = c("point", "smooth"))
+
+# Second graph shows the relation of carats and price by cut.
+qplot(log(carat), log(price), data = diamonds, color = cut, geom = c("point", "smooth"))
+
+
+# Question 2
+# Produces 4 plots, one for each amount of cylinders.
+qplot(displ, hwy, data = mpg, facets = cyl ~ ., color = factor(cyl), geom = c("point", "smooth"))
+
+# Question 3
+# Colors by cylinder, and adds smootihng lines for each color.
+qplot(displ, hwy, data = mpg, color = factor(cyl), geom = c("point", "smooth"))
+
+# For the exact numbers for the hwy values.
+# View(mpg)
+
+
+```
+position the caret at any line or the code chunk, then click "+".
+
+The code chunk appears:
+```{r}
+```
+
+Type any R code in the chunk, for example:
+```{r}
+mycars <- within(mtcars, { cyl <- ordered(cyl) })
+mycars
+```
+
+Now, click the **Run** button on the chunk toolbar to [execute](https://www.jetbrains.com/help/pycharm/r-markdown.html#run-r-code) the chunk code. The result should be placed under the chunk.
+Click the **Knit and Open Document** to build and preview an output.

@@ -1,0 +1,15 @@
+The intended use when knitting an RMD file to make TeX is that you use that file
+with \input. Don't use your RMD-knitr TeX file as your actual file, as it'll
+be overwritten every time and your packages won't be loaded (read bottom).
+
+It does work (somewhat) but I do think that minted looks better, as you can also
+include minted as a figure, which RMD-knitr won't do.
+
+It'll be extra work, but in the end it WILL look quite a bit nicer to use minted,
+as you'd have to do some crazy formatting on your knitr files to get them into shape.
+
+You may be able to do more research on this, as it seems Pandoc accounted for this,
+and you may be able to alter its configs for this exact purpose.
+
+https://bookdown.org/yihui/rmarkdown-cookbook/latex-output.html
+looks like a great resource.
