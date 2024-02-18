@@ -20,12 +20,6 @@
     url=false
 ]{biblatex}
 
-\title{CMP5352 Report - TITLE NEEDED}
-\author{Lewis Higgins - Student ID 22133848}
-\date{April 2024}
-
-\usepackage[outputdir=./auxil]{minted}
-
 \renewbibmacro*{volume+number+eid}{%
     \printfield{volume}%
 %  \setunit*{\adddot}% DELETED
@@ -83,10 +77,23 @@
 \lhead{Lewis Higgins - ID 22133848~~~~~~~~~~~~~~~\includegraphics[width=1.75cm]{bcu logo}}
 \fancyhead[R]{\leftmark}
 
-\usepackage{xcolor}
-\definecolor{mintedBG}{rgb}{0.95, 0.95, 0.95}
+
+
+\title{CMP5352 Report - TITLE NEEDED}
+\author{Lewis Higgins - Student ID 22133848}
+\date{April 2024}
+
+\usepackage{minted}
+
+
+
+
+
+
+
 
 \begin{document}
+
     \pagecolor{yellow} % Change in final
 
     \makeatletter
@@ -119,36 +126,27 @@
     \tableofcontents
     \thispagestyle{empty}
 
+
+    \setcounter{page}{0} % Page counter bullshit to make it ACTUALLY start from 1
+
     \chapter*{Introduction}\label{ch:introduction}
-    \addcontentsline{toc}{chapter}{Introduction}
-    \markboth{Introduction}{}
+    \addcontentsline{toc}{chapter}{Introduction} % chapter or section?
 
     Text text text
 
     Text text text
-
-    \pagebreak
-
-    aaa
 
     \chapter*{Motivation and objectives}\label{ch:sec1}
     \addcontentsline{toc}{chapter}{Motivation and objectives}
-    \markboth{Motivation and objectives}{}
-    \inputminted[linenos=true, breaklines=true, bgcolor=mintedBG, stripall=true]{r}{lab4.R}
-    \pagebreak
-    aaaa
+    \input{test2}
 
     \chapter*{Experimental results}\label{ch:sec2}
     \addcontentsline{toc}{chapter}{Experimental results}
-    \markboth{Experimental results}{}
-
-    \input{section2}
+    BBB
 
     \chapter*{Summary \& conclusion}\label{ch:sec3}
-    \addcontentsline{toc}{chapter}{Summary and conclusion}
-    \markboth{Summary and conclusion}{}
-
-    \input{section3}
+    \addcontentsline{toc}{chapter}{Summary \& conclusion}
+    CCC
 
 
 \end{document}

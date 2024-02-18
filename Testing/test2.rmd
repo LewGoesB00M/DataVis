@@ -1,67 +1,15 @@
 ---
 output:
-    pdf_document:
-        keep_tex: true
+    latex_fragment:
         pandoc_args: [
             "--filter", "C:/Users/Lewis/AppData/Local/Programs/Python/Python312/Scripts/pandoc-minted",
         ]
-header-includes:
-        \input{preamble}
-
-documentclass: report
-fontsize: 11pt
 ---
 
 ```{r, include=FALSE}
-options(tinytex.engine_args = '-shell-escape')
 options(warn = -1) # Hide qplot warning.
 ```
 
-
-
-```{=latex}
-    \pagecolor{yellow} % Change in final
-
-\begin{titlepage}
-    \centering
-    \vfill
-    \includegraphics[width=12cm]{bcu logo}
-    \vskip2cm
-    {\bfseries\Large
-        CMP5352 Report - DRAFT VERSION\\
-        April 2024\\
-        \vskip2cm
-        Lewis Higgins\\
-        \vskip4cm
-        Word count: XXXX
-    }
-
-\end{titlepage}
-
-    \pagecolor{white}
-
-\begin{abstract}
-        text
-
-        text
-
-        text
-
-    \end{abstract}
-
-    \setcounter{page}{0} % Page counter to make it ACTUALLY start from 1
-
-    \tableofcontents
-    \thispagestyle{empty}
-
-
-    \setcounter{page}{0} % Page counter to make it ACTUALLY start from 1
-
-    \chapter*{Introduction}\label{ch:introduction}
-    \addcontentsline{toc}{chapter}{Introduction} % chapter or section?
-
-    Text text text
-```
 ```{r}
 
 library(ggplot2)
@@ -106,12 +54,7 @@ qplot(displ, hwy, data = mpg, color = factor(cyl))
 # Note that there aren't enough 5 cylinders to fit a line, so there isn't one.
 qplot(displ, hwy, data = mpg, color = factor(cyl),
       geom = c("point", "smooth"), method = "lm")
-```
-```{=LaTeX}
-\pagebreak
-\section{Faceting}
-```
-```{r}
+
 ### --- Faceting --- ###
 
 
@@ -131,19 +74,4 @@ qplot(carat, ..density.., data = diamonds, facets = color ~ ., geom = "histogram
 
 # Plots thirty five histograms by also grouping by cut.
 qplot(carat, data = diamonds, facets = color ~ cut, geom = "histogram")
-```
-```{=latex}
-Text text text
-
-    \chapter*{Motivation and objectives}\label{ch:sec1}
-    \addcontentsline{toc}{chapter}{Motivation and objectives}
-    AAA
-
-    \chapter*{Experimental results}\label{ch:sec2}
-    \addcontentsline{toc}{chapter}{Experimental results}
-    BBB
-
-    \chapter*{Summary \& conclusion}\label{ch:sec3}
-    \addcontentsline{toc}{chapter}{Summary \& conclusion}
-    CCC
 ```

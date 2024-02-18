@@ -1,4 +1,3 @@
-\documentclass[12pt]{report}
 \usepackage{graphicx} % Required for inserting images
 \usepackage[a4paper, margin=2.5cm]{geometry}
 \graphicspath{{images/}}
@@ -19,12 +18,6 @@
     natbib=true,
     url=false
 ]{biblatex}
-
-\title{CMP5352 Report - TITLE NEEDED}
-\author{Lewis Higgins - Student ID 22133848}
-\date{April 2024}
-
-\usepackage[outputdir=./auxil]{minted}
 
 \renewbibmacro*{volume+number+eid}{%
     \printfield{volume}%
@@ -83,72 +76,10 @@
 \lhead{Lewis Higgins - ID 22133848~~~~~~~~~~~~~~~\includegraphics[width=1.75cm]{bcu logo}}
 \fancyhead[R]{\leftmark}
 
-\usepackage{xcolor}
-\definecolor{mintedBG}{rgb}{0.95, 0.95, 0.95}
-
-\begin{document}
-    \pagecolor{yellow} % Change in final
-
-    \makeatletter
-    \begin{titlepage}
-        \begin{center}
-            \includegraphics[width=0.7\linewidth]{bcu logo}\\[4ex]
-            {\large \bfseries  \@title }\\[2ex]
-            {\large \bfseries  DRAFT VERSION }\\[2ex]
-            {\@author}\\[30ex]
-            {Word count: XXXX}\\[20ex]
-        \end{center}
-    \end{titlepage}
-    \makeatother
-    \thispagestyle{empty}
-    \newpage
-
-    \pagecolor{white}
-
-    \begin{abstract}
-        text
-
-        text
-
-        text
-
-    \end{abstract}
-
-    \setcounter{page}{0} % Page counter bullshit to make it ACTUALLY start from 1
-
-    \tableofcontents
-    \thispagestyle{empty}
-
-    \chapter*{Introduction}\label{ch:introduction}
-    \addcontentsline{toc}{chapter}{Introduction}
-    \markboth{Introduction}{}
-
-    Text text text
-
-    Text text text
-
-    \pagebreak
-
-    aaa
-
-    \chapter*{Motivation and objectives}\label{ch:sec1}
-    \addcontentsline{toc}{chapter}{Motivation and objectives}
-    \markboth{Motivation and objectives}{}
-    \inputminted[linenos=true, breaklines=true, bgcolor=mintedBG, stripall=true]{r}{lab4.R}
-    \pagebreak
-    aaaa
-
-    \chapter*{Experimental results}\label{ch:sec2}
-    \addcontentsline{toc}{chapter}{Experimental results}
-    \markboth{Experimental results}{}
-
-    \input{section2}
-
-    \chapter*{Summary \& conclusion}\label{ch:sec3}
-    \addcontentsline{toc}{chapter}{Summary and conclusion}
-    \markboth{Summary and conclusion}{}
-
-    \input{section3}
 
 
-\end{document}
+\title{CMP5352 Report - TITLE NEEDED}
+\author{Lewis Higgins - Student ID 22133848}
+\date{April 2024}
+
+\usepackage{minted}
