@@ -134,9 +134,16 @@
     \chapter*{Motivation and objectives}\label{ch:sec1}
     \addcontentsline{toc}{chapter}{Motivation and objectives}
     \markboth{Motivation and objectives}{}
-    \inputminted[linenos=true, breaklines=true, bgcolor=mintedBG, stripall=true]{r}{lab4.R}
-    \pagebreak
-    aaaa
+
+    \begin{listing}
+        \inputminted[linenos=true, breaklines=true, bgcolor=mintedBG, stripall=true]{r}{lab4.R}
+        \caption{Listing}
+        \label{lst:Lab4}
+    \end{listing}
+    % Trying to establish why this doesn't work.
+
+        \pagebreak
+    As we can see in \ref{lst:Lab4}\ldots
 
     \chapter*{Experimental results}\label{ch:sec2}
     \addcontentsline{toc}{chapter}{Experimental results}
