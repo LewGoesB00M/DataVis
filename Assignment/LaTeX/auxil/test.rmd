@@ -1,0 +1,30 @@
+---
+output:
+    latex_fragment:
+        pandoc_args: [
+            "--filter", "C:/Users/Lewis/AppData/Local/Programs/Python/Python312/Scripts/pandoc-minted",
+            "--pdf-engine-opt", "--output-directory=../images"
+        ]
+---
+
+```{r, include=FALSE}
+options(warn = -1) # Hide qplot deprecation warning.
+```
+
+```{r, fig.align = 'center', fig.cap = "\\label{fig:fig1}Plot 1", fig.pos = "H", out.width = "75%"}
+library(ggplot2)
+ggplot(diamonds, aes(x = carat, fill = color)) +
+        geom_histogram(bins = 30)
+```
+Figure \ref{fig:fig1} shows that...
+
+\pagebreak
+
+```{r, fig.align = 'center', fig.cap = "\\label{fig:fig2}Plot 1", fig.pos = "H", out.width = "75%"}
+
+ggplot(diamonds, aes(x = carat, y = price)) +
+    geom_point(aes(color = cut)) +
+    geom_smooth()
+
+```
+Figure \ref{fig:fig2} instead shows that...

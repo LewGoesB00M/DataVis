@@ -3,15 +3,15 @@ output:
     latex_fragment:
         pandoc_args: [
             "--filter", "C:/Users/Lewis/AppData/Local/Programs/Python/Python312/Scripts/pandoc-minted",
-            "--pdf-engine-opt", "--output-directory=./auxil"
+            "--pdf-engine-opt", "--output-directory=../images"
         ]
 ---
 
 ```{r, include=FALSE}
-options(warn = -1) # Hide qplot warning.
+options(warn = -1) # Hide qplot deprecation warning.
 ```
 
-```{r}
+```{r, fig.align = 'center', fig.cap = "Figure AAA", fig.pos = "H", out.width = "75%"}
 
 library(ggplot2)
 
@@ -75,4 +75,7 @@ qplot(carat, ..density.., data = diamonds, facets = color ~ ., geom = "histogram
 
 # Plots thirty five histograms by also grouping by cut.
 qplot(carat, data = diamonds, facets = color ~ cut, geom = "histogram")
+```
+```{r, echo=FALSE, out.width="50%", fig.cap="A nice image."}
+knitr::include_graphics("../images/bcu logo.png")
 ```
