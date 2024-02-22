@@ -1,0 +1,29 @@
+Bookdown.org can answer most RMD questions.
+
+In your RMDs, ensure you set {r, fig.align = "center"} for all of your code chunks.
+
+If you condense it all further, i.e. one graph for one chunk, you can actually
+put correct syntax captions on the figures generated via fig.cap = "caption"
+
+RMD comments outside of chunks are HTML syntax <!-- comment -->
+R comments within chunks are #. These WILL BE visible though.
+
+Your graphs are shown within your LaTeX if you properly use RMD, including
+the axes and legends. Therefore, it'll look more professional if you name these
+as you did in Intro to Data Sci.
+
+Figure positioning seems to be weird when they're either captioned or aligned.
+Evidently, when it's compiled the figure doesn't have any flags set like how
+you use [H] for positioning normally.
+
+You could also include images outside of R chunks using actual Markdown syntax,
+which would be ![Caption](relativeDir/file.png){width=50%}, but realistically
+you'd just do it in your central LaTeX.
+
+You're likely to want your code block preface for almost all of them to be
+{r, fig.align = 'center', fig.pos = "H", out.width = "75%"}, optionally using
+fig.cap, but only if you're doing a single figure, as fig.cap is applied to all
+figures in the block.
+
+Your .gitignore is ignoring Assignment's auxil files. Could cause issues later.
+

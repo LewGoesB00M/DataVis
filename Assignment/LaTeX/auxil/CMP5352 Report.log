@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.1.30)  18 FEB 2024 22:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.2.8)  22 FEB 2024 10:14
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -924,54 +924,325 @@ File: images/bcu logo.png Graphic file (type png)
 <use images/bcu logo.png>
 Package pdftex.def Info: images/bcu logo.png  used on input line 134.
 (pdftex.def)             Requested size: 49.79231pt x 32.4171pt.
- [2] (auxil/_minted-CMP5352_Report/default.pygstyle)
-runsystem(pygmentize -l "r" -f latex -P commandprefix=PYG -F tokenmerge -P stri
-pnl="False" -P stripall="True" -o ./auxil/_minted-CMP5352_Report/2FC6D0DEDD522E
-5BDB7A0DEC8333DD73D9D53EB8B0B9447E3882CB58F00D1A26.pygtex lab4.R)...executed.
+ [2] (auxil/test2.tex
+\openout4 = `CMP5352_Report.pyg'.
 
-
-(auxil/_minted-CMP5352_Report/2FC6D0DEDD522E5BDB7A0DEC8333DD73D9D53EB8B0B9447E3
-882CB58F00D1A26.pygtex
+ (auxil/_minted-CMP5352_Report/default.pygstyle)
+(auxil/_minted-CMP5352_Report/BBD532BD115110361C929B63B61A70F51A8A40A3FC0C4F4DB
+B59FBC0DFDEDA23.pygtex
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 1
 .
 
 (C:\Users\Lewis\AppData\Local\Programs\MiKTeX\tex/latex/base\t1cmtt.fd
 File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 4.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 4.
-LaTeX Font Info:    Trying to load font information for U+wasy on input line 4.
-
-
-(C:\Users\Lewis\AppData\Local\Programs\MiKTeX\tex/latex/wasysym\uwasy.fd
-File: uwasy.fd 2020/01/19 v2.4 Wasy-2 symbol font definitions
-)
 LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 
-13.
+14.
 
 (C:\Users\Lewis\AppData\Local\Programs\MiKTeX\tex/latex/base\ts1cmtt.fd
 File: ts1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 ))
-Overfull \vbox (12.93736pt too high) detected at line 137
- []
+\openout4 = `CMP5352_Report.pyg'.
 
-[3
+
+(auxil/_minted-CMP5352_Report/9117778B208860538DA00295F0BDAE8C8585DAB2B244F655F
+CBDE2790B7EAD8A.pygtex)
+<C:/Users/Lewis/DataspellProjects/DataVis/Assignment/LaTeX/auxil/test2_files/fi
+gure-latex/unnamed-chunk-2-1.pdf, id=50, 469.755pt x 325.215pt>
+File: C:/Users/Lewis/DataspellProjects/DataVis/Assignment/LaTeX/auxil/test2_fil
+es/figure-latex/unnamed-chunk-2-1.pdf Graphic file (type pdf)
+<use C:/Users/Lewis/DataspellProjects/DataVis/Assignment/LaTeX/auxil/test2_file
+s/figure-latex/unnamed-chunk-2-1.pdf>
+Package pdftex.def Info: C:/Users/Lewis/DataspellProjects/DataVis/Assignment/La
+TeX/auxil/test2_files/figure-latex/unnamed-chunk-2-1.pdf  used on input line 26
+.
+(pdftex.def)             Requested size: 341.43307pt x 236.37776pt.
+\openout4 = `CMP5352_Report.pyg'.
+
+
+(auxil/_minted-CMP5352_Report/3569D1BACBF30487A7C8E75083F752D91A8A40A3FC0C4F4DB
+B59FBC0DFDEDA23.pygtex)
+\openout4 = `CMP5352_Report.pyg'.
+
+
+(auxil/_minted-CMP5352_Report/9117778B208860538DA00295F0BDAE8C8585DAB2B244F655F
+CBDE2790B7EAD8A.pygtex)
+<C:/Users/Lewis/DataspellProjects/DataVis/Assignment/LaTeX/auxil/test2_files/fi
+gure-latex/unnamed-chunk-2-2.pdf, id=51, 469.755pt x 325.215pt>
+File: C:/Users/Lewis/DataspellProjects/DataVis/Assignment/LaTeX/auxil/test2_fil
+es/figure-latex/unnamed-chunk-2-2.pdf Graphic file (type pdf)
+<use C:/Users/Lewis/DataspellProjects/DataVis/Assignment/LaTeX/auxil/test2_file
+s/figure-latex/unnamed-chunk-2-2.pdf>
+Package pdftex.def Info: C:/Users/Lewis/DataspellProjects/DataVis/Assignment/La
+TeX/auxil/test2_files/figure-latex/unnamed-chunk-2-2.pdf  used on input line 44
+.
+(pdftex.def)             Requested size: 341.43307pt x 236.37776pt.
+ [3
 
 {C:/Users/Lewis/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/cm-super/cm-super
--ts1.enc}]
+-ts1.enc} <C:/Users/Lewis/DataspellProjects/DataVis/Assignment/LaTeX/auxil/test
+2_files/figure-latex/unnamed-chunk-2-1.pdf>]
+\openout4 = `CMP5352_Report.pyg'.
+
+
+(auxil/_minted-CMP5352_Report/9A8597209A95D96786257A59E594E6521A8A40A3FC0C4F4DB
+B59FBC0DFDEDA23.pygtex)
+\openout4 = `CMP5352_Report.pyg'.
+
+
+(auxil/_minted-CMP5352_Report/9117778B208860538DA00295F0BDAE8C8585DAB2B244F655F
+CBDE2790B7EAD8A.pygtex)
+<C:/Users/Lewis/DataspellProjects/DataVis/Assignment/LaTeX/auxil/test2_files/fi
+gure-latex/unnamed-chunk-2-3.pdf, id=69, 469.755pt x 325.215pt>
+File: C:/Users/Lewis/DataspellProjects/DataVis/Assignment/LaTeX/auxil/test2_fil
+es/figure-latex/unnamed-chunk-2-3.pdf Graphic file (type pdf)
+<use C:/Users/Lewis/DataspellProjects/DataVis/Assignment/LaTeX/auxil/test2_file
+s/figure-latex/unnamed-chunk-2-3.pdf>
+Package pdftex.def Info: C:/Users/Lewis/DataspellProjects/DataVis/Assignment/La
+TeX/auxil/test2_files/figure-latex/unnamed-chunk-2-3.pdf  used on input line 68
+.
+(pdftex.def)             Requested size: 341.43307pt x 236.37776pt.
+\openout4 = `CMP5352_Report.pyg'.
+
+
+(auxil/_minted-CMP5352_Report/FDDB9933110BBF3AAB328167D70056131A8A40A3FC0C4F4DB
+B59FBC0DFDEDA23.pygtex
 File: images/bcu logo.png Graphic file (type png)
 <use images/bcu logo.png>
-Package pdftex.def Info: images/bcu logo.png  used on input line 140.
+Package pdftex.def Info: images/bcu logo.png  used on input line 4.
 (pdftex.def)             Requested size: 49.79231pt x 32.4171pt.
- [4] (section2.tex) [5
+ [4 <C:/Users/Lewis/DataspellProjects/DataVis/Assignment/LaTeX/auxil/test2_file
+s/figure-latex/unnamed-chunk-2-2.pdf> <C:/Users/Lewis/DataspellProjects/DataVis
+/Assignment/LaTeX/auxil/test2_files/figure-latex/unnamed-chunk-2-3.pdf>])
+\openout4 = `CMP5352_Report.pyg'.
 
-] (section3.tex)
-runsystem(del .\auxil\_minted-CMP5352_Report\2FC6D0DEDD522E5BDB7A0DEC8333DD738A
-5CA603EEFE240FA9DAE4BEFD7E30D2.pygtex)...executed.
 
- [6
+(auxil/_minted-CMP5352_Report/C36D73F4205AC131743F2BF40D542EB48585DAB2B244F655F
+CBDE2790B7EAD8A.pygtex)
+<C:/Users/Lewis/DataspellProjects/DataVis/Assignment/LaTeX/auxil/test2_files/fi
+gure-latex/unnamed-chunk-2-4.pdf, id=93, 469.755pt x 325.215pt>
+File: C:/Users/Lewis/DataspellProjects/DataVis/Assignment/LaTeX/auxil/test2_fil
+es/figure-latex/unnamed-chunk-2-4.pdf Graphic file (type pdf)
+<use C:/Users/Lewis/DataspellProjects/DataVis/Assignment/LaTeX/auxil/test2_file
+s/figure-latex/unnamed-chunk-2-4.pdf>
+Package pdftex.def Info: C:/Users/Lewis/DataspellProjects/DataVis/Assignment/La
+TeX/auxil/test2_files/figure-latex/unnamed-chunk-2-4.pdf  used on input line 86
+.
+(pdftex.def)             Requested size: 341.43307pt x 236.37776pt.
+\openout4 = `CMP5352_Report.pyg'.
+
+
+(auxil/_minted-CMP5352_Report/5A66D28EEA223ED0A89108C095F63A891A8A40A3FC0C4F4DB
+B59FBC0DFDEDA23.pygtex)
+<C:/Users/Lewis/DataspellProjects/DataVis/Assignment/LaTeX/auxil/test2_files/fi
+gure-latex/unnamed-chunk-2-5.pdf, id=94, 469.755pt x 325.215pt>
+File: C:/Users/Lewis/DataspellProjects/DataVis/Assignment/LaTeX/auxil/test2_fil
+es/figure-latex/unnamed-chunk-2-5.pdf Graphic file (type pdf)
+<use C:/Users/Lewis/DataspellProjects/DataVis/Assignment/LaTeX/auxil/test2_file
+s/figure-latex/unnamed-chunk-2-5.pdf>
+Package pdftex.def Info: C:/Users/Lewis/DataspellProjects/DataVis/Assignment/La
+TeX/auxil/test2_files/figure-latex/unnamed-chunk-2-5.pdf  used on input line 10
+0.
+(pdftex.def)             Requested size: 341.43307pt x 236.37776pt.
+\openout4 = `CMP5352_Report.pyg'.
+
+
+(auxil/_minted-CMP5352_Report/E2856BA84A5D0935394855B1D71EB4621A8A40A3FC0C4F4DB
+B59FBC0DFDEDA23.pygtex)
+\openout4 = `CMP5352_Report.pyg'.
+
+
+(auxil/_minted-CMP5352_Report/9117778B208860538DA00295F0BDAE8C8585DAB2B244F655F
+CBDE2790B7EAD8A.pygtex)
+<C:/Users/Lewis/DataspellProjects/DataVis/Assignment/LaTeX/auxil/test2_files/fi
+gure-latex/unnamed-chunk-2-6.pdf, id=95, 469.755pt x 325.215pt>
+File: C:/Users/Lewis/DataspellProjects/DataVis/Assignment/LaTeX/auxil/test2_fil
+es/figure-latex/unnamed-chunk-2-6.pdf Graphic file (type pdf)
+<use C:/Users/Lewis/DataspellProjects/DataVis/Assignment/LaTeX/auxil/test2_file
+s/figure-latex/unnamed-chunk-2-6.pdf>
+Package pdftex.def Info: C:/Users/Lewis/DataspellProjects/DataVis/Assignment/La
+TeX/auxil/test2_files/figure-latex/unnamed-chunk-2-6.pdf  used on input line 11
+8.
+(pdftex.def)             Requested size: 341.43307pt x 236.37776pt.
+File: images/bcu logo.png Graphic file (type png)
+<use images/bcu logo.png>
+Package pdftex.def Info: images/bcu logo.png  used on input line 124.
+(pdftex.def)             Requested size: 49.79231pt x 32.4171pt.
+ [5 <C:/Users/Lewis/DataspellProjects/DataVis/Assignment/LaTeX/auxil/test2_file
+s/figure-latex/unnamed-chunk-2-4.pdf> <C:/Users/Lewis/DataspellProjects/DataVis
+/Assignment/LaTeX/auxil/test2_files/figure-latex/unnamed-chunk-2-5.pdf>]
+\openout4 = `CMP5352_Report.pyg'.
+
+
+(auxil/_minted-CMP5352_Report/F74FC799F077AD3E9851C4E6944C520D1A8A40A3FC0C4F4DB
+B59FBC0DFDEDA23.pygtex)
+<C:/Users/Lewis/DataspellProjects/DataVis/Assignment/LaTeX/auxil/test2_files/fi
+gure-latex/unnamed-chunk-2-7.pdf, id=115, 469.755pt x 325.215pt>
+File: C:/Users/Lewis/DataspellProjects/DataVis/Assignment/LaTeX/auxil/test2_fil
+es/figure-latex/unnamed-chunk-2-7.pdf Graphic file (type pdf)
+<use C:/Users/Lewis/DataspellProjects/DataVis/Assignment/LaTeX/auxil/test2_file
+s/figure-latex/unnamed-chunk-2-7.pdf>
+Package pdftex.def Info: C:/Users/Lewis/DataspellProjects/DataVis/Assignment/La
+TeX/auxil/test2_files/figure-latex/unnamed-chunk-2-7.pdf  used on input line 13
+4.
+(pdftex.def)             Requested size: 341.43307pt x 236.37776pt.
+\openout4 = `CMP5352_Report.pyg'.
+
+
+(auxil/_minted-CMP5352_Report/651BB8336E7A72D432799C3707B9CC211A8A40A3FC0C4F4DB
+B59FBC0DFDEDA23.pygtex
+File: images/bcu logo.png Graphic file (type png)
+<use images/bcu logo.png>
+Package pdftex.def Info: images/bcu logo.png  used on input line 6.
+(pdftex.def)             Requested size: 49.79231pt x 32.4171pt.
+ [6 <C:/Users/Lewis/DataspellProjects/DataVis/Assignment/LaTeX/auxil/test2_file
+s/figure-latex/unnamed-chunk-2-6.pdf> <C:/Users/Lewis/DataspellProjects/DataVis
+/Assignment/LaTeX/auxil/test2_files/figure-latex/unnamed-chunk-2-7.pdf>])
+\openout4 = `CMP5352_Report.pyg'.
+
+
+(auxil/_minted-CMP5352_Report/C36D73F4205AC131743F2BF40D542EB48585DAB2B244F655F
+CBDE2790B7EAD8A.pygtex)
+<C:/Users/Lewis/DataspellProjects/DataVis/Assignment/LaTeX/auxil/test2_files/fi
+gure-latex/unnamed-chunk-2-8.pdf, id=135, 469.755pt x 325.215pt>
+File: C:/Users/Lewis/DataspellProjects/DataVis/Assignment/LaTeX/auxil/test2_fil
+es/figure-latex/unnamed-chunk-2-8.pdf Graphic file (type pdf)
+<use C:/Users/Lewis/DataspellProjects/DataVis/Assignment/LaTeX/auxil/test2_file
+s/figure-latex/unnamed-chunk-2-8.pdf>
+Package pdftex.def Info: C:/Users/Lewis/DataspellProjects/DataVis/Assignment/La
+TeX/auxil/test2_files/figure-latex/unnamed-chunk-2-8.pdf  used on input line 15
+4.
+(pdftex.def)             Requested size: 341.43307pt x 236.37776pt.
+\openout4 = `CMP5352_Report.pyg'.
+
+
+(auxil/_minted-CMP5352_Report/0A937C7A9D69D2D4D5E150AC4A8FADF41A8A40A3FC0C4F4DB
+B59FBC0DFDEDA23.pygtex)
+<C:/Users/Lewis/DataspellProjects/DataVis/Assignment/LaTeX/auxil/test2_files/fi
+gure-latex/unnamed-chunk-2-9.pdf, id=136, 469.755pt x 325.215pt>
+File: C:/Users/Lewis/DataspellProjects/DataVis/Assignment/LaTeX/auxil/test2_fil
+es/figure-latex/unnamed-chunk-2-9.pdf Graphic file (type pdf)
+<use C:/Users/Lewis/DataspellProjects/DataVis/Assignment/LaTeX/auxil/test2_file
+s/figure-latex/unnamed-chunk-2-9.pdf>
+Package pdftex.def Info: C:/Users/Lewis/DataspellProjects/DataVis/Assignment/La
+TeX/auxil/test2_files/figure-latex/unnamed-chunk-2-9.pdf  used on input line 17
+2.
+(pdftex.def)             Requested size: 341.43307pt x 236.37776pt.
+\openout4 = `CMP5352_Report.pyg'.
+
+
+(auxil/_minted-CMP5352_Report/EF7E45067745F18E67A27A55D093BCA11A8A40A3FC0C4F4DB
+B59FBC0DFDEDA23.pygtex
+File: images/bcu logo.png Graphic file (type png)
+<use images/bcu logo.png>
+Package pdftex.def Info: images/bcu logo.png  used on input line 4.
+(pdftex.def)             Requested size: 49.79231pt x 32.4171pt.
+ [7 <C:/Users/Lewis/DataspellProjects/DataVis/Assignment/LaTeX/auxil/test2_file
+s/figure-latex/unnamed-chunk-2-8.pdf> <C:/Users/Lewis/DataspellProjects/DataVis
+/Assignment/LaTeX/auxil/test2_files/figure-latex/unnamed-chunk-2-9.pdf>])
+\openout4 = `CMP5352_Report.pyg'.
+
+
+(auxil/_minted-CMP5352_Report/9117778B208860538DA00295F0BDAE8C8585DAB2B244F655F
+CBDE2790B7EAD8A.pygtex)
+<C:/Users/Lewis/DataspellProjects/DataVis/Assignment/LaTeX/auxil/test2_files/fi
+gure-latex/unnamed-chunk-2-10.pdf, id=156, 469.755pt x 325.215pt>
+File: C:/Users/Lewis/DataspellProjects/DataVis/Assignment/LaTeX/auxil/test2_fil
+es/figure-latex/unnamed-chunk-2-10.pdf Graphic file (type pdf)
+<use C:/Users/Lewis/DataspellProjects/DataVis/Assignment/LaTeX/auxil/test2_file
+s/figure-latex/unnamed-chunk-2-10.pdf>
+Package pdftex.def Info: C:/Users/Lewis/DataspellProjects/DataVis/Assignment/La
+TeX/auxil/test2_files/figure-latex/unnamed-chunk-2-10.pdf  used on input line 1
+92.
+(pdftex.def)             Requested size: 341.43307pt x 236.37776pt.
+\openout4 = `CMP5352_Report.pyg'.
+
+
+(auxil/_minted-CMP5352_Report/EB65F18CD0B5C62B09C6C19A6C4376781A8A40A3FC0C4F4DB
+B59FBC0DFDEDA23.pygtex)
+\openout4 = `CMP5352_Report.pyg'.
+
+
+(auxil/_minted-CMP5352_Report/085C4641C6F4A732EBD91A2CABC063A18585DAB2B244F655F
+CBDE2790B7EAD8A.pygtex)
+<C:/Users/Lewis/DataspellProjects/DataVis/Assignment/LaTeX/auxil/test2_files/fi
+gure-latex/unnamed-chunk-2-11.pdf, id=157, 469.755pt x 325.215pt>
+File: C:/Users/Lewis/DataspellProjects/DataVis/Assignment/LaTeX/auxil/test2_fil
+es/figure-latex/unnamed-chunk-2-11.pdf Graphic file (type pdf)
+<use C:/Users/Lewis/DataspellProjects/DataVis/Assignment/LaTeX/auxil/test2_file
+s/figure-latex/unnamed-chunk-2-11.pdf>
+Package pdftex.def Info: C:/Users/Lewis/DataspellProjects/DataVis/Assignment/La
+TeX/auxil/test2_files/figure-latex/unnamed-chunk-2-11.pdf  used on input line 2
+10.
+(pdftex.def)             Requested size: 341.43307pt x 236.37776pt.
+\openout4 = `CMP5352_Report.pyg'.
+
+
+(auxil/_minted-CMP5352_Report/3789699451033A9696C6F8E35265B4CF1A8A40A3FC0C4F4DB
+B59FBC0DFDEDA23.pygtex
+File: images/bcu logo.png Graphic file (type png)
+<use images/bcu logo.png>
+Package pdftex.def Info: images/bcu logo.png  used on input line 4.
+(pdftex.def)             Requested size: 49.79231pt x 32.4171pt.
+ [8 <C:/Users/Lewis/DataspellProjects/DataVis/Assignment/LaTeX/auxil/test2_file
+s/figure-latex/unnamed-chunk-2-10.pdf> <C:/Users/Lewis/DataspellProjects/DataVi
+s/Assignment/LaTeX/auxil/test2_files/figure-latex/unnamed-chunk-2-11.pdf>])
+\openout4 = `CMP5352_Report.pyg'.
+
+
+(auxil/_minted-CMP5352_Report/085C4641C6F4A732EBD91A2CABC063A18585DAB2B244F655F
+CBDE2790B7EAD8A.pygtex)
+<C:/Users/Lewis/DataspellProjects/DataVis/Assignment/LaTeX/auxil/test2_files/fi
+gure-latex/unnamed-chunk-2-12.pdf, id=177, 469.755pt x 325.215pt>
+File: C:/Users/Lewis/DataspellProjects/DataVis/Assignment/LaTeX/auxil/test2_fil
+es/figure-latex/unnamed-chunk-2-12.pdf Graphic file (type pdf)
+<use C:/Users/Lewis/DataspellProjects/DataVis/Assignment/LaTeX/auxil/test2_file
+s/figure-latex/unnamed-chunk-2-12.pdf>
+Package pdftex.def Info: C:/Users/Lewis/DataspellProjects/DataVis/Assignment/La
+TeX/auxil/test2_files/figure-latex/unnamed-chunk-2-12.pdf  used on input line 2
+28.
+(pdftex.def)             Requested size: 341.43307pt x 236.37776pt.
+\openout4 = `CMP5352_Report.pyg'.
+
+
+(auxil/_minted-CMP5352_Report/7CEB22DCE7AC76CC3D3E80E6025CCC311A8A40A3FC0C4F4DB
+B59FBC0DFDEDA23.pygtex)
+\openout4 = `CMP5352_Report.pyg'.
+
+
+(auxil/_minted-CMP5352_Report/085C4641C6F4A732EBD91A2CABC063A18585DAB2B244F655F
+CBDE2790B7EAD8A.pygtex)
+<C:/Users/Lewis/DataspellProjects/DataVis/Assignment/LaTeX/auxil/test2_files/fi
+gure-latex/unnamed-chunk-2-13.pdf, id=178, 469.755pt x 325.215pt>
+File: C:/Users/Lewis/DataspellProjects/DataVis/Assignment/LaTeX/auxil/test2_fil
+es/figure-latex/unnamed-chunk-2-13.pdf Graphic file (type pdf)
+<use C:/Users/Lewis/DataspellProjects/DataVis/Assignment/LaTeX/auxil/test2_file
+s/figure-latex/unnamed-chunk-2-13.pdf>
+Package pdftex.def Info: C:/Users/Lewis/DataspellProjects/DataVis/Assignment/La
+TeX/auxil/test2_files/figure-latex/unnamed-chunk-2-13.pdf  used on input line 2
+46.
+(pdftex.def)             Requested size: 341.43307pt x 236.37776pt.
+<../images/bcu logo.png, id=179, 621.32124pt x 404.51125pt>
+File: ../images/bcu logo.png Graphic file (type png)
+<use ../images/bcu logo.png>
+Package pdftex.def Info: ../images/bcu logo.png  used on input line 253.
+(pdftex.def)             Requested size: 227.62206pt x 148.19162pt.
+)
+File: images/bcu logo.png Graphic file (type png)
+<use images/bcu logo.png>
+Package pdftex.def Info: images/bcu logo.png  used on input line 143.
+(pdftex.def)             Requested size: 49.79231pt x 32.4171pt.
+ [9 <C:/Users/Lewis/DataspellProjects/DataVis/Assignment/LaTeX/auxil/test2_file
+s/figure-latex/unnamed-chunk-2-12.pdf> <C:/Users/Lewis/DataspellProjects/DataVi
+s/Assignment/LaTeX/auxil/test2_files/figure-latex/unnamed-chunk-2-13.pdf>]
+File: images/bcu logo.png Graphic file (type png)
+<use images/bcu logo.png>
+Package pdftex.def Info: images/bcu logo.png  used on input line 145.
+(pdftex.def)             Requested size: 49.79231pt x 32.4171pt.
+ [10 <C:/Users/Lewis/DataspellProjects/DataVis/Assignment/LaTeX/images/bcu logo
+.png>] (section2.tex) [11
+
+] (section3.tex) [12
 
 ]
 (C:/Users\Lewis\DataspellProjects\DataVis\Assignment\LaTeX\auxil\CMP5352 Report
@@ -980,34 +1251,37 @@ runsystem(del .\auxil\_minted-CMP5352_Report\2FC6D0DEDD522E5BDB7A0DEC8333DD738A
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package rerunfilecheck Info: File `"CMP5352 Report".out' has not changed.
-(rerunfilecheck)             Checksum: B0B1F42FDC7AFB03F9FFE85EC379D2EA;586.
+(rerunfilecheck)             Checksum: C0272328F17041B16A97B163F95292DA;588.
+runsystem(del .\auxil\\CMP5352_Report.pyg)...executed.
+
 Package logreq Info: Writing requests to '"CMP5352 Report".run.xml'.
 \openout1 = `"CMP5352 Report.run.xml"'.
 
  ) 
 Here is how much of TeX's memory you used:
- 23591 strings out of 474541
- 432172 string characters out of 5744425
- 1951978 words of memory out of 5000000
- 45504 multiletter control sequences out of 15000+600000
- 565579 words of font info for 52 fonts, out of 8000000 for 9000
+ 23904 strings out of 474542
+ 464060 string characters out of 5744447
+ 1929978 words of memory out of 5000000
+ 45740 multiletter control sequences out of 15000+600000
+ 563447 words of font info for 46 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 77i,15n,81p,713b,2365s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/Lewis/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
-cmmi6.pfb><C:/Users/Lewis/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
-onts/cm/cmsy6.pfb><C:/Users/Lewis/AppData/Local/Programs/MiKTeX/fonts/type1/pub
-lic/cm-super/sfbx1200.pfb><C:/Users/Lewis/AppData/Local/Programs/MiKTeX/fonts/t
-ype1/public/cm-super/sfbx1440.pfb><C:/Users/Lewis/AppData/Local/Programs/MiKTeX
-/fonts/type1/public/cm-super/sfbx2488.pfb><C:/Users/Lewis/AppData/Local/Program
-s/MiKTeX/fonts/type1/public/cm-super/sfit1200.pfb><C:/Users/Lewis/AppData/Local
-/Programs/MiKTeX/fonts/type1/public/cm-super/sfrm0600.pfb><C:/Users/Lewis/AppDa
-ta/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfrm1200.pfb><C:/Users/Lew
-is/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sftt1200.pfb>
+ 77i,15n,81p,691b,2365s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/Lewis/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfb
+x1200.pfb><C:/Users/Lewis/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-s
+uper/sfbx1440.pfb><C:/Users/Lewis/AppData/Local/Programs/MiKTeX/fonts/type1/pub
+lic/cm-super/sfbx2488.pfb><C:/Users/Lewis/AppData/Local/Programs/MiKTeX/fonts/t
+ype1/public/cm-super/sfit1200.pfb><C:/Users/Lewis/AppData/Local/Programs/MiKTeX
+/fonts/type1/public/cm-super/sfrm1200.pfb><C:/Users/Lewis/AppData/Local/Program
+s/MiKTeX/fonts/type1/public/cm-super/sftt1200.pfb>
 Output written on "C:/Users\Lewis\DataspellProjects\DataVis\Assignment\LaTeX\ou
-t\CMP5352 Report.pdf" (9 pages, 259507 bytes).
+t\CMP5352 Report.pdf" (15 pages, 462206 bytes).
 PDF statistics:
- 121 PDF objects out of 1000 (max. 8388607)
- 13 named destinations out of 1000 (max. 500000)
- 38 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 252 PDF objects out of 1000 (max. 8388607)
+ 33 named destinations out of 1000 (max. 500000)
+ 108 words of extra memory for PDF output out of 10000 (max. 10000000)
 
