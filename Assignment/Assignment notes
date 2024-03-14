@@ -25,9 +25,9 @@ You're likely to want your code block preface for almost all of them to be
 fig.cap, but only if you're doing a single figure, as fig.cap is applied to all
 figures in the block.
 
-Your .gitignore is ignoring Assignment's auxil files. Could cause issues later.
-
 He wants the LaTeX code despite it not being under the markscheme.
 Literally just looking to reduce people's marks for no reason.
 This module is literally curtains for you.
+
+Says he wants a boxplot somewhere.
 

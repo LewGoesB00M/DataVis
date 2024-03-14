@@ -8,6 +8,7 @@ library(ggplot2)
 # First graph shows the relation of carats and price by color.
 qplot(log(carat), log(price), data = diamonds, color = color, geom = c("point", "smooth"))
 
+
 # Second graph shows the relation of carats and price by cut.
 qplot(log(carat), log(price), data = diamonds, color = cut, geom = c("point", "smooth"))
 
