@@ -25,9 +25,21 @@ p <- ggplot(diamonds, aes(x = log(price), color = clarity)) +
 ggplotly(p)
 
 # Some Lab 7 code but in plotly this time.
-ggplotly(ggplot(diamonds, aes(x = cut, fill = clarity)) +
-  geom_bar() +
-  scale_fill_manual(values = c(
-    "darkred", "steelblue", "darkgreen", "gold",
-    "brown", "purple", "grey", "khaki4"
-  )))
+# My understanding is that you can wrap any ggplot within this and it'll use plotly instead and work.
+ggplotly(
+    ggplot(diamonds, aes(x = cut, fill = clarity)) +
+      geom_bar() +
+      scale_fill_manual(values = c(
+        "darkred", "steelblue", "darkgreen", "gold",
+        "brown", "purple", "grey", "khaki4"
+      ))
+)
+
+ggplotly(
+  ggplot(df, aes(x, y)) +
+           geom_point(aes(color = z1), size = 3) +
+           scale_color_gradient2(low = 'deeppink', mid = 'white', high = 'aquamarine4')
+)
+
+# As much as this is a correct implementation and EXACTLY THE SAME AS USING A VARIABLE,
+# he probably wants you to wrap the ggplot in a variable and call ggplotly on the variable.
