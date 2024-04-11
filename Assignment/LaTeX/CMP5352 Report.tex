@@ -1,3 +1,8 @@
+% Why do we need to submit this? It's not part of the markscheme and you wouldn't
+% usually give out your TeX code, just the PDF.
+
+% -------------------------------------------------------------------------------
+% Establish page structure & font.
 \documentclass[12pt]{report}
 \usepackage{graphicx} % Required for inserting images
 \usepackage[a4paper, margin=2.5cm]{geometry}
@@ -5,12 +10,12 @@
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage{float} % here for H placement parameter
+\usepackage{float}  % Allows for floats to be positioned using [H], which correctly
+                    % positions them relative to their location within my LaTeX code.
 \usepackage{subcaption}
 
-\usepackage{filecontents}
+% Declare filecontents & biblatex with custom Harvard BCU styling for referencing.
 \usepackage[
-    firstinits=true, % render first and middle names as initials
     useprefix=true,
     maxcitenames=3,
     maxbibnames=99,
@@ -24,36 +29,33 @@
 \author{Lewis Higgins - Student ID 22133848}
 \date{April 2024}
 
+% -------------------------------------------------------------------------------
+% Declares "minted", the code formatter I used. This package is the reason you
+% likely cannot compile my code, because you don't have my specific setup and
+% additional Pandoc filters.
+
+% Nevertheless, you DO have the resultant PDF, and the LaTeX code
+% is NOT on the markscheme.
 \usepackage[outputdir=./auxil]{minted}
 
-\renewbibmacro*{volume+number+eid}{%
-    \printfield{volume}%
-%  \setunit*{\adddot}% DELETED
-    \setunit*{\addnbspace}% NEW (optional); there's also \addnbthinspace
-    \printfield{number}%
-    \setunit{\addcomma\space}%
+% -------------------------------------------------------------------------------
+% Additional styling options to ensure Harvard referencing format.
+\renewbibmacro*{volume+number+eid}{
+    \printfield{volume}
+    \setunit*{\addnbspace}
+    \printfield{number}
+    \setunit{\addcomma\space}
     \printfield{eid}}
 \DeclareFieldFormat[article]{number}{\mkbibparens{#1}}
 
 \addbibresource{report.bib}
 
-% Use single quotes around titles:
+% -------------------------------------------------------------------------------
+% Package dependency
 \usepackage[british]{babel}
 \usepackage{csquotes}
 
-\usepackage{hyperref}
-
-\hypersetup{
-    colorlinks=true,
-    linkcolor=black,
-    filecolor=magenta,
-    urlcolor=blue,
-    citecolor=black,
-}
-
-
-\urlstyle{same}
-
+% -------------------------------------------------------------------------------
 
 % To prevent "Chapter N" display for each chapter
 \usepackage[compact]{titlesec}
@@ -64,6 +66,9 @@
 \titleformat{\chapter}[display]
 {\normalfont\bfseries}{}{0pt}{\Huge}
 
+% -------------------------------------------------------------------------------
+% Custom macro to make an un-numbered footnote.
+
 \newcommand\blfootnote[1]{
     \begingroup
     \renewcommand\thefootnote{}\footnote{#1}
@@ -71,6 +76,8 @@
     \endgroup
 }
 
+% -------------------------------------------------------------------------------
+% Fancy headers; used to show my name, BCU logo and current chapter for the page.
 \usepackage{fancyhdr}
 \usepackage{calc}
 \pagestyle{fancy}
@@ -85,6 +92,8 @@
 
 \usepackage{xcolor}
 \definecolor{mintedBG}{rgb}{0.95, 0.95, 0.95}
+
+% -------------------------------------------------------------------------------
 
 \begin{document}
     \pagecolor{yellow} % Change in final
@@ -137,7 +146,7 @@
 
 
 %   \inputminted[linenos=true, breaklines=true, bgcolor=mintedBG, stripall=true]{r}{lab4.R}
-    \input{auxil/test}
+    \input{RMD/test}
 
     \pagebreak
 
@@ -146,7 +155,8 @@
     \addcontentsline{toc}{chapter}{Experimental results}
     \markboth{Experimental results}{}
 
-    \input{section2}
+    \input{RMD/test2}
+%    \input{section2}
 
     \chapter*{Summary \& conclusion}\label{ch:sec3}
     \addcontentsline{toc}{chapter}{Summary and conclusion}

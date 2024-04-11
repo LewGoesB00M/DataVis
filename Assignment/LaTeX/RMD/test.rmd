@@ -8,10 +8,15 @@ output:
 ---
 
 ```{r, include=FALSE}
-options(warn = -1) # Hide qplot deprecation warning.
+# Hide warnings and messages like those from geom_smooth().
+# Also save images to one specific folder.
+knitr::opts_chunk$set(warning=FALSE,
+                      message=FALSE,
+                      fig.path="../images/figs/"
+)
 ```
 
-```{r, fig.align = 'center', fig.cap = "\\label{fig:fig1}Plot 1", fig.pos = "H", out.width = "75%"}
+```{r chunk1, fig.align = 'center', fig.cap = "\\label{fig:fig1}Plot 1", fig.pos = "H", out.width = "75%"}
 library(ggplot2)
 ggplot(diamonds, aes(x = carat, fill = color)) +
         geom_histogram(bins = 30)
@@ -20,7 +25,7 @@ Figure \ref{fig:fig1} shows that...
 
 \pagebreak
 
-```{r, fig.align = 'center', fig.cap = "\\label{fig:fig2}Plot 1", fig.pos = "H", out.width = "75%"}
+```{r chunk2, fig.align = 'center', fig.cap = "\\label{fig:fig2}Plot 2", fig.pos = "H", out.width = "75%"}
 
 ggplot(diamonds, aes(x = carat, y = price)) +
     geom_point(aes(color = cut)) +

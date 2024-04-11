@@ -8,10 +8,15 @@ output:
 ---
 
 ```{r, include=FALSE}
-options(warn = -1) # Hide qplot deprecation warning.
+# Hide warnings and messages like those from geom_smooth().
+# Also save images to one specific folder.
+knitr::opts_chunk$set(warning=FALSE,
+                      message=FALSE,
+                      fig.path="../images/figs/"
+)
 ```
 
-```{r, fig.align = 'center', fig.cap = "Figure AAA", fig.pos = "H", out.width = "75%"}
+```{r chunk3, fig.align = 'center', fig.cap = "Figure AAA", fig.pos = "H", out.width = "75%"}
 
 library(ggplot2)
 
