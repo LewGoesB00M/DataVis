@@ -1,0 +1,146 @@
+% Why do we need to submit this? It's not part of the markscheme and you wouldn't
+% usually give out your TeX code, just the PDF.
+
+% -------------------------------------------------------------------------------
+% Establish page structure & font.
+\documentclass[12pt]{report}
+\usepackage{graphicx} % Required for inserting images
+\usepackage[a4paper, margin=2cm]{geometry}
+\graphicspath{{images/}}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{float} % Allows for floats to be positioned using [H], which correctly
+                   % positions them relative to their location within my LaTeX code.
+\usepackage{subcaption}
+
+% -------------------------------------------------------------------------------
+% Declare filecontents & biblatex with custom Harvard BCU styling for referencing.
+\usepackage[
+    useprefix=true,
+    maxcitenames=3,
+    maxbibnames=99,
+    style=authoryear,
+    dashed=false, % re-print recurring author names in bibliography
+    natbib=true,
+    url=false
+]{biblatex}
+
+% -------------------------------------------------------------------------------
+% Additional styling options to ensure Harvard referencing format.
+\renewbibmacro*{volume+number+eid}{%
+    \printfield{volume}%
+    \setunit*{\addnbspace}
+    \printfield{number}%
+    \setunit{\addcomma\space}%
+    \printfield{eid}}
+\DeclareFieldFormat[article]{number}{\mkbibparens{#1}}
+
+\addbibresource{report.bib}
+
+% -------------------------------------------------------------------------------
+% Fancy headers; used to show my name, BCU logo and current chapter for the page.
+\usepackage{fancyhdr}
+\usepackage{calc}
+\pagestyle{fancy}
+
+\setlength\headheight{37pt}
+
+\renewcommand{\chaptermark}[1]{%
+    \markboth{#1}{}}
+
+\lhead{Lewis Higgins - ID 22133848~~~~~~~~~~~~~~~\includegraphics[width=1.75cm]{bcu logo}}
+\fancyhead[R]{\leftmark}
+
+% ------------------------------------------------------------------------------
+
+\title{CMP5352 Report - TITLE NEEDED}
+\author{Lewis Higgins - Student ID 22133848}
+\date{April 2024}
+
+% -------------------------------------------------------------------------------
+
+\begin{document}
+
+ \pagecolor{yellow} % Change in final
+
+    \makeatletter
+    \begin{titlepage}
+        \begin{center}
+            \includegraphics[width=0.7\linewidth]{bcu logo}\\[4ex]
+            {\large \bfseries  \@title }\\[2ex]
+            {\large \bfseries  DRAFT VERSION }\\[2ex]
+            {\@author}\\[30ex]
+            {Word count: XXXX}\\[20ex]
+        \end{center}
+    \end{titlepage}
+    \makeatother
+    \thispagestyle{empty}
+    \newpage
+
+    \pagecolor{white}
+
+    \begin{abstract}
+        text
+
+        text
+
+        text
+
+    \end{abstract}
+
+    \setcounter{page}{0} % Page counter trick so that it actually starts from 1.
+
+    \tableofcontents
+    \thispagestyle{empty}
+
+    % Declaring un-numbered chapter because I prefer how it looks.
+    \chapter*{Introduction}\label{ch:introduction}
+    % Add it to the contents, because un-numbered chapters aren't by default.
+    \addcontentsline{toc}{chapter}{Introduction}
+    % Put the chapter name in the header.
+    \markboth{Introduction}{}
+
+    Text text text
+
+    Text text text
+
+    \pagebreak
+
+    % Declaring un-numbered chapter because I prefer how it looks.
+    \chapter*{Motivation and objectives}\label{ch:sec1}
+    % Add it to the contents, because un-numbered chapters aren't by default.
+    \addcontentsline{toc}{chapter}{Motivation and objectives}
+    % Put the chapter name in the header.
+    \markboth{Motivation and objectives}{}
+
+    <<fig.align = 'center', fig.cap = "\\label{fig:fig1}Plot 1", fig.pos = "H", out.width = "75%">>=
+library(ggplot2)
+ggplot(diamonds, aes(x = carat, fill = color)) +
+    geom_histogram(bins = 30)
+@
+    \pagebreak
+    
+    <<fig.align = 'center', fig.cap = "\\label{fig:fig2}Plot 1", fig.pos = "H", out.width = "75%">>=
+ggplot(diamonds, aes(x = carat, y = price)) +
+    geom_point(aes(color = cut))
+    #geom_smooth()
+@
+
+    % Declaring un-numbered chapter because I prefer how it looks.
+    \chapter*{Experimental results}\label{ch:sec2}
+    % Add it to the contents, because un-numbered chapters aren't by default.
+    \addcontentsline{toc}{chapter}{Experimental results}
+    % Put the chapter name in the header.
+    \markboth{Experimental results}{}
+
+    aaa
+
+    % Declaring un-numbered chapter because I prefer how it looks.
+    \chapter*{Summary \& conclusion}\label{ch:sec3}
+    % Add it to the contents, because un-numbered chapters aren't by default.
+    \addcontentsline{toc}{chapter}{Summary and conclusion}
+    % Put the chapter name in the header.
+    \markboth{Summary and conclusion}{}
+
+    aaa

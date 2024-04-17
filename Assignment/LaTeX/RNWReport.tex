@@ -1,0 +1,223 @@
+% Why do we need to submit this? It's not part of the markscheme and you wouldn't
+% usually give out your TeX code, just the PDF.
+
+% -------------------------------------------------------------------------------
+% Establish page structure & font.
+\documentclass[12pt]{report}\usepackage[]{graphicx}\usepackage[]{xcolor}
+% maxwidth is the original width if it is less than linewidth
+% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+\let\hlipl\hlkwb
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
+\usepackage{graphicx} % Required for inserting images
+%\usepackage[a4paper, margin=2cm]{geometry}
+\graphicspath{{images/}}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{float} % Allows for floats to be positioned using [H], which correctly
+                   % positions them relative to their location within my LaTeX code.
+\usepackage{subcaption}
+
+% -------------------------------------------------------------------------------
+% Declare filecontents & biblatex with custom Harvard BCU styling for referencing.
+\usepackage[
+    useprefix=true,
+    maxcitenames=3,
+    maxbibnames=99,
+    style=authoryear,
+    dashed=false, % re-print recurring author names in bibliography
+    natbib=true,
+    url=false
+]{biblatex}
+
+% -------------------------------------------------------------------------------
+% Additional styling options to ensure Harvard referencing format.
+\renewbibmacro*{volume+number+eid}{%
+    \printfield{volume}%
+    \setunit*{\addnbspace}
+    \printfield{number}%
+    \setunit{\addcomma\space}%
+    \printfield{eid}}
+\DeclareFieldFormat[article]{number}{\mkbibparens{#1}}
+
+\addbibresource{report.bib}
+
+% -------------------------------------------------------------------------------
+% Fancy headers; used to show my name, BCU logo and current chapter for the page.
+\usepackage{fancyhdr}
+\usepackage{calc}
+\pagestyle{fancy}
+
+\setlength\headheight{37pt}
+
+\renewcommand{\chaptermark}[1]{%
+    \markboth{#1}{}}
+
+\lhead{Lewis Higgins - ID 22133848~~~~~~~~~~~~~~~\includegraphics[width=1.75cm]{bcu logo}}
+\fancyhead[R]{\leftmark}
+
+% ------------------------------------------------------------------------------
+
+\title{CMP5352 Report - TITLE NEEDED}
+\author{Lewis Higgins - Student ID 22133848}
+\date{April 2024}
+
+% -------------------------------------------------------------------------------
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\begin{document}
+
+ \pagecolor{yellow} % Change in final
+
+    \makeatletter
+    \begin{titlepage}
+        \begin{center}
+            \includegraphics[width=0.7\linewidth]{bcu logo}\\[4ex]
+            {\large \bfseries  \@title }\\[2ex]
+            {\large \bfseries  DRAFT VERSION }\\[2ex]
+            {\@author}\\[30ex]
+            {Word count: XXXX}\\[20ex]
+        \end{center}
+    \end{titlepage}
+    \makeatother
+    \thispagestyle{empty}
+    \newpage
+
+    \pagecolor{white}
+
+    \begin{abstract}
+        text
+
+        text
+
+        text
+
+    \end{abstract}
+
+    \setcounter{page}{0} % Page counter trick so that it actually starts from 1.
+
+    \tableofcontents
+    \thispagestyle{empty}
+
+    % Declaring un-numbered chapter because I prefer how it looks.
+    \chapter*{Introduction}\label{ch:introduction}
+    % Add it to the contents, because un-numbered chapters aren't by default.
+    \addcontentsline{toc}{chapter}{Introduction}
+    % Put the chapter name in the header.
+    \markboth{Introduction}{}
+
+    Text text text
+
+    Text text text
+
+    \pagebreak
+
+    % Declaring un-numbered chapter because I prefer how it looks.
+    \chapter*{Motivation and objectives}\label{ch:sec1}
+    % Add it to the contents, because un-numbered chapters aren't by default.
+    \addcontentsline{toc}{chapter}{Motivation and objectives}
+    % Put the chapter name in the header.
+    \markboth{Motivation and objectives}{}
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{library}\hlstd{(ggplot2)}
+\hlkwd{ggplot}\hlstd{(diamonds,} \hlkwd{aes}\hlstd{(}\hlkwc{x} \hlstd{= carat,} \hlkwc{fill} \hlstd{= color))} \hlopt{+}
+\hlkwd{geom_histogram}\hlstd{(}\hlkwc{bins} \hlstd{=} \hlnum{30}\hlstd{)}
+\end{alltt}
+\end{kframe}\begin{figure}[H]
+
+{\centering \includegraphics[width=0.75\linewidth]{figure/unnamed-chunk-1-1} 
+
+}
+
+\caption{\label{fig:fig1}Plot 1}\label{fig:unnamed-chunk-1}
+\end{figure}
+
+\end{knitrout}
+    \pagebreak
+    
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{ggplot}\hlstd{(diamonds,} \hlkwd{aes}\hlstd{(}\hlkwc{x} \hlstd{= carat,} \hlkwc{y} \hlstd{= price))} \hlopt{+}
+\hlkwd{geom_point}\hlstd{(}\hlkwd{aes}\hlstd{(}\hlkwc{color} \hlstd{= cut))}
+\end{alltt}
+\end{kframe}\begin{figure}[H]
+
+{\centering \includegraphics[width=0.75\linewidth]{figure/unnamed-chunk-2-1} 
+
+}
+
+\caption{\label{fig:fig2}Plot 1}\label{fig:unnamed-chunk-2}
+\end{figure}
+
+\begin{kframe}\begin{alltt}
+\hlcom{#geom_smooth()}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+
+    % Declaring un-numbered chapter because I prefer how it looks.
+    \chapter*{Experimental results}\label{ch:sec2}
+    % Add it to the contents, because un-numbered chapters aren't by default.
+    \addcontentsline{toc}{chapter}{Experimental results}
+    % Put the chapter name in the header.
+    \markboth{Experimental results}{}
+
+    aaa
+
+    % Declaring un-numbered chapter because I prefer how it looks.
+    \chapter*{Summary \& conclusion}\label{ch:sec3}
+    % Add it to the contents, because un-numbered chapters aren't by default.
+    \addcontentsline{toc}{chapter}{Summary and conclusion}
+    % Put the chapter name in the header.
+    \markboth{Summary and conclusion}{}
+
+    aaa
