@@ -5,38 +5,62 @@
 % Establish page structure & font.
 \documentclass[12pt]{report}
 \usepackage{graphicx} % Required for inserting images
-\usepackage[a4paper, margin=2cm]{geometry}
+\usepackage[a4paper, margin=2.5cm]{geometry}
 \graphicspath{{images/}}
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage{float} % Allows for floats to be positioned using [H], which correctly
-                   % positions them relative to their location within my LaTeX code.
+\usepackage{float}  % Allows for floats to be positioned using [H], which correctly
+                    % positions them relative to their location within my LaTeX code.
 \usepackage{subcaption}
 
-% -------------------------------------------------------------------------------
-% Declare filecontents & biblatex with custom Harvard BCU styling for referencing.
+% Declare biblatex with custom Harvard BCU styling for referencing.
 \usepackage[
     useprefix=true,
     maxcitenames=3,
     maxbibnames=99,
     style=authoryear,
-    dashed=false, % re-print recurring author names in bibliography
+    dashed=false, 
     natbib=true,
     url=false
 ]{biblatex}
 
+\title{CMP5352 Report - TITLE NEEDED}
+\author{Lewis Higgins - Student ID 22133848}
+\date{April 2024}
+
 % -------------------------------------------------------------------------------
 % Additional styling options to ensure Harvard referencing format.
-\renewbibmacro*{volume+number+eid}{%
-    \printfield{volume}%
+\renewbibmacro*{volume+number+eid}{
+    \printfield{volume}
     \setunit*{\addnbspace}
-    \printfield{number}%
-    \setunit{\addcomma\space}%
+    \printfield{number}
+    \setunit{\addcomma\space}
     \printfield{eid}}
 \DeclareFieldFormat[article]{number}{\mkbibparens{#1}}
 
 \addbibresource{report.bib}
+
+% -------------------------------------------------------------------------------
+
+% To prevent "Chapter N" display for each chapter
+\usepackage[compact]{titlesec}
+\usepackage{wasysym}
+\usepackage{import}
+
+\titlespacing*{\chapter}{0pt}{-2cm}{0.5cm}
+\titleformat{\chapter}[display]
+{\normalfont\bfseries}{}{0pt}{\Huge}
+
+% -------------------------------------------------------------------------------
+% Custom macro to make an un-numbered footnote.
+
+\newcommand\blfootnote[1]{
+    \begingroup
+    \renewcommand\thefootnote{}\footnote{#1}
+    \addtocounter{footnote}{-1}
+    \endgroup
+}
 
 % -------------------------------------------------------------------------------
 % Fancy headers; used to show my name, BCU logo and current chapter for the page.
@@ -52,17 +76,29 @@
 \lhead{Lewis Higgins - ID 22133848~~~~~~~~~~~~~~~\includegraphics[width=1.75cm]{bcu logo}}
 \fancyhead[R]{\leftmark}
 
-% ------------------------------------------------------------------------------
-
-\title{CMP5352 Report - TITLE NEEDED}
-\author{Lewis Higgins - Student ID 22133848}
-\date{April 2024}
+\usepackage{xcolor}
+\definecolor{mintedBG}{rgb}{0.95, 0.95, 0.95}
 
 % -------------------------------------------------------------------------------
 
+
 \begin{document}
 
+
+
+<<setup, include=FALSE, echo=FALSE>>=
+options(digits = 4)
+pacman::p_load(data.table, knitr, ggplot2)
+knitr::opts_chunk$set(fig.align = 'center', # Center figures
+                      fig.pos = "H", # Place them where I want them to be.
+                      out.width = "75%", # At a reduced width to fit the page.
+                      base.dir = 'figures')
+@
+
+
  \pagecolor{yellow} % Change in final
+
+
 
     \makeatletter
     \begin{titlepage}
@@ -114,18 +150,22 @@
     % Put the chapter name in the header.
     \markboth{Motivation and objectives}{}
 
-    <<fig.align = 'center', fig.cap = "\\label{fig:fig1}Plot 1", fig.pos = "H", out.width = "75%">>=
+    <<fig.cap = "\\label{fig:fig1}plotting example">>=
 library(ggplot2)
-ggplot(diamonds, aes(x = carat, fill = color)) +
-    geom_histogram(bins = 30)
+ggplot(diamonds, aes(x = carat, fill = color)) + 
+  geom_histogram(bins = 30)
 @
+
+As we can see in figure \ref{fig:fig1}
+
     \pagebreak
     
-    <<fig.align = 'center', fig.cap = "\\label{fig:fig2}Plot 1", fig.pos = "H", out.width = "75%">>=
+    <<fig.cap = "\\label{fig:fig2}plotting example 2">>=
 ggplot(diamonds, aes(x = carat, y = price)) +
     geom_point(aes(color = cut))
-    #geom_smooth()
 @
+
+Also from figure \ref{fig:fig2}
 
     % Declaring un-numbered chapter because I prefer how it looks.
     \chapter*{Experimental results}\label{ch:sec2}
@@ -144,3 +184,5 @@ ggplot(diamonds, aes(x = carat, y = price)) +
     \markboth{Summary and conclusion}{}
 
     aaa
+
+\end{document}

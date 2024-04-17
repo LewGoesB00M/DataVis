@@ -1,1 +1,17 @@
 .idea
+.Rhistory
+_minted-CMP5352_Report
+Testing
+
+*.aux
+*.lof
+*.log
+*.lot
+*.fls
+*.out
+*.toc
+*.fmt
+*.fot
+*.cb
+*.cb2
+.*.lb
