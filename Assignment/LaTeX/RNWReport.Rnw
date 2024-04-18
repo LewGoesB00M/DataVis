@@ -4,16 +4,24 @@
 % -------------------------------------------------------------------------------
 % Establish page structure & font.
 \documentclass[12pt]{report}
-\usepackage{graphicx} % Required for inserting images
-\usepackage[a4paper, margin=2.5cm]{geometry}
-\graphicspath{{images/}}
 
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+\usepackage{graphicx} % Required for inserting images
+
+\usepackage[total={6.5in, 9in},
+	left=1in,
+	right=1in,
+	top=1in,
+	bottom=1in,]{geometry}% Page structure
+
+\graphicspath{{images/}} % Any additional images I use (BCU logo, etc) are from here.
+
+\usepackage[utf8]{inputenc} % UTF-8 encoding
+\usepackage[T1]{fontenc} % T1 font
 \usepackage{float}  % Allows for floats to be positioned using [H], which correctly
                     % positions them relative to their location within my LaTeX code.
 \usepackage{subcaption}
 
+% -------------------------------------------------------------------------------
 % Declare biblatex with custom Harvard BCU styling for referencing.
 \usepackage[
     useprefix=true,
@@ -25,11 +33,6 @@
     url=false
 ]{biblatex}
 
-\title{CMP5352 Report - TITLE NEEDED}
-\author{Lewis Higgins - Student ID 22133848}
-\date{April 2024}
-
-% -------------------------------------------------------------------------------
 % Additional styling options to ensure Harvard referencing format.
 \renewbibmacro*{volume+number+eid}{
     \printfield{volume}
@@ -39,10 +42,10 @@
     \printfield{eid}}
 \DeclareFieldFormat[article]{number}{\mkbibparens{#1}}
 
+% Declare it as the bibliography source, to be called later via \printbibliography
 \addbibresource{report.bib}
 
 % -------------------------------------------------------------------------------
-
 % To prevent "Chapter N" display for each chapter
 \usepackage[compact]{titlesec}
 \usepackage{wasysym}
@@ -68,31 +71,51 @@
 \usepackage{calc}
 \pagestyle{fancy}
 
-\setlength\headheight{37pt}
+\setlength\headheight{37pt} % Set custom header height to fit the image.
 
 \renewcommand{\chaptermark}[1]{%
-    \markboth{#1}{}}
+    \markboth{#1}{}} % Include chapter name.
 
+
+% Lewis Higgins - ID 22133848           [BCU LOGO]                [CHAPTER NAME]
 \lhead{Lewis Higgins - ID 22133848~~~~~~~~~~~~~~~\includegraphics[width=1.75cm]{bcu logo}}
 \fancyhead[R]{\leftmark}
 
+
+% Temp for pagecolor command
 \usepackage{xcolor}
-\definecolor{mintedBG}{rgb}{0.95, 0.95, 0.95}
 
 % -------------------------------------------------------------------------------
 
+\title{CMP5352 Report - TITLE NEEDED}
+\author{Lewis Higgins - Student ID 22133848}
+\date{April 2024}
+
+% -------------------------------------------------------------------------------
 
 \begin{document}
 
 
 
-<<setup, include=FALSE, echo=FALSE>>=
-options(digits = 4)
-pacman::p_load(data.table, knitr, ggplot2)
+<<setup, include=FALSE, echo=FALSE>>= 
+# Chunk name: Setup, Code not shown in document, Output not shown in document.
+
+# Please note that I have not included "results = hide" from the template.
+# This is because I am not using Sweave to compile this, but knitr instead,
+# as I was unable to get Sweave to work properly on both of my devices.
+
+options(digits = 4) 
+
+pacman::p_load(data.table, knitr, ggplot2) # Load these ahead of time.
+
 knitr::opts_chunk$set(fig.align = 'center', # Center figures
                       fig.pos = "H", # Place them where I want them to be.
-                      out.width = "75%", # At a reduced width to fit the page.
-                      base.dir = 'figures')
+                      out.width = "75%" # At a reduced width to fit the page.
+                      )
+
+# Additional options such as figure captions are set within the chunks themselves,
+# as I don't want all of my figures to have the same caption which they would if they
+# were set here.
 @
 
 
@@ -114,7 +137,7 @@ knitr::opts_chunk$set(fig.align = 'center', # Center figures
     \thispagestyle{empty}
     \newpage
 
-    \pagecolor{white}
+  \pagecolor{white} % Change in final
 
     \begin{abstract}
         text
@@ -123,9 +146,10 @@ knitr::opts_chunk$set(fig.align = 'center', # Center figures
 
         text
 
-    \end{abstract}
-
-    \setcounter{page}{0} % Page counter trick so that it actually starts from 1.
+    \end{abstract} 
+    
+    % Page counter trick so that the contents page doesn't increment it.
+    \setcounter{page}{0}
 
     \tableofcontents
     \thispagestyle{empty}
@@ -150,7 +174,7 @@ knitr::opts_chunk$set(fig.align = 'center', # Center figures
     % Put the chapter name in the header.
     \markboth{Motivation and objectives}{}
 
-    <<fig.cap = "\\label{fig:fig1}plotting example">>=
+    <<Carat and color, fig.cap = "\\label{fig:fig1}plotting example">>=
 library(ggplot2)
 ggplot(diamonds, aes(x = carat, fill = color)) + 
   geom_histogram(bins = 30)
@@ -160,7 +184,7 @@ As we can see in figure \ref{fig:fig1}
 
     \pagebreak
     
-    <<fig.cap = "\\label{fig:fig2}plotting example 2">>=
+    <<Carat and price, fig.cap = "\\label{fig:fig2}plotting example 2">>=
 ggplot(diamonds, aes(x = carat, y = price)) +
     geom_point(aes(color = cut))
 @
