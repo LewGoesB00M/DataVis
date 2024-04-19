@@ -1,0 +1,523 @@
+\documentclass{article}
+
+\usepackage{graphicx}  % this is a package for inserting graphics
+\graphicspath{ {./figures/} }
+\usepackage{caption}
+\usepackage{subfigure}
+\usepackage{subfig}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=blue,      
+    urlcolor=blue,
+	}
+	
+\usepackage{geometry}	% useful package for formatting document
+\geometry{
+	letterpaper,
+	total={6.5in, 9in},
+	left=1in,
+	right=1in,
+	top=1in,
+	bottom=1in,
+	}
+
+
+\begin{document}
+
+\SweaveOpts{concordance=TRUE} % sets global options
+
+<<setup, include=FALSE, echo=FALSE, results=hide>>=
+
+#########################################
+# Workflow Template using R, Sweave, and LaTeX within RStudio
+# Authors: Matthew C. Ingram, Nakissa Jahanbani, and Cesar Renteria
+# Rockefeller College of Public Affairs and Policy
+# University at Albany, SUNY
+# General Template - Stata using MarkDoc package with LaTeX
+# Use for written assignments in RPAD/RPOS 517 (using Stata)
+# Date created: 20170122
+# Last updated: 20170906
+# Sources: file draws on materials by Johannes Karreth, Sweave documentation (https://stat.ethz.ch/R-manual/R-devel/library/utils/doc/Sweave.pdf), LaTex documentation 
+#########################################
+
+# Environment Setup
+# commands used are: *library* and *dir.create*
+# with dir.create we need to insert the full path as a _character vector_, which means it must be between " ". The option _showwnarnings = FALSE_ #disables warning messages if the folder already exists. It's an equivalent of Stata's command *capture*. 
+
+# As your project grows in complexity, you will require a lot of packages. A handy way to load them is by using the package *pacman*. This packages #checks to see if you have a package already installed, installs it automatically if it does not already exist, and then loads/opens the package. This #will allow you to load and open all packages using just one line of code. Note that you need to install *pacman* if you do not already have it.
+options( digits = 4)
+
+# Install "pacman"
+# install.packages("pacman")
+pacman::p_load(data.table, knitr, ggplot2, psych, coefplot, xtable, stargazer)
+
+# check session info
+#sessionInfo()
+@
+
+<<optionsglobal, echo=FALSE, results=hide>>=
+# set global options; *** NOTE: THIS KNITR SETTING DOES NOT SEEM TO BE WORKING IN SWEAVE; authors said compatible, but maybe not ***
+# note: these global option will not apply to first chunk, so start R code in second chunk
+#note that 'results' option does not require quotation marks around stated option, as in .Rmd file
+knitr::opts_chunk$set(error = TRUE, cache = TRUE, echo = FALSE)
+@
+
+<<directories, include=FALSE, echo=FALSE>>=
+## Set up working directory and file paths
+# NOTE: THIS NEXT LINE OF CODE IS ONLY LINE YOU NEED TO CHANGE IF YOU ARE ON WINDOWS MACHINE
+# IF YOU are on MAC, then also need to change direction of slash in other filepath commands
+# Working Directory
+path <- "C:/Users/mi122167/Dropbox/SUNYAlbany/MethodsPOS517/Workflow/TPoL2017/demoR"
+setwd(path)
+# check directory contents
+#dir()
+# If subfolders/subdirectories missing, create them
+dir.create(paste0(path,"/","data",sep=""),showWarnings = TRUE)
+dir.create(paste0(path,"/","figures",sep=""),showWarnings = TRUE)
+dir.create(paste0(path,"/","output",sep=""),showWarnings = TRUE)
+dir.create(paste0(path,"/","tables",sep=""),showWarnings = TRUE)
+pathdat = paste0(path,"/","data",sep="")
+pathfig = paste0(path,"/","figures",sep="")
+pathout = paste0(path,"/","output",sep="")
+pathtab = paste0(path,"/","tables",sep="")
+
+# check to make sure they're created
+#dir()
+@
+
+\title{Template using R, Sweave, knitr, and \LaTeX{} from RStudio with .Rnw file}
+\author{
+  Matthew C. Ingram$^1$
+  \and
+  Nakissa Jahanbani$^1$
+  \and
+  Cesar Renteria$^2$
+  }
+\date{
+  $^1$ Department of Political Science\\
+  $^2$ Department of Public Affairs \& Policy\\ 
+  \\
+  Rockefeller College of Public Affairs \& Policy\\
+  \bigskip
+  \today
+  }
+
+\maketitle
+	
+\begin{abstract}
+\textbf{Summary}. Type your summary or abstract here, if desired. If there is none 
+or if this part is not relevant, then omit.
+\end{abstract}
+
+\section{Purpose of this document}
+
+This document offers you a template to improve your workflow in R using \LaTeX and Sweave package.
+
+\section{Template in greater detail}
+
+This is the template for all assignments you produce for RPAD/RPOS 517. 
+Please use this template for each assignment, and please submit all assignments as PDF documents.
+
+There are three versions of the template: 
+
+\begin{itemize}
+  \item[1] one for Stata using MarkDoc and \LaTeX (.do file);
+  \item[2] one for R using Sweave and \LaTeX (.Rnw) 
+  \item[3] one for R using knitr and markdown (.Rmd file);
+\end{itemize}
+
+This template is the second one: R with Sweave and \LaTeX.
+
+Each template offers a combination of three main tools, including a statistical package (Stata or R), a text processing and presentation 
+system or language (\LaTeX, markdown, and/or HTML), and a system for weaving together code from the statistical package and the text and formatting 
+from the text processing and presentation system (MarkDoc, Sweave, or knitr).
+
+What you choose will likely depend on your needs, and this may vary from one project to another.
+For instance, HTML may be a better choice for producing web pages and other web content, and 
+markdown may be a better choice for producing short reports with little formatting.
+It may also be the case that one collaboration you have uses one set of tools and another team you work with 
+uses a different set of tools.
+
+In general, however, I recommend learning and using \LaTeX; this is a powerful 
+document preparation and typesetting system that will meet all of your needs.
+
+\section{Getting started}
+
+At this point, I assume the following:
+
+\begin{itemize}
+
+  \item[\circ]  you have downloaded and installed \href{https://cran.r-project.org/}{R}
+  
+  \item[\circ]  you have downloaded and installed \href{https://www.rstudio.com/products/RStudio/}{RStudio}
+  
+  \item[\circ]  you have downloaded and installed a .tex distribution and .tex editor (see \href{http://mattingram.net/Teaching/QuantitativeMethods/latexnotes.pdf}{Notes on \LaTeX})
+\end{itemize}
+
+If all of the above is correct, open RStudio.
+
+This .Rnw file using Sweave and \LaTeX can then be easily opened and edited 
+in RStudio. The letters ``nw'' stand for ``noweb'', and ``.nw'' or ``Rnw'' are typical file extensions for Sweave files.
+For more on Sweave, see package document \href{http://web.mit.edu/r/current/lib/R/library/utils/doc/Sweave.pdf}{here}.
+
+RStudio will automatically call the version of R you have installed.
+
+Once you have opened this .Rnw file in RStudio, you can run this .Rnw file by:
+
+  - clicking the ``Compile PDF'' button at the top of the screen (or typing CTRL-SHIFT-K on Windows or CMD-SHIFT-K on Mac)\\
+  
+This process of compiling (integrating all your code and text into a single automatic document) will produce a final PDF document in your working directory, but it will not open automatically; you need to go to directory and open the file; a .tex document 
+will also be produced along the way; you can edit the original .Rmd document or the .tex document, though I recommed editing original .Rnw file so that the changes to the .tex file will not be lost.
+  
+\textbf{Note}: under Tools --> Global Options --> Sweave, you can switch between Sweave and knitr.
+
+
+For compiling your .tex file (on the fly by RStudio or on your own) and any related figures, tables, 
+or other output, you will need a .tex distribution and a .tex editor.  
+There are several distribution and editors available, but I recommend the MiKTeX 
+distribution and TeXstudio editor for Windows, and the MacTeX distribution and 
+TeXshop editor for Mac. 
+
+To read a basic introduction to LaTeX, including 
+suggestions for .tex distributions and editors, see 
+\href{http://mattingram.net/Teaching/QuantitativeMethods/latexnotes.pdf}{Notes on \LaTeX].
+
+\section{Quick intro to \LaTeX}
+
+A few useful \LaTeX commands for writing are: \\
+
+\section{This is heading 1}
+
+\section*{This is a heading 1 without numbering}
+
+\subsection{This is first subheading (heading 2)}
+
+\subsection*{This is second subheading (heading 2) without numbering}
+
+This is a text paragraph which requires no syntax.\\
+
+This is a list of items:
+\begin{itemize}
+	\item[\textbullet] item 1
+	\item[\circ] item 2
+	\item[\circ] item 3
+\end{itemize}
+
+This is a numbered list:
+\begin{itemize}
+	\item[(1)] first item
+	\item[(2)] second item
+	\item[(3)] third item
+\end{itemize}
+
+\subsection{Equations}
+
+\noindent This is a line introducing Equation 1 and Equation 2 below.
+
+\begin{equation}
+\label{simple_equation}
+  \alpha = \sqrt{ \beta }
+\end{equation}
+	
+\begin{equation}
+\label{Bivariate OLS}
+  y = \beta_0 + \beta_1X_1 + \beta_2X_2 + \epsilon
+\end{equation}
+
+You can also write equations inline like this $\alpha = \sqrt{\beta}$ or break other equations out with double dollar signs like this: $$ y = \beta_0 + \beta_1X_1 + \beta_2X_2 + \epsilon $$
+
+\subsection{Inline R code}
+
+Lastly, while most of your R code will be in code chunks, as shown below, you can also include short bits of R code inline. For example, the mean of 100 random numbers drawn from a uniform distribution between 1 and 100 is: \Sexpr{mean(runif(100, min=1, max=100))}.
+
+
+\section{Data Analysis Example}
+
+In the blocks of R code (called ``code chunks'') and text below (called ``documentation chunks''), we illustrate several typical steps in the 
+course of writing a paper, including:
+
+\begin{itemize}
+	\item[(1)] loading some data, 
+	\item[(2)] describing the data, including a table of summary statistics,
+	\item[(3)] graphing the data,
+	\item[(4)] running a simple regression model, 
+	\item[(5)] graphing the results.
+\end{itemize}
+
+Data are in a folder called ``data'', and all tables are exported to and then imported from a folder called ``tables'', and all figures are exported to and then imported from a folder called ``figures''.
+
+
+\section{Loading Data}
+
+In this section, we load our data. \\
+We use the winter olympics dataset for Michael 
+Bailey's statistics text, \textit{Real Stats} (Oxford, 2016).\\
+Output will not appear in final document if option ``include=FALSE`` is used.
+All R commands have been suppressed with global option above of ``echo=FALSE``. \\
+
+
+<<dataload, include=FALSE, echo=FALSE>>=
+# load data from web
+data.df <- fread("http://mattingram.net/Teaching/workflow/olympics_HW.csv")
+write.table(data.df, file=paste0(pathdat,"/", "olympics.csv", sep=""), col.names=TRUE, sep=",")
+#Go to directory with data
+#setwd(pathdat)
+# load as csv
+#data.df <- read.table(paste0(pathdat,"/", "olympics_HW.csv", sep=""), header=TRUE, sep=",")
+# ALTERNATIVES BELOW; need to uncomment to use
+# load with package foreign
+#df <- read.dta("olympics_HWforR.dta")
+# load with package readstata13
+#df <- read.dta13("olympics_HWforR.dta")
+# Or, can load data with full file path
+#df = read_dta("C:/Users/mi122167/Dropbox/SUNYAlbany/MethodsPOS517/Workflow/TPoL2017/demoR/data/olympics_HWforR.dta")
+@ 
+
+A good practice is to name your objects with reference to the characteristics of the object. For example, variable name \textit{data.df} using suffix \textit{df.} can be used to indicate that object is a dataframe (df).
+
+\section{Exploring Data and Descriptive Statistics}
+
+Next, we can have take a quick look at the data set by just typing the object \textit{data.df}. Or use other commands, such as head(), tail(), and summary(). You can control the summary for a single variable by adding the sympbol \$ and after that, the name of the variable. For example summary(data.df\$year).
+
+R provides a wide range of more sophisticated packages for generating tables, including ``stargazer''. The output from this package is reported in Table~\ref{tab:sumstats}.
+
+<<descriptives, include=FALSE, echo=FALSE, results=hide>>=
+# note re results: verbatim option is same as 'asis' in .Rmd file; "tex" option suppresses code output in document but still generates table
+# need to use results=hide to avoid duplicate tables when call table later
+#summary(data.df)
+#summary(data.df$medals)
+# Hmisc::describe(data.df)
+# or describe from package psych
+#psych::describe(data.df)
+
+# use stargazer and send to output file
+#setwd(pathtab)
+stargazer(data.df, summary=TRUE, out=paste0(pathtab,"/", "table1Sweave.sg.tex", sep=""), header=FALSE, label="tab:sumstats")
+# or, with xtable
+#table1 <- summary(data.df)
+#print.xtable(table1, type="latex", file=paste0(pathtab,"/", "table1Sweave.xt.tex", sep=""))     # save to file
+@
+
+
+If project involves working with a lot with variables, we might want to use a more practical route than, for example, ``data.df\$medals''. We can use the attach/dettach commands to use only ``year'' as a reference to the variable, rather than the former path. Attaching will get you into a more familiar environment when managing variables and datasets. If you are planning to use only one dataset in your project, you're completely safe. Otherwise, never forget to detach the data. Notice that if you generate a new variable, you need to detach and re-attach to see it.\\
+
+Some people think that the attach function should never be used. Here are some reasons why.\\
+1. every attach is a copy of the dataset in the memory. So, if you attach twice the same dataset and make any changes in it, you are not sure that the correct values are being used. Or, if you happen to work with two datasets that share some variable names, you're not sure what variable you are really calling.\\
+2. Also, if you have 2 different data sets and they both have a variable with same name, e.g., `y`, or `y-hat`, or `x1`, then when you attach these data sets the variables look the same in R, and you cannot be sure which one is being called from memory.\\
+
+\textbf{** Bottom line: use 'attach' very carefully **}
+
+<<include=FALSE, echo=FALSE>>=
+# Attach a dataframe object, so you can work easily with its variable. Nver forget to detach when after using it, though.
+attach(data.df)
+# check to see if attached to R search path
+#search()
+
+# frequency table
+#table(year)                 # Shows the frequencies.
+#prop.table(table(year))     # Shows the proportions.
+@
+
+Here we import the table of summary statistics.\\
+
+\input{./tables/table1Sweave.sg.tex} 
+
+Now lets generate and add a figure that visualizes one of these variables.\\
+
+
+Traditional command for plotting is \textit{plot()}. However, there is an alternative, \href{http://www.sthda.com/english/wiki/ggplot2-scatter-plots-quick-start-guide-r-software-and-data-visualization}{ggplot()}, that substantially improves the look of your graph and is extremely flexible. You should start using ggplot as soon as possible.
+
+The basic structure of \textit{gplot()} is this. First, you identify the dataframe and the variables of interest within ggplot(). This command is similar to Stata's \textit{twoway}, since it does nothing by itself, but sets the structure for a graphing command. Then, you have to add elements to the plot with the sign ``+''. This sign resembles the comma in Stata's graphing commands for adding options. The command \textit{geom\_point()} resembles \textit{scatter} in Stata, because this is going to add the points to the graph; ``labs'' stands for labels. 
+
+<<histogram, include=TRUE, echo=FALSE, results=hide>>=
+#HISTOGRAM
+setwd(pathfig)
+png("hist1.png", units="in", height=5, width=5, res=300)
+hist(medals)
+dev.off()
+
+# note: graphics path set in header of file, so no need to identify path when calling figures
+@
+
+\includegraphics{hist1.png}
+
+<<plots-other, include=FALSE, echo=FALSE, evaluate=FALSE>>=
+# Basic PLOT commands
+#plot(athletes,medals)
+
+#------------------------------------------------------------
+# GGPLOT - NICER GRAPHS
+# Example: scatter plot of athletes and medals
+ggplot(data.df, aes(x=athletes, y=medals)) + geom_point()
+
+# geom_point() defines the point size and shape. Instead of Stata's comma, use sign "+"
+ggplot(data.df, aes(x=athletes, y=medals)) +
+  geom_point(size=3,shape=20, color="blue") +
+  labs(title="Medals and athletes",
+       x="Athletes", y = "Medals")
+@
+
+\section{Regression}
+
+Let's end this template with a regression analysis.\\
+
+we need to call the command lm(), which stands for linear model. Within the command we first place the dependent variable ``medals''. Next, we separate the dependent variable from the independents with the `~` symbol. Fourth, we type the independent variable(s) separated by the \+ sign; in this case, only athletes, GDP, and temp. Finally, unless data are attached, we must either call both dataset and variable (e.g., data.df\$medals) or define the source dataset; in this case, data.df.
+
+We need to store the results in an object, so we can use them in post-estimations. To do that, run the same coding line, but assign it to a new object. Here, we call new object ``m1`` (model 1) and ``m2`` (model 2). Results are stored, but you cannot see them. To view the results, we must call or manipulate the ``m1`` object (or ``m2'').
+
+<<regression, include=FALSE, echo=FALSE>>=
+#lm(medals ~ athletes + GDP, data = data.df)            # Screen the results, but not saved as an object.
+m1 = lm(medals ~ athletes + GDP, data = data.df)   # Save the regression model as an object.
+# summary(m1)
+#confint(m1)                                         # Screen the confidence interval
+#coefplot(m1, predictors=c("athletes", "GDP"))          # dotplot of coefficients
+# Take some time to explore the features of this object
+#str(m1)
+#class(m1)
+#names(m1)
+
+m2 = lm(medals ~ temp + athletes + GDP, data = data.df)   # Create a new "lm" model
+#summary(m2)
+#confint(m2)                                 # Confidence interval at the 95% (default)
+#confint(m2,level=0.90)                      # Confidence interval at the 90%
+#coefplot(m2, predictors=c("temp", "athletes", "GDP"))          # dotplot of coefficients
+
+
+# Plot with confidence intervals
+## Remember that option "se=FALSE"? Just delete it.
+#ggplot(data.df, aes(x=athletes, y=medals)) +
+#  geom_point(color="blue") +                           # Scatter
+#  geom_smooth(method=lm)                   # Here I took out se=FALSE
+@
+
+Next, we output results cleanly in different formats.
+
+In the code that generated this table (stargazer package), we labeled a table as ``regresults'', so we can call that table as Table~\ref{tab:regresults}.
+
+<<regression-results, include=TRUE, echo=FALSE, results=hide>>=
+#setwd(pathtab)
+stargazer(m1, m2, title="Results", align=TRUE, out=paste0(pathtab,"/", "table2Sweavesg.tex", sep=""), header=FALSE, label="tab:regresults")
+@
+
+\input{./tables/table2Sweavesg.tex}
+
+<<include=FALSE, echo=FALSE, evaluate=FALSE>>=
+# alternative for LaTeX
+library(xtable)
+m1sum <- summary(m1)
+m2sum <- summary(m2)
+m1sum.t <- xtable(m1sum)                                 
+m2sum.t <- xtable(m2sum)
+table2 <- rbind(m1sum.t, m2sum.t)
+#print.xtable(table2, type="latex")                        # prints to console
+setwd(pathtab)
+print.xtable(table2, type="latex", file=paste0(pathtab,"/", "table2Sweave.xt.tex", sep=""))     # save to file
+# had trouble inputting tex file in some versions:
+#\input{./tables/table2.tex}
+
+## Other alternatives
+
+### output results to file
+#m1sum <- summary(m1)
+#m2sum <- summary(m2)
+#setwd(pathtab)
+#capture.output(m1sum, file="table2.csv")
+#capture.output(m1sum, file="table2.doc")
+
+### alternative for html
+#library(xtable)
+#print.xtable(m1sum.t, type="html")
+#setwd(pathtab)
+#print.xtable(m1sum.t, type="html", file="model1.html")
+@
+
+Finally, let's graph the OLS results.
+
+<<regression-graph, include=FALSE, echo=FALSE, results=hide>>=
+setwd(pathfig)
+png("coefplot1.png", units="in", height=5, width=5, res=300)
+coefplot(m1, predictors=c("athletes", "GDP"))
+dev.off()
+
+png("coefplot2.png", units="in", height=5, width=5, res=300)
+coefplot(m2, predictors=c("athletes", "GDP", "temp"))
+dev.off()
+@
+
+\begin{figure}[h]
+		\centering
+    \includegraphics[width=4in,height=4in,angle=0]{coefplot1.png}
+		\caption{This graph shows the coefficients for the first regression.}
+		\label{fig:coefplot1}
+\end{figure}
+
+\begin{figure}[h]
+		\centering
+    \includegraphics[width=4in,height=4in,angle=0]{coefplot2.png}
+		\caption{This graph shows the coefficients for the second regression.}
+		\label{fig:coefplot2}
+\end{figure}
+
+		
+		Then we can write some text and reference the figure by noting that 
+		Figure~\ref{fig:coefplot1} and Figure~\ref{fig:coefplot2} report the coefficients with 95\% confidence intervals.
+
+Or we could plot the two figures together as they appear in Figure~\ref{fig:sub1} and Figure~\ref{fig:sub2} of Figure~\ref{fig:test}.
+
+\begin{figure}
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.4\linewidth]{coefplot1.png}
+  \caption{Model 1}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.4\linewidth]{coefplot2.png}
+  \caption{Model 2}
+  \label{fig:sub2}
+\end{subfigure}
+\caption{A figure with two subfigures}
+\label{fig:test}
+\end{figure}
+
+
+Or try something different as in Figure~\ref{fig:example}.
+
+
+\begin{figure}%
+    \centering
+    \subfloat[label 1]{{\includegraphics[width=5cm]{coefplot1.png} }}%
+    \qquad
+    \subfloat[label 2]{{\includegraphics[width=5cm]{coefplot2.png} }}%
+    \caption{2 Figures side by side}%
+    \label{fig:example}%
+\end{figure}
+
+
+<<detach,echo=FALSE, include=FALSE>>=
+# Detach data set (be sure to do this after you finish using each dataset you attach)
+detach()
+# check to see if detached correctly
+#search()  
+@
+
+DETACH. Consider this as roughly equivalent to Stata's `clear` (not `clear all`). Make detaching a strict practice or habig, or else avoid using attach/detach entirely. Remember that any attached data will be in R's search path, so any command that is executed will search through the attached data and apply action to a variable name.
+
+Assuming you have detached your data, it will still be in memory. This is a nice feature of R compared to Stata. Even though we will load a new dataframe, the previous one (dt.olympics) will remain in memory and we can call it whenever we want. Just remember that you may have multiple data sets available if you save your current workspace for a particular project.
+
+
+<<home, include=TRUE, echo=FALSE>>=
+setwd(path)
+@
+
+
+\section{Conclusion}
+
+Finally, we would write our conclusion here.
+
+\end{document}
