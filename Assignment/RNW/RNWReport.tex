@@ -79,7 +79,8 @@
     style=authoryear,
     dashed=false, 
     natbib=true,
-    url=false
+    url=false,
+    backend=biber
 ]{biblatex}
 
 % Additional styling options to ensure Harvard referencing format.
@@ -170,11 +171,11 @@
   \pagecolor{white} % Change in final
 
     \begin{abstract}
-        text
 
-        text
-
-        text
+    As of March 31, 2024, Netflix is the most popular television streaming service
+    in the world~\autocite{NetflixSubStats}, with over 269,000,000 active paid memberships. 
+    This report aims to analyse the library of content found on Netflix and identify 
+    key factors associated with the viewership of this content.
 
     \end{abstract} 
     
@@ -185,69 +186,54 @@
     \thispagestyle{empty}
 
     % Declaring un-numbered chapter because I prefer how it looks.
-    \chapter*{Introduction}\label{ch:introduction}
+    \chapter*{Introduction}
     % Add it to the contents, because un-numbered chapters aren't by default.
     \addcontentsline{toc}{chapter}{Introduction}
     % Put the chapter name in the header.
     \markboth{Introduction}{}
+    
+    Data visualisation is a field of data science wherein large datasets are parsed
+    using code (most commonly written in Python or R) to produce clear visualisations
+    interpretable to a wide audience, even if they do not have in-depth knowledge
+    of the dataset.
 
-    Text text text
+    \noindent The aim of this report is to analyse a large dataset containing data about Netflix's
+    content library, identifying and visualising factors that have considerable influence over content
+    viewership.
 
-    Text text text
+    
+
+    \noindent This report is split across three sections:
+    \begin{itemize}
+        \item The \textbf{motivation and objectives} of this report.
+        \item The \textbf{results from experiments} on the dataset.
+        \item A \textbf{summary} of overall findings.
+    \end{itemize}
 
     \pagebreak
 
     % Declaring un-numbered chapter because I prefer how it looks.
-    \chapter*{Motivation and objectives}\label{ch:sec1}
-    % Add it to the contents, because un-numbered chapters aren't by default.
-    \addcontentsline{toc}{chapter}{Motivation and objectives}
+    \chapter{Motivation and objectives}
+
     % Put the chapter name in the header.
     \markboth{Motivation and objectives}{}
+    
+    Netflix is a massive service used by hundreds of millions of people worldwide.
+    Therefore, it is important to identify what they have done correctly, and how they optimize
+    their content to maximise viewership, revenue and profit.
 
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlkwd{ggplot}\hlstd{(diamonds,} \hlkwd{aes}\hlstd{(}\hlkwc{x} \hlstd{= carat,} \hlkwc{fill} \hlstd{= color))} \hlopt{+}
-  \hlkwd{geom_histogram}\hlstd{(}\hlkwc{bins} \hlstd{=} \hlnum{30}\hlstd{)}
-\end{alltt}
-\end{kframe}\begin{figure}[H]
-
-{\centering \includegraphics[width=0.75\linewidth]{C:/Users/Lewis/DataspellProjects/DataVis/Assignment/RNW/figures/Carat_and_color-1} 
-
-}
-
-\caption{\label{fig:fig1}plotting example}\label{fig:Carat and color}
-\end{figure}
-
-\end{knitrout}
-
-As we can see in figure \ref{fig:fig1}
+    \section{Key questions conerning the data}
+    \begin{itemize}
+        \item Which month of the year has the most successful releases?
+        \item Which \textbf{content type} (movies / TV shows) is more popular?
+        \item Which genres are the most popular?
+        \item 
+    \end{itemize}
 
     \pagebreak
     
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlkwd{ggplot}\hlstd{(diamonds,} \hlkwd{aes}\hlstd{(}\hlkwc{x} \hlstd{= carat,} \hlkwc{y} \hlstd{= price))} \hlopt{+}
-\hlkwd{geom_point}\hlstd{(}\hlkwd{aes}\hlstd{(}\hlkwc{color} \hlstd{= cut))}
-\end{alltt}
-\end{kframe}\begin{figure}[H]
+    \chapter{Experimental results}
 
-{\centering \includegraphics[width=0.75\linewidth]{C:/Users/Lewis/DataspellProjects/DataVis/Assignment/RNW/figures/Carat_and_price-1} 
-
-}
-
-\caption{\label{fig:fig2}plotting example 2}\label{fig:Carat and price}
-\end{figure}
-
-\end{knitrout}
-
-Also from figure \ref{fig:fig2}
-
-    % Declaring un-numbered chapter because I prefer how it looks.
-    \chapter*{Experimental results}\label{ch:sec2}
-    % Add it to the contents, because un-numbered chapters aren't by default.
-    \addcontentsline{toc}{chapter}{Experimental results}
     % Put the chapter name in the header.
     \markboth{Experimental results}{}
 
@@ -256,104 +242,64 @@ Also from figure \ref{fig:fig2}
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
-  \hlkwd{summary}\hlstd{(dataDf)}
-\end{alltt}
-\begin{verbatim}
-##                                                 App                Category   
-##  ROBLOX                                           :    9   FAMILY      :1972  
-##  CBS Sports App - Scores, News, Stats & Watch Live:    8   GAME        :1144  
-##  8 Ball Pool                                      :    7   TOOLS       : 843  
-##  Candy Crush Saga                                 :    7   MEDICAL     : 463  
-##  Duolingo: Learn Languages Free                   :    7   BUSINESS    : 460  
-##  ESPN                                             :    7   PRODUCTIVITY: 424  
-##  (Other)                                          :10796   (Other)     :5535  
-##      Rating        Reviews                     Size             Installs   
-##  Min.   : 1.0   0      : 596   Varies with device:1695   1,000,000+ :1579  
-##  1st Qu.: 4.0   1      : 272   11M               : 198   10,000,000+:1252  
-##  Median : 4.3   2      : 214   12M               : 196   100,000+   :1169  
-##  Mean   : 4.2   3      : 175   14M               : 194   10,000+    :1054  
-##  3rd Qu.: 4.5   4      : 137   13M               : 191   1,000+     : 907  
-##  Max.   :19.0   5      : 108   15M               : 184   5,000,000+ : 752  
-##  NA's   :1474   (Other):9339   (Other)           :8183   (Other)    :4128  
-##    Type           Price               Content.Rating           Genres    
-##  0   :    1   0      :10040                  :   1   Tools        : 842  
-##  Free:10039   $0.99  :  148   Adults only 18+:   3   Entertainment: 623  
-##  NaN :    1   $2.99  :  129   Everyone       :8714   Education    : 549  
-##  Paid:  800   $1.99  :   73   Everyone 10+   : 414   Medical      : 463  
-##               $4.99  :   72   Mature 17+     : 499   Business     : 460  
-##               $3.99  :   63   Teen           :1208   Productivity : 424  
-##               (Other):  316   Unrated        :   2   (Other)      :7480  
-##          Last.Updated              Current.Ver               Android.Ver  
-##  August 3, 2018: 326   Varies with device:1459   4.1 and up        :2451  
-##  August 2, 2018: 304   1.0               : 809   4.0.3 and up      :1501  
-##  July 31, 2018 : 294   1.1               : 264   4.0 and up        :1375  
-##  August 1, 2018: 285   1.2               : 178   Varies with device:1362  
-##  July 30, 2018 : 211   2.0               : 151   4.4 and up        : 980  
-##  July 25, 2018 : 164   1.3               : 145   2.3 and up        : 652  
-##  (Other)       :9257   (Other)           :7835   (Other)           :2520
-\end{verbatim}
-\begin{alltt}
 \hlcom{# Replace all instances of 'NA' as a string or a blank string "" to NA.}
 \hlcom{# The strings 'NA' or " " and NA are two different things to R, and only the}
 \hlcom{# non-string NA is detected by functions like is.na().}
+\hlcom{# Identify rows containing NA.}
+\hlstd{naRows} \hlkwb{<-} \hlstd{dataDf[}\hlkwd{rowSums}\hlstd{(}\hlkwd{is.na}\hlstd{(dataDf))} \hlopt{>} \hlnum{0}\hlstd{,]}
+\hlkwd{nrow}\hlstd{(naRows)}
+\end{alltt}
+\begin{verbatim}
+## [1] 0
+\end{verbatim}
+\begin{alltt}
 \hlstd{dataDf[(dataDf} \hlopt{==} \hlstr{'NA'} \hlopt{|} \hlstd{dataDf} \hlopt{==} \hlstr{""} \hlopt{|} \hlstd{dataDf} \hlopt{==} \hlstr{"NaN"}\hlstd{)]} \hlkwb{<-} \hlnum{NA}
 
 \hlcom{# Output a summary of the data.}
 \hlkwd{summary}\hlstd{(dataDf)}
 \end{alltt}
 \begin{verbatim}
-##                                                 App                Category   
-##  ROBLOX                                           :    9   FAMILY      :1972  
-##  CBS Sports App - Scores, News, Stats & Watch Live:    8   GAME        :1144  
-##  8 Ball Pool                                      :    7   TOOLS       : 843  
-##  Candy Crush Saga                                 :    7   MEDICAL     : 463  
-##  Duolingo: Learn Languages Free                   :    7   BUSINESS    : 460  
-##  ESPN                                             :    7   PRODUCTIVITY: 424  
-##  (Other)                                          :10796   (Other)     :5535  
-##      Rating        Reviews                     Size             Installs   
-##  Min.   : 1.0   0      : 596   Varies with device:1695   1,000,000+ :1579  
-##  1st Qu.: 4.0   1      : 272   11M               : 198   10,000,000+:1252  
-##  Median : 4.3   2      : 214   12M               : 196   100,000+   :1169  
-##  Mean   : 4.2   3      : 175   14M               : 194   10,000+    :1054  
-##  3rd Qu.: 4.5   4      : 137   13M               : 191   1,000+     : 907  
-##  Max.   :19.0   5      : 108   15M               : 184   5,000,000+ : 752  
-##  NA's   :1474   (Other):9339   (Other)           :8183   (Other)    :4128  
-##    Type           Price               Content.Rating           Genres    
-##  0   :    1   0      :10040   Everyone       :8714   Tools        : 842  
-##  Free:10039   $0.99  :  148   Teen           :1208   Entertainment: 623  
-##  NaN :    0   $2.99  :  129   Mature 17+     : 499   Education    : 549  
-##  Paid:  800   $1.99  :   73   Everyone 10+   : 414   Medical      : 463  
-##  NA's:    1   $4.99  :   72   Adults only 18+:   3   Business     : 460  
-##               $3.99  :   63   (Other)        :   2   Productivity : 424  
-##               (Other):  316   NA's           :   1   (Other)      :7480  
-##          Last.Updated              Current.Ver               Android.Ver  
-##  August 3, 2018: 326   Varies with device:1459   4.1 and up        :2451  
-##  August 2, 2018: 304   1.0               : 809   4.0.3 and up      :1501  
-##  July 31, 2018 : 294   1.1               : 264   4.0 and up        :1375  
-##  August 1, 2018: 285   1.2               : 178   Varies with device:1362  
-##  July 30, 2018 : 211   2.0               : 151   4.4 and up        : 980  
-##  July 25, 2018 : 164   (Other)           :7972   (Other)           :3169  
-##  (Other)       :9257   NA's              :   8   NA's              :   3
+##    show_id              type              title             director        
+##  Length:8807        Length:8807        Length:8807        Length:8807       
+##  Class :character   Class :character   Class :character   Class :character  
+##  Mode  :character   Mode  :character   Mode  :character   Mode  :character  
+##                                                                             
+##                                                                             
+##                                                                             
+##      cast             country           date_added         release_year 
+##  Length:8807        Length:8807        Length:8807        Min.   :1925  
+##  Class :character   Class :character   Class :character   1st Qu.:2013  
+##  Mode  :character   Mode  :character   Mode  :character   Median :2017  
+##                                                           Mean   :2014  
+##                                                           3rd Qu.:2019  
+##                                                           Max.   :2021  
+##     rating            duration          listed_in         description       
+##  Length:8807        Length:8807        Length:8807        Length:8807       
+##  Class :character   Class :character   Class :character   Class :character  
+##  Mode  :character   Mode  :character   Mode  :character   Mode  :character  
+##                                                                             
+##                                                                             
+## 
 \end{verbatim}
 \begin{alltt}
 \hlcom{# Identify rows containing NA.}
 \hlstd{naRows} \hlkwb{<-} \hlstd{dataDf[}\hlkwd{rowSums}\hlstd{(}\hlkwd{is.na}\hlstd{(dataDf))} \hlopt{>} \hlnum{0}\hlstd{,]}
-\hlcom{# 1469 with no ratings, 8 with no current version, 4 with neither}
 \hlkwd{nrow}\hlstd{(naRows)}
 \end{alltt}
 \begin{verbatim}
-## [1] 1481
+## [1] 3475
 \end{verbatim}
 \end{kframe}
 \end{knitrout}
 
-    % Declaring un-numbered chapter because I prefer how it looks.
-    \chapter*{Summary \& conclusion}\label{ch:sec3}
-    % Add it to the contents, because un-numbered chapters aren't by default.
+    \chapter{Summary and conclusion}
+    % Add it to the contents, because un-numbered chapters are not by default.
     \addcontentsline{toc}{chapter}{Summary and conclusion}
     % Put the chapter name in the header.
     \markboth{Summary and conclusion}{}
 
-    aaa
+    aaaaa
+    
+    \printbibliography{}
 
 \end{document}

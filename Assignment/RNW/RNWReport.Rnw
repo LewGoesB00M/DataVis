@@ -29,7 +29,8 @@
     style=authoryear,
     dashed=false, 
     natbib=true,
-    url=false
+    url=false,
+    backend=biber
 ]{biblatex}
 
 % Additional styling options to ensure Harvard referencing format.
@@ -120,7 +121,8 @@ pathout = paste0(path,"/","output",sep="")
 pathtab = paste0(path,"/","tables",sep="")
 
 knitr::opts_chunk$set(fig.align = 'center', # Center figures
-                      fig.pos = "H", # Place them where I want them to be.
+                      fig.pos = "H", # At their position in the code rather than
+                                     # where the compiler "thinks" they should go.
                       out.width = "75%", # At a reduced width to fit the page.
                       fig.path = paste0(pathfig, "/", sep = "") # In the figures folder.
                       )
@@ -152,11 +154,11 @@ knitr::opts_chunk$set(fig.align = 'center', # Center figures
   \pagecolor{white} % Change in final
 
     \begin{abstract}
-        text
 
-        text
-
-        text
+    As of March 31, 2024, Netflix is the most popular television streaming service
+    in the world~\autocite{NetflixSubStats}, with over 269,000,000 active paid memberships. 
+    This report aims to analyse the library of content found on Netflix and identify 
+    key factors associated with the viewership of this content.
 
     \end{abstract} 
     
@@ -167,56 +169,63 @@ knitr::opts_chunk$set(fig.align = 'center', # Center figures
     \thispagestyle{empty}
 
     % Declaring un-numbered chapter because I prefer how it looks.
-    \chapter*{Introduction}\label{ch:introduction}
+    \chapter*{Introduction}
     % Add it to the contents, because un-numbered chapters aren't by default.
     \addcontentsline{toc}{chapter}{Introduction}
     % Put the chapter name in the header.
     \markboth{Introduction}{}
+    
+    Data visualisation is a field of data science wherein large datasets are parsed
+    using code (most commonly written in Python or R) to produce clear visualisations
+    interpretable to a wide audience, even if they do not have in-depth knowledge
+    of the dataset.
 
-    Text text text
+    \noindent The aim of this report is to analyse a large dataset containing data about Netflix's
+    content library, identifying and visualising factors that have considerable influence over content
+    viewership.
 
-    Text text text
+    
+
+    \noindent This report is split across three sections:
+    \begin{itemize}
+        \item The \textbf{motivation and objectives} of this report.
+        \item The \textbf{results from experiments} on the dataset.
+        \item A \textbf{summary} of overall findings.
+    \end{itemize}
 
     \pagebreak
 
     % Declaring un-numbered chapter because I prefer how it looks.
-    \chapter*{Motivation and objectives}\label{ch:sec1}
-    % Add it to the contents, because un-numbered chapters aren't by default.
-    \addcontentsline{toc}{chapter}{Motivation and objectives}
+    \chapter{Motivation and objectives}
+
     % Put the chapter name in the header.
     \markboth{Motivation and objectives}{}
+    
+    Netflix is a massive service used by hundreds of millions of people worldwide.
+    Therefore, it is important to identify what they have done correctly, and how they optimize
+    their content to maximise viewership, revenue and profit.
 
-    <<Carat and color, fig.cap = "\\label{fig:fig1}plotting example">>=
-ggplot(diamonds, aes(x = carat, fill = color)) + 
-  geom_histogram(bins = 30)
-@
-
-As we can see in figure \ref{fig:fig1}
+    \section{Key questions conerning the data}
+    \begin{itemize}
+        \item Which month of the year has the most successful releases?
+        \item Which \textbf{content type} (movies / TV shows) is more popular?
+        \item Which genres are the most popular?
+        \item 
+    \end{itemize}
 
     \pagebreak
     
-    <<Carat and price, fig.cap = "\\label{fig:fig2}plotting example 2">>=
-ggplot(diamonds, aes(x = carat, y = price)) +
-    geom_point(aes(color = cut))
-@
+    \chapter{Experimental results}
 
-Also from figure \ref{fig:fig2}
-
-    % Declaring un-numbered chapter because I prefer how it looks.
-    \chapter*{Experimental results}\label{ch:sec2}
-    % Add it to the contents, because un-numbered chapters aren't by default.
-    \addcontentsline{toc}{chapter}{Experimental results}
     % Put the chapter name in the header.
     \markboth{Experimental results}{}
 
     <<loadData, echo = FALSE, include = FALSE >>=
     # I prefer to use camelCase for variables.
-    dataDf <- read.csv(paste0(pathdat, "/googleplaystore.csv", sep = ""), stringsAsFactors = T)
+    dataDf <- read.csv(paste0(pathdat, "/netflix_titles.csv", sep = ""))
 @
 
 <<dataOut>>=
-  summary(dataDf)
-
 # Replace all instances of 'NA' as a string or a blank string "" to NA.
 # The strings 'NA' or " " and NA are two different things to R, and only the
 # non-string NA is detected by functions like is.na().
@@ -227,17 +236,17 @@ summary(dataDf)
 
 # Identify rows containing NA.
 naRows <- dataDf[rowSums(is.na(dataDf)) > 0,]
-# 1469 with no ratings, 8 with no current version, 4 with neither
 nrow(naRows)
 @
 
-    % Declaring un-numbered chapter because I prefer how it looks.
-    \chapter*{Summary \& conclusion}\label{ch:sec3}
-    % Add it to the contents, because un-numbered chapters aren't by default.
+    \chapter{Summary and conclusion}
+    % Add it to the contents, because un-numbered chapters are not by default.
     \addcontentsline{toc}{chapter}{Summary and conclusion}
     % Put the chapter name in the header.
     \markboth{Summary and conclusion}{}
 
-    aaa
+    aaaaa
+    
+    \printbibliography{}
 
 \end{document}
