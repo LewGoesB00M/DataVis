@@ -3,8 +3,11 @@ The purpose of your report should be shown: "i'm analyzing netflix best times so
 Understand HOW to understand.
 Your questions are good enough. Ask as many questions as you can within the word limit.
 You need to demonstrate a concrete understanding of everything you analyse and the analysis techniques.
+Word limit sounds very flexible. 3000 is moreof a framework to go off, seems like he won't worry about exceeding it too heavily.
 
 
 He then waffled about something relating to chatGPT? I don't think it's at all relevant but he says he'll send us something on it.
 I think it was just pertaining to data science as a career.
 
+He's giving info about FINAL YEAR PROJECTS via his industry collaborators.
+I hate to say it but this really could be your best opportunity.
