@@ -1,0 +1,1191 @@
+% Why do we need to submit this? It's not part of the markscheme and you wouldn't
+% usually give out your TeX code, just the PDF.
+
+% -------------------------------------------------------------------------------
+% Establish page structure & font.
+\documentclass[12pt]{report}
+
+\usepackage[a4paper, margin=3cm]{geometry} % Page structure
+
+\usepackage{graphicx} % Required for inserting images
+\graphicspath{{images/}} % Any additional images I use (BCU logo, etc) are from here.
+
+\usepackage[utf8]{inputenc} % UTF-8 encoding
+\usepackage[T1]{fontenc} % T1 font
+\usepackage{float}  % Allows for floats to be positioned using [H], which correctly
+                    % positions them relative to their location within my LaTeX code.
+\usepackage{subcaption}
+
+% -------------------------------------------------------------------------------
+% Declare biblatex with custom Harvard BCU styling for referencing.
+\usepackage[
+    useprefix=true,
+    maxcitenames=3,
+    maxbibnames=99,
+    style=authoryear,
+    dashed=false, 
+    natbib=true,
+    url=false,
+    backend=biber
+]{biblatex}
+
+% Additional styling options to ensure Harvard referencing format.
+\renewbibmacro*{volume+number+eid}{
+    \printfield{volume}
+    \setunit*{\addnbspace}
+    \printfield{number}
+    \setunit{\addcomma\space}
+    \printfield{eid}}
+\DeclareFieldFormat[article]{number}{\mkbibparens{#1}}
+
+% Declare report.bib as the bibliography source, to be called later via \printbibliography
+\addbibresource{report.bib}
+
+% Also import hyperref, used for embedding URLs.
+\usepackage{hyperref}
+
+% Set certain colours up for links, whether they link to within the document (citations, contents page)
+% or to an external resource (websites)
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black, % Contents page
+    urlcolor=blue, % URLs
+    citecolor=black, % Citations
+}
+
+% -------------------------------------------------------------------------------
+% To prevent "Chapter N" display for each chapter
+\usepackage[compact]{titlesec}
+\usepackage{wasysym}
+\usepackage{import}
+
+\titlespacing*{\chapter}{0pt}{-2cm}{0.5cm}
+\titleformat{\chapter}[display]
+{\normalfont\bfseries}{}{0pt}{\Huge}
+
+% -------------------------------------------------------------------------------
+% Custom macro to make an un-numbered footnote.
+
+\newcommand\blfootnote[1]{
+    \begingroup
+    \renewcommand\thefootnote{}\footnote{#1}
+    \addtocounter{footnote}{-1}
+    \endgroup
+}
+
+% -------------------------------------------------------------------------------
+% Fancy headers; used to show my name, BCU logo and current chapter for the page.
+\usepackage{fancyhdr}
+\usepackage{calc}
+\pagestyle{fancy}
+
+\setlength\headheight{37pt} % Set custom header height to fit the image.
+
+\renewcommand{\chaptermark}[1]{%
+    \markboth{#1}{}} % Include chapter name.
+
+
+% Lewis Higgins - ID 22133848           [BCU LOGO]                [CHAPTER NAME]
+\lhead{Lewis Higgins - ID 22133848~~~~~~~~~~~~~~~\includegraphics[width=1.75cm]{bcu logo}}
+\fancyhead[R]{\leftmark}
+
+
+% Temp for pagecolor command
+\usepackage{xcolor}
+
+\usepackage{listings}
+
+% -------------------------------------------------------------------------------
+
+\title{Visualising Trends in Apps on the Google Play Store}
+\author{Lewis Higgins - Student ID 22133848}
+\date{May 2024}
+
+% -------------------------------------------------------------------------------
+
+\begin{document}
+
+
+
+<<setup, include=FALSE, echo=FALSE>>= 
+# Chunk name: Setup, Code not shown in document, Output not shown in document.
+
+# Please note that I have not included "results = hide" from the template.
+# This is because I am not using Sweave to compile this, but knitr instead,
+# as I was unable to get Sweave to work properly on both of my devices.
+
+options(digits = 4, warn = -1) 
+
+# Load these ahead of time.
+pacman::p_load(data.table, knitr, kableExtra, tidyverse, naniar, varhandle, ggmosaic) 
+
+
+path <- "C:/Users/Lewis/DataspellProjects/DataVis/Assignment/RNW"
+setwd(path)
+
+dir.create(paste0(path,"/","data",sep=""),showWarnings = TRUE)
+dir.create(paste0(path,"/","figures",sep=""),showWarnings = TRUE)
+pathdat = paste0(path,"/","data",sep="")
+pathfig = paste0(path,"/","figures",sep="")
+
+knitr::opts_chunk$set(fig.align = 'center', # Center figures
+                      fig.pos = "H", # At their position in the code rather than
+                                     # where the compiler "thinks" they should go.
+                      out.width = "75%", # At a reduced width to fit the page.
+                      fig.path = paste0(pathfig, "/", sep = ""), # In the figures folder.
+                      comment = NA # Do not show hashtags in output.
+                      )
+
+# Additional options such as figure captions are set within the chunks themselves,
+# as I don't want all of my figures to have the same caption which they would if they
+# were set here.
+@
+
+\makeatletter
+\begin{titlepage}
+    \begin{center}
+        \includegraphics[width=0.7\linewidth]{bcu logo}\\[7ex]
+        {\huge \bfseries  \@title }\\[30ex]
+        {\@author}\\[2ex]
+        {CMP5352 - Data Visualisation}\\[10ex]
+        {Word count: XXXX}\\[10ex]
+    \end{center}
+\end{titlepage}
+\makeatother
+\thispagestyle{empty}
+\newpage
+
+\begin{abstract}
+
+    This report delves into a dataset containing information
+    on various apps from the Google Play Store. By leveraging Exploratory Data Analysis (EDA)
+    and data visualization techniques, the report aims to uncover insights and trends within 
+    the Play Store ecosystem based on data such as review scores, install counts and app
+    categories.
+
+\end{abstract} 
+
+% Page counter trick so that the contents page doesn't increment it.
+\setcounter{page}{0}
+
+\tableofcontents
+\thispagestyle{empty}
+
+% Declaring un-numbered chapter because I prefer how it looks.
+\chapter*{Introduction}
+% Add it to the contents, because un-numbered chapters aren't by default.
+\addcontentsline{toc}{chapter}{Introduction}
+% Put the chapter name in the header.
+\markboth{Introduction}{}
+
+Data visualisation is a field of data science wherein large datasets are parsed
+using code (most commonly written in Python or R) to produce clear visualisations
+interpretable to a wide audience, even if they do not have in-depth knowledge
+of the dataset. \\
+
+\noindent This report specifically aims to produce visualisations based on an
+analysis of a large dataset based on the content available on the Google Play Store, 
+where users of Android mobile devices can download a wide variety of apps to suit their needs. 
+The mobile app industry is an enormous market to be involved in, with over 27 billion 
+downloads occurring on the Play Store in Q1 2023 alone \autocite{PlayStoreDLs}. This report delves 
+into a comprehensive dataset of apps available on the Play store, aiming to uncover valuable insights 
+and trends. Through exploratory data analysis, the composition of the store will 
+be examined, including factors such as app reviews in comparison to their install counts, as well as 
+additional insights such as app pricing and how it affects user counts.
+This exploration will also provide potential indicators of current and future trends within the Play Store
+and the broader mobile market.\\
+
+
+
+\noindent This report is split across three sections:
+\begin{itemize}
+    \item The \textbf{motivation and objectives} of this report.
+    \item The \textbf{results from experiments} on the dataset.
+    \item A \textbf{summary} of overall findings.
+\end{itemize}
+
+\noindent This report was compiled as a .Rnw file, meaning that all R code used in this
+report is embedded into the PDF and readable within the report.
+
+\pagebreak
+
+\chapter{Motivation and objectives}
+
+% Put the chapter name in the header.
+\markboth{Motivation and objectives}{}
+
+The Google Play Store is a massive market to tap into, hosting over 3.5 million apps as of Q3 2022 
+\autocite{PlayStoreAppCount}, so it is therefore crucial to understnad current and future trends
+to ensure that content released on the store can be properly optimised to maximise install count and 
+review scores, which will ultimately increase profit.\\
+
+\noindent The dataset in use is \href{https://www.kaggle.com/datasets/lava18/google-play-store-apps/data}{sourced from Kaggle}, a 
+public dataset-sharing website. It contains 9660 unique values with 13 columns of data:
+
+\begin{itemize}
+    \item App - The name of the app.
+    \item Category - The specific category of the app.
+    \item Rating - A number between 1 and 5, representing the "star" rating of the app.
+    \item Reviews - The amount of reviews for the app.
+    \item Size - The size of the app in kilobytes or megabytes.
+    \item Installs - Number of user installs of the app.
+    \item Type - Whether the app costs money or is free.
+    \item Price - The price of the app in dollars, or 0 if it is free.
+    \item Content.Rating - The general age rating of the app.
+    \item Genres - The genres associated with the app.
+    \item Last.Updated - The most recent date when the app received an update.
+    \item Current.Ver - The version number of the app.
+    \item Android.Ver - The required Android version of the app.
+\end{itemize}
+\pagebreak
+\section{Key questions and expected answers conerning the data}\label{sec:questions} % For later reference
+\begin{itemize}
+    \item Is there a positive correlation between the average review score of an app and its install count? 
+    \begin{itemize}
+        \item Expected: Yes, as it is harder to weigh the average down when the volume of installs increases.
+    \end{itemize}
+    \item Which category of app has the highest review score on average?
+    \begin{itemize}
+        \item Expected: Games are likely to have the highest review scores from users enjoying their experiences.
+    \end{itemize}
+    \item What is the distribution of prices? Are there certain prices used by many apps?
+    \begin{itemize}
+        \item Expected: If an app is not free, it would likely be under \$3 to ensure people buy it.
+    \end{itemize}
+    \item Do paid apps receive higher or lower review score on average?
+    \begin{itemize}
+        \item Expected: No, as users may be more harsh with their reviews if they paid for the app.
+    \end{itemize}
+    \item Is there a correlation between an app's content rating and it's review score?
+    \begin{itemize}
+        \item Expected: Yes, with adult apps likely being higher rated because children would be unlikely to have accounts.
+    \end{itemize}
+    \item Does app size play a role in install count?
+    \begin{itemize}
+        \item Expected: Yes, as users would likely not want to download very large apps due to internet speeds and device storage.
+    \end{itemize}
+\end{itemize}
+
+\pagebreak
+
+\chapter{Experimental results}
+
+% Put the chapter name in the header.
+\markboth{Experimental results}{}
+
+<<loadData,  include = FALSE >>=
+dataDf <- read.csv(paste0(pathdat, "/googleplaystore.csv", sep = ""))
+@
+
+\section{Data wrangling}
+To be able to analyse the data, it is essential that the data is first in a state that
+can be analysed effectively. To do so, the data must be explored to identify any potential
+issues, and any that are found must be cleaned, which is referred to as data wrangling. This 
+process is vital to ensure that any products of this data are accurate, correct and not misleading
+to viewers as a result of incomplete or inconsistent data.\\
+
+\noindent Another good step to take in the initial exploration of the data is to identify if there are any missing values
+in certain columns. To do so, we can convert any instance of a blank string into R's recognised "NA" type and
+then use is.na() to identify how many there are.
+
+<<>>=
+# Convert blank strings or NaN to NA.
+dataDf[(dataDf == "" | dataDf == "NaN")] <- NA
+
+# Identify rows containing NA.
+naRows <- dataDf[rowSums(is.na(dataDf) > 0),]
+nrow(naRows)
+nrow(naRows)/nrow(dataDf)*100
+@
+
+We can identify that this dataset has 1481 rows where at least one column has missing data, equating to 
+13.66\% of the dataset. To analyse this in further detail to see specifically which columns contain
+missing data, the naniar package can be used to generate a tibble of where the data is missing.
+
+<<missingVars, size = "footnotesize">>=
+kable(miss_var_summary(dataDf), 
+     caption = "Missing variable summary of the dataset", "latex") %>%
+kable_styling(latex_options = "HOLD_position") 
+@
+
+% unique(dataDf$rating)
+
+    
+<<describeFactorise, tidy = TRUE, size = "footnotesize">>=
+str(dataDf, width = 80, strict.width = "cut")
+@
+From this brief summary, we can clearly identify certain categorical data that should
+be treated as factors in the dataset, such as:
+\begin{itemize}
+    \item Installs - Uses thresholds for amounts of installs.
+    \item Category - An app has one category.
+    \item Type - An app is free or paid.
+    \item Price - Most apps have specific prices shared by other apps.
+    \item Content.Rating - Has categories of age ratings.
+    \item Android.Ver - Categorised by the Android version.
+\end{itemize} 
+
+After converting them and reproducing the summary, the snippet of the data is even clearer.
+
+<<size = "footnotesize">>=
+cols <- c("Installs","Category","Type","Price","Content.Rating","Android.Ver")
+dataDf <- dataDf %>% mutate(across(all_of(cols), as.factor))
+
+# Also convert Last.Updated to a date.
+dataDf$Last.Updated <- mdy(dataDf$Last.Updated)
+
+str(dataDf, width = 80, strict.width = "cut")
+@
+
+However, this new snippet of the data reveals that there are unexpected values in
+both the category and type columns, with a number being present in category and
+in type, which is strongly inconsistent. Additionally, by viewing the factor levels
+of Android.Ver, we can see that some apps appear to have a maximum version.
+
+<<tidy = T, tidy.opts = list(width.cutoff = 60)>>=
+levels(dataDf$Android.Ver)
+
+nrow(dataDf)
+
+# Remove the rows that were detected as inconsistent.
+# Filter to where conditions are NOT met.
+dataDf <- dataDf %>% filter(!(Category == "1.9" | Type == "0" | str_detect(Android.Ver, "[-]+")))
+
+# Removed 13 rows.
+nrow(dataDf)
+
+# Drop the factor levels that no longer exist as a result of that row's removal.
+dataDf <- droplevels(dataDf)
+
+nrow(dataDf) - length(unique(dataDf$App))
+@
+
+We can also observe that the dataset has 10,828 rows without these inconsistent rows.
+This is 1181 more rows that there are unique values, which suggests there are a considerable
+amount of duplicate rows. While we clean these duplicates, we can also remove data that won't
+be relevant to our analyses, as well.
+
+<<tidy = T, tidy.opts = list(width.cutoff = 60)>>=
+# Immediately identifies 483 completely duplicated rows 
+# which will be removed.
+dataDf <- dataDf[!duplicated(dataDf),]
+
+# Only keep apps with more than 0 reviews, as 0 review apps are 
+# worthless to our analysis. Then, group all the apps with the 
+# same name, leaving only the one with the MOST REVIEWS,
+# rather than the one that occurs first in the dataset.
+dataDf <- dataDf %>%
+    group_by(App) %>%    # If 2 occurrences, keep one with highest reviews.
+    filter(Reviews > 0 & Reviews == max(Reviews)) %>%
+    ungroup() # Ungroup for cleaner output later.
+
+# 9061, meaning the data is much cleaner.
+nrow(dataDf)
+@
+
+Now that the data has been cleared of duplicate and irrelevant values, we can analyse why some
+data may be missing.
+
+<<missingVars2, size = "footnotesize">>=
+kable(miss_var_summary(dataDf), 
+      caption = "Missing variable summary of the modified dataset", "latex") %>%
+kable_styling(latex_options = "HOLD_position") 
+@
+
+The most commonly missing value according to Table \ref{tab:missingVars} is that
+of the rating. However, it is not possible for us to impute this data as user reviews cannot
+be entirely predicted as there are many more factors than those available in this dataset involved
+in user rating, so rows with missing ratings must be removed.
+
+<<tidy = T, tidy.opts = list(width.cutoff = 60)>>=
+
+noRatings <- dataDf %>%
+filter(is.na(Rating))
+
+nrow(noRatings)
+
+# Because there is no way to source non-existent rating data, these will have to be removed.
+dataDf <- dataDf %>%
+filter(!is.na(Rating))
+
+nrow(dataDf)
+
+naRows <- dataDf[rowSums(is.na(dataDf) > 0),]
+nrow(naRows)
+
+# Drop the factor levels that no longer exist as a result of this.
+dataDf <- droplevels(dataDf)
+@
+
+\noindent Four NA values remain and also six more apps with duplicated names but different categories,
+though due to how small of a proportion these make up of the data, these 12 rows can be safely removed.
+
+<<tidy = T, size = "footnotesize">>=
+dataDf <- dataDf[complete.cases(dataDf),]
+nrow(dataDf)
+
+# 6 apps still remain with duplicated names but different categories, but due to the small proportion, 
+# we will remove them and keep the first occurrence.
+dataDf <- subset(dataDf, !duplicated(App))
+nrow(dataDf)
+
+str(dataDf, width = 80, strict.width = "cut")
+@
+
+Furthermore, the "Current.Ver" column is not useful to our analysis, as version numbers are not 
+relevant in comparison to when the app was last updated, which is a much more useful data source that
+also exists in the dataset. Additionally, version numbers are entirely at the developer's discretion and 
+follow no standardisation, meaning they do not reveal anything to us. The "Genres" column also often repeats
+the Category column, which specialises apps much more. Therefore, these columns will be dropped.
+
+<<>>=
+dataDf <- subset(dataDf, select = -c(Current.Ver, Genres))
+dim(dataDf) # Now 11 columns instead of 13.
+@
+
+Now that we are working with a cleaner dataset free of duplicate and inconsistent data, we can
+begin to perform Exploratory Data Analysis.
+
+\pagebreak % Page ends at an awkward position, so just go to the next page instead.
+
+\section{Exploratory Data Analysis}
+\subsection{Feature engineering}
+To produce some of the upcoming visualisations in both this section of the report and Section \ref{sec:answers}, 
+we will need to add some additional columns based on the data we have, as well as modifying existing column 
+data types so that comparisons can be performed on them.
+
+<<size = "footnotesize">>=
+# Function to convert size values to numeric and set 
+# "Varies with device" rows to 0.
+convertSize <- function(size) {
+    if (size == "Varies with device") {
+        # Make it 0.
+        return(0)
+    } else if (grepl("M", size)) {
+        # Remove the M, make it numeric.
+        return(as.numeric(sub("M", "", size)))
+    } else if (grepl("k", size)) {
+        # Remove the k, convert it to MB by dividing it, then make it numeric.
+        return(as.numeric(sub("k", "", size)) / 1024)
+    }
+}
+
+dataDf <- dataDf %>%
+# Make an integer column for Installs by removing commas and pluses.
+mutate(intInstalls = as.integer(gsub("[,+]+", "", dataDf$Installs))) %>% 
+# Make Category sentence case and replace underscores with 
+# spaces for better visualisations.
+mutate(Category = gsub("[_]+", " ", str_to_sentence(dataDf$Category))) %>%
+# Make a numeric column for Size using the function defined earlier.
+mutate(numSize = sapply(Size, convertSize))
+
+# Make a categorical factor column for size, grouping 
+# numerical sizes into thresholds.
+dataDf$sizeThresholds <- cut(dataDf$numSize, 
+# Because all "Varies with device" sizes were set to 0, it 
+# allows for a label to be set especially for them.
+# By being inbetween -1 and 0.001, they meet the first break.
+breaks = c(-1, 0.001, 1, 5, 10, 25, 50, 75, 100, 150, Inf), 
+labels = c("Varies with device", "Under 1MB", "1 - 5MB", "5 - 10MB", 
+            "10 - 25MB", "25 - 50MB", "50 - 75MB", 
+            "75 - 100MB", "100 - 150MB", "150MB+"))
+
+
+nrow(filter(dataDf, Content.Rating == "Adults only 18+"))
+# Because there's only three of these, and there is already a "Mature 17+"
+# category, we can upgrade all Mature apps to 18+ instead, as it is still
+# technically true.
+dataDf <- dataDf %>%
+mutate(Content.Rating = if_else(Content.Rating == "Mature 17+", 
+                        "Adults only 18+", Content.Rating))
+
+nrow(filter(dataDf, Content.Rating == "Unrated"))
+# There's only one of these, so just remove it.
+
+dataDf <- dataDf %>%
+filter(Content.Rating != "Unrated")
+
+@
+
+There is also another column that needs modification, which is the Android version. By 
+reviewing the factor levels of the column, we can see that it reads "[number] and up", 
+though we only wish to preserve the number for our visualisations.
+
+<<size = "footnotesize">>=
+levels(dataDf$Android.Ver)
+
+# Remove " and up" from the rows.
+dataDf <- dataDf %>%
+mutate(numVer = as.factor(str_replace_all(dataDf$Android.Ver, " and up", "")))
+
+levels(dataDf$numVer)
+
+# Check how many rows have a varying version by device.
+varyingSize <- dataDf %>%
+filter(numVer == "Varies with device")
+
+nrow(varyingSize)
+
+@
+
+A considerable portion of apps have a varying Android version requirement by device, so these apps 
+are still valuable data that should be kept.
+
+\pagebreak
+\subsection{Data distribution visualisations}
+
+It is important to identify the distribution of our data across certain variables, especially
+ones such as review count and install count by various other factors, so that trends within the Play 
+Store can be observed and followed by aspiring developers or companies to maximise their userbase.
+
+<<barOverallInstalls, fig.cap = "Bar chart of install counts.">>=
+# The existing levels for the installs are far too specific,
+# especially those such as 1+, 5+, 50+ and 100+, which could 
+# come under a wider label.
+
+dataDf$installThresholds <- cut(dataDf$intInstalls, 
+# Set the new levels.
+breaks = c(0, 500, 1000, 10000, 50000, 100000, 500000, 1000000, 
+           5000000, 10000000, 50000000, 100000000, 500000000, 
+           1000000000, Inf), 
+# Set the labels for each level.
+labels = c("1 - 500", "500 - 1K", "1K - 10K", "10K - 50K", 
+           "50K - 100K", "100K - 500K", 
+           "500K - 1M", "1M - 5M", "5M - 10M", 
+           "10M - 50M", "50M - 100M", "100M - 500M", 
+           "500M - 1B", "1B+"))
+
+installCounts <- dataDf %>%
+group_by(installThresholds) %>%  # Group by the new install thresholds
+summarise(count = n())   # Count the number of apps in each group
+
+ggplot(installCounts, aes(x = installThresholds, y = count, 
+                          fill = installThresholds)) +
+geom_bar(stat = "identity") +  
+geom_text(aes(label = count),
+        # In the bar
+        position = position_stack(vjust = 0.5), size = 4) +
+labs(title = "Distribution of overall app installs", 
+     x = "Amount of installs", y = "Number of Apps", 
+     fill = "Install thresholds") +
+theme(axis.text.x = element_text(angle =45, hjust = 1))
+
+@
+
+We can see that the majority of the dataset contains apps between 1 and 1,000,000 installs. The most common
+install threshold for apps to be in is between 1 and 50,000 installs, followed by 500,000 to 1,000,000. This
+shows that the market is highly active, and users download a lot of various apps. There are even 20 apps with 
+between 500,000,000 and 1,000,000,000 installs, showing how widely used the Play Store is, furthering just how
+vital of a market it is to place apps on. 
+
+<<barCategoryInstalls, fig.cap = "Bar chart of the amount of apps in each category.">>=
+
+installCounts <- dataDf %>%
+group_by(Category) %>%  # Group by the category
+summarise(count = n())   # Count the number of apps in each group
+
+ggplot(installCounts, aes(x = count, y = Category, fill = Category)) +
+geom_bar(stat = "identity") +  
+geom_text(aes(label = count),
+        # At the end of the bar
+        position = position_stack(), hjust = 1, size = 4) +
+labs(title = "Distribution of apps by category",
+     x = "Amount of apps", y = "Categories") +
+theme(axis.text.x = element_text(angle =45, hjust = 1), 
+      legend.position = "none")
+
+@
+
+The market is mostly dominated by apps categorised as "Family" apps, followed by games and tools. This 
+suggests that these apps are successful due to the sheer quantity of them in relation to other available
+categories, which will be analysed further by checking the ratings of apps by category in Section \ref{sec:answers}
+
+<<barAppsVersion, fig.cap = "Bar chart of the amount of apps by minimum required Android version.">>=
+
+installCounts <- dataDf %>%
+group_by(numVer) %>%  # Group by the version
+summarise(count = n())   # Count the number of apps in each group
+
+ggplot(installCounts, aes(x = count, y = numVer, fill = numVer)) +
+geom_bar(stat = "identity") +  
+geom_text(aes(label = count),
+        # Above the bar
+        position = position_stack(vjust = 0.75), size = 4) +
+labs(title = "Distribution of apps by minimum Android version", 
+     x = "Amount of apps", y = "Minimum version required") +
+theme(axis.text.x = element_text(angle =45, hjust = 1), 
+      legend.position = "none")
+@
+
+We can see that a large majority of the apps in the dataset require at least Android version 4.0, which was 
+released in 2011. It is ill advised to develop apps below this version, as observed by the trends in Figure
+\ref{fig:barAppsVersion} due to their low market share and also how outdated they are, even relative to the time 
+of this dataset's publication in 2018.
+
+<<reqVersion, size = "footnotesize", fig.cap = "Summarisation of required Android versions">>=
+notVarying <- dataDf %>%
+# Have to remove this level because we can't make a string numeric.
+filter(numVer != "Varies with device") %>%
+
+# Convert values greater than 4 to 4, and values less than 4 to 1.
+mutate(numVer = if_else(unfactor(numVer) >= 4.0, ">= 4.0", "< 4.0")) %>%
+group_by(numVer) %>%
+summarise(count = n())
+
+ggplot(notVarying, aes(x = "", y = count, fill = numVer, 
+                       label = scales::percent(count / sum(count)))) +
+    geom_bar(stat = "identity", width = 1) +
+    geom_text(position = position_stack(vjust = 0.5)) +
+    coord_polar("y", start = 0) +
+    labs(title = "Minimum required Android versions",
+        fill = "Required version") +
+# Change the default blue colours
+    scale_fill_manual(values=c("#9933FF", "#33FFFF"), 
+                        labels = c("Less than 4.0", "4.0 or higher")) +
+    theme_void() # Hide the axes
+@
+
+<<verTbl>>=
+kable(notVarying, caption = "Required Android versions", "latex") %>%
+kable_styling(latex_options = "HOLD_position") 
+@
+
+Figure \ref{fig:reqVersion} and Table \ref{tab:verTbl} show how much the market is dominated by apps
+of more recent Android versions. Only 20\% of all apps in this dataset have a minimum version below Android 4.0,
+likely due to the lack of key features and security maintenance. It is therefore essential to join the remaining
+80\% of the market in developing apps for newer Android versions.
+
+<<pieType, fig.cap = "Paid and free app distribution">>=
+pieData <- dataDf %>%
+group_by(Type) %>%
+summarise(count = n())
+
+ggplot(pieData, aes(x = "", y = count, fill = Type,
+                label = scales::percent(count / sum(count)))) +
+        geom_bar(stat = "identity", width = 1) +
+        geom_text(position = position_stack(vjust = 0.5)) +
+        coord_polar("y", start = 0) +
+        labs(title = "App type distribution",
+            fill = "Type") +
+    # Change the default blue colours to 2 random ones I searched for.
+        scale_fill_manual(values=c("#A05195", "#FFA600"), 
+                          labels = c("Free", "Paid")) +
+        theme_void() # Hide the axes
+@
+
+<<typeTbl, size = "footnotesize">>=
+kable(pieData, caption = "Paid and free app distribution", "latex") %>%
+kable_styling(latex_options = "HOLD_position") 
+@
+
+Figure \ref{fig:pieType} and TAble \ref{tab:typeTbl} shows us the types of apps in the dataset, meaning 
+whether the apps are free to download or whether they cost money. We can see that free apps have a 
+93\% market share as opposed to paid apps that account for only 7\%.
+
+<<sizeThresholds,  fig.cap = "App size distribution histogram">>=
+doesNotVary <- dataDf %>%
+# Grab non-varying sizes by filtering 0.
+filter(numSize != "0")
+
+ggplot(doesNotVary, aes(x = numSize)) +
+    geom_histogram(binwidth = 2, fill = "red", color = "black") +
+    labs(x = "App size (in MB)", y = "Number of apps",
+         title = "App size distribution") +
+    theme_minimal() +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1))
+@
+
+It can be seen that the vast majority of apps in the dataset are all under 20 megabytes in size,
+likely due to storage capacities on mobile devices. The correlation between size and install counts
+will be analysed in Section \ref{sec:answers}
+
+<<lastUpdated,  fig.cap = "Overall histogram of when apps were last updated">>=
+
+ggplot(dataDf, aes(x = month(Last.Updated, label = TRUE))) +
+    geom_histogram(fill = "skyblue", color = "black",
+                   stat = "count") +
+    labs(x = "Date", y = "Frequency", 
+         title = "Histogram of overall last update dates") +
+    theme_minimal() +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+    facet_wrap(~year(Last.Updated))
+
+@
+
+This histogram reveals that the vast majority of the apps were last updated in 2018, correlating
+with the date that this dataset was scraped and released. We can analyse this in further detail by
+producing a histogram exclusively of apps that were updated in 2018.
+
+<<hist2018apps,  fig.cap = "Histogram of app update dates in 2018">>=
+updated2018 <- dataDf %>%
+filter(year(Last.Updated) == 2018)
+
+ggplot(updated2018, aes(x = Last.Updated)) +
+    geom_histogram(binwidth = 3, fill = "orange", color = "black") +
+    labs(x = "Date", y = "Frequency", 
+         title = "Histogram of updates in 2018") +
+    theme_minimal() +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1))
+@
+
+We can see from the distribution of Figure \ref{fig:hist2018apps} that the majority of apps 
+on the store are updated frequently, as the highest concentration of recent updates is at the time this data was scraped.
+This shows the trend that frequent and constant additions of new features or fixing of any bugs is a key element 
+in having an app on the Play Store.
+
+<<pieDays,  fig.cap = "Days of the week when apps are updated in all documented years">>=
+updateDays <- dataDf %>%
+# label makes the numeric day into the actual day.
+# (0 -> Sunday, 1 -> Monday, etc)
+    mutate(Day = wday(Last.Updated, label = TRUE)) %>%
+    group_by(Day) %>%
+    summarise(count = n())
+
+ggplot(updateDays, aes(x = "", y = count, fill = Day, 
+      label = scales::percent(round(count / sum(count), 3)))) +
+    geom_bar(stat = "identity", width = 1) +
+    geom_text(position = position_stack(vjust = 0.5)) +
+    coord_polar("y", start = 0) +
+    labs(title = "Most common days for updates across all years") +
+# Change the default blue colours
+    scale_fill_brewer(palette = "Dark2") +
+    theme_void() # Hide the axes
+
+@
+
+It can be seen that apps are most commonly updated on weekdays, with Thursday being the most common by a slight
+margin. Apps are not commonly updated on weekends, likely due to developers not working these days.
+
+
+<<contentRatingsFrequency,  fig.cap = "Distribution of content ratings">>=
+contentRatings <- dataDf %>%
+group_by(Content.Rating) %>%
+summarise(count = n())
+
+ggplot(contentRatings, aes(x = "", y = count, fill = Content.Rating, 
+                       label = scales::percent(count / sum(count)))) +
+        geom_bar(stat = "identity", width = 1) +
+        geom_text(position = position_stack(vjust = 0.5)) +
+        coord_polar("y", start = 0) +
+        labs(title = "App content rating distribution",
+            fill = "Type") +
+    # Change the default blue colours
+        scale_fill_brewer(palette = "Pastel1") +
+        theme_void() # Hide the axes
+@
+
+Apps targeted at users of all ages are a substantial portion of the dataset showing their high prevalence in 
+the market, which is then followed by apps which target teens, apps that target adults only, and apps that
+target everyone aged 10 and above.
+
+
+% Q&A from here
+\pagebreak 
+
+\section{Visualisations for question answers}\label{sec:answers}
+In this section, the questioned posed in Section \ref{sec:questions} will be answered
+using the data that has been analysed throughout this report.
+
+\subsection{Is there a correlation between the average review score of an app and its install
+count?}
+
+<<barRatingsInstalls,  fig.cap = "Average rating for apps in each install threshold">>=
+ratingInstalls <- dataDf %>%
+group_by(installThresholds) %>%
+summarise(avgRating = mean(Rating))
+
+ggplot(ratingInstalls, aes(x = installThresholds, y = avgRating, 
+                           fill = installThresholds)) +
+    geom_bar(stat = "identity") +
+    geom_text(aes(label = round(avgRating, 3)), 
+              position = position_stack(vjust = 0.5)) +
+    labs(x = "Install Threshold", y = "Average Rating", 
+         title = "Average Rating by Install Threshold") +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1), 
+          legend.position = "none")
+@
+
+From this general bar chart, it can be observed that the average rating across all install thresholds
+does not subceed 4. Therefore, this data will be much easier to view in a more zoomed-in format as a line chart,
+where a linear regression line can be added to show the trend between installs and rating in closer detail.
+
+<<lineRatingsInstalls,  fig.cap = "Zoomed in average rating for apps in each install threshold">>=
+ggplot(ratingInstalls, aes(x = installThresholds, y = avgRating, 
+                           group = 1)) +
+    geom_point(aes(color = installThresholds), size = 2) +
+    geom_line(aes(group = 1), color = "skyblue") +
+    geom_smooth(formula = y ~ x, method = lm, alpha = 0.1, 
+                color = "orange") +
+    labs(x = "Install Threshold", y = "Average Rating", 
+         title = "Average Rating by Install Threshold") +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1), 
+          legend.position = "none")
+@
+
+From this line graph, the differences in average rating are much clearer. We can observe a mostly positive
+correlation between the amount of installs and the average rating of an app. Apps with between 1 and 500 
+installs have a very high review score on average due to the low amount of reviews they would have, where 
+a single review could skew their overall rating. This is evident immediately with apps between 500
+and 50,000 installs suffering from lower average ratings, which likely causes a loop that makes users not
+want to install these apps. Past this point, the average rating increases at a mostly linear rate, showing
+the strong link between installs and review score. Apps between 500 million and 1 billion reviews have a lower
+average review score than the trend would otherwise suggest, which may be due to the specific apps in this 
+threshold rather than an overall trend.\\
+
+Overall, this matches the expected answer from Section \ref{sec:questions}.
+
+\pagebreak
+\subsection{Which category of app has the highest review score on average?}
+
+<<avgRatingCategory,  fig.cap = "Average rating by app category">>=
+filterReviews <- dataDf %>%
+    group_by(Category) %>%
+    summarise(avgRating = mean(Rating), count = n())
+
+ggplot(filterReviews, aes(x = avgRating, y = Category, fill = Category)) +
+    geom_bar(stat = "identity") +  
+    geom_text(aes(label = round(avgRating, 3)),
+              position = position_stack(vjust = 0.5)) +
+    labs(title = "Average Rating by App Category", x = "App Category", 
+         y = "Average Rating") +
+    # Too many categories for a legend to reasonably fit.
+    theme(legend.position = "none")
+    
+@
+
+Figure \ref{fig:avgRatingCategory} depicts that the highest rated category is the Events category,
+followed by Art and Design and Education. There are 33 categories of app, and the only one to 
+have an average rating below 4 is the Dating category, suggesting that developers of this category of app
+must prepare for potential lower ratings overall than they would see in other categories. 
+In Table \ref{tab:avgRatingTbl} below, the entire data frame used for this graph is shown, with the 
+average rating and amount of occurrences of each category in the dataset in descending order.
+
+% Very large table, change to small font.
+\footnotesize
+<<avgRatingTbl>>=
+# Sort by average rating (descending)
+filterReviews <- arrange(filterReviews, desc(avgRating))
+
+kable(filterReviews, caption = "Categories by review score", "latex") %>%
+# Large table, so make the font small.
+kable_styling(font_size = 8, latex_options = c("HOLD_position")) 
+@
+% Return to normal size
+\normalsize
+
+Table \ref{tab:avgRatingTbl} shows that the most frequent categories (seen in the "count" column) were
+the Family, Game and Tools. Of these most frequent categories, Game has the highest average rating, but 
+not of the overall categories, meaning the assumption made in Section \ref{sec:questions} was incorrect.
+
+\pagebreak
+\subsection{What is the distribution of prices? Are there certain prices used by many apps?}
+To properly analyse the distribution of prices, the column will need some modification in order to 
+categorise prices and remove apps that do not have a price (free apps) in order to produce readable
+visualisations.
+<<size="footnotesize">>=
+# Price has 73 factor levels. 
+nlevels(dataDf$Price)
+
+# To show the most frequent ones, we can create 
+# an ordered list of the most common ones, and consider all the others 
+# to be in an "other" category.
+
+# From the previous graphs, we know that the vast majority (93%) of 
+# our dataset is comprised of free apps. Therefore, these will be 
+# filtered out to not pollute the graphs with the price point of 0.
+paidApps <- dataDf %>%
+filter(Price != "0")
+
+levels(paidApps$Price)
+
+# Calculate frequency of each price
+priceCounts <- table(paidApps$Price)
+# Sort the price counts in descending order
+priceCounts <- sort(priceCounts, decreasing = TRUE)
+# Extract the top 15 levels
+mostCommon <- names(priceCounts)[1:15]
+# Count of other prices combined
+others <- sum(priceCounts[16:length(priceCounts)])
+# Create a new factor combining top 15 levels and others
+paidApps$priceFactor <- factor(paidApps$Price, levels = c(mostCommon, "Others"))
+# Replace levels not in top 15 with "Others"
+paidApps$priceFactor[!(paidApps$priceFactor %in% mostCommon)] <- "Others"
+# Recalculate frequency of each price after combining levels
+priceCounts <- table(paidApps$priceFactor)
+
+# Convert to data frame for ggplot
+pricePlot <- data.frame(Price = names(priceCounts),
+                        Frequency = as.numeric(priceCounts))
+
+@
+
+% Slightly smaller to keep this to one page.
+<<priceFrequency, size = "footnotesize", fig.cap = "Frequency of app prices">>=
+ggplot(pricePlot, aes(x = Price, y = Frequency, fill = Price)) +
+    geom_bar(stat = "identity") +
+    geom_text(aes(label = Frequency), position = position_stack(vjust = 0.5)) +
+    labs(x = "Prices", y = "Frequency", title = "App price point frequencies") +
+    # $399.99 and $14.99 would not show in price order normally, so they can 
+    # be manually adjusted.
+    scale_x_discrete(limits = c("$0.99","$1.49","$1.99","$2.49","$2.99","$3.49",
+                                "$3.99","$4.49","$4.99","$5.99","$6.99","$7.99",
+                                "$9.99","$14.99","$399.99","Others")) +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1), 
+          legend.position = "none")
+@
+
+<<priceFreqTbl>>=
+# Sort by average rating (descending)
+pricePlot <- arrange(pricePlot, desc(Frequency))
+# Move "Others" to the bottom of the table.
+pricePlot <- rbind(pricePlot[!pricePlot$Price == "Others",],
+                   pricePlot[pricePlot$Price == "Others",])
+# Convert back to a tibble to remove the index column.
+pricePlot <- tibble(pricePlot)
+
+# Split over two columns.
+kable(list(pricePlot[1:8,], pricePlot[9:16,]), "latex") %>%
+kable_styling(latex_options = "HOLD_position") 
+@
+
+As per Table \ref{tab:typeTbl}, we know that there are only 602 paid apps, which is why Figure \ref{fig:priceFrequency} 
+is on a much smaller scale. We can see that 3 of the 5 most common price points for apps are under \$3, meaning
+the expectation in \ref{sec:questions} was mostly correct. We can determine that the most common price points used
+in the dataset are \$2.99, \$0.99 and \$4.99, suggesting that paid apps should mostly be kept under \$5.
+However, this graph yields some additional surprising information,
+most notably in the amount of apps that are priced at \$399.99. While it is still a low number at 11, it does still
+rank within the top fifteen price points in this dataset. 
+
+\pagebreak
+\subsection{Do paid apps receive higher or lower review score on average?}
+
+<<typeInstalls,  fig.cap = "Average rating of paid and free apps">>=
+filterReviews <- dataDf %>%
+group_by(Type) %>%
+    summarise(avgRating = mean(Rating), count = n())
+
+ggplot(filterReviews, aes(x = avgRating, y = Type, fill = Type)) +
+    geom_bar(stat = "identity") +  
+    geom_text(aes(label = round(avgRating, 3)), 
+              position = position_stack(vjust = 0.5)) +
+    labs(title = "Average rating by app type", x = "Average rating", 
+         y = "App type")
+@
+
+Surprisingly, Figure \ref{fig:typeInstalls} shows us that paid apps often have a higher 
+review score than free apps. This could be due to several factors such as that users who pay for an app might be 
+more invested in its success, leading them to be more forgiving of minor issues and more likely to leave a positive 
+review. Furthermore, the cost might act as a filter, deterring 
+users who wouldn't like the app from downloading it in the first place, leading to a more 
+engaged user base with a higher likelihood of leaving positive ratings. 
+
+\pagebreak
+
+\subsection{Is there a correlation between an app's content rating and it's review score?}
+Because Figure \ref{fig:contentRatingsFrequency} shows us that a significant portion of the data has 
+"Everyone" as its content rating, we can first observe the ratings specifically of that rating, as it would
+inflate the Y axis of the visualisations if paired with the others.
+
+<<halfHistContentRatings1,  fig.cap = "Review score distributions across the 'Everyone' rating">>=
+everyone <- dataDf %>%
+filter(Content.Rating == "Everyone")
+
+ggplot(everyone, aes(x = Rating)) +
+    geom_histogram(fill = "pink", color = "black", binwidth = 0.1) +
+    labs(x = "Score", y = "Amount of apps", 
+         title = "Review scores across 'Everyone'") +
+    theme_minimal() +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1))
+@
+
+We can see that most apps with the "Everyone" content rating have a review score of over 4,
+though there is still a distribution across all scores from 1 to 5. We can see how this compares
+against the other content ratings in Figure \ref{fig:halfHistContentRatings2}.
+
+<<halfHistContentRatings2,  fig.cap = "Review score distributions across other content ratings">>=
+notEveryone <- dataDf %>%
+filter(Content.Rating != "Everyone")
+
+# binwidth is 0.1 because our ratings are to 1 decimal place.
+ggplot(notEveryone, aes(x = Rating)) +
+    geom_histogram(fill = "pink", color = "black", binwidth = 0.1) +
+    labs(x = "Score", y = "Amount of apps", 
+         title = "Review scores across all other content ratings") +
+    theme_minimal() +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+    facet_wrap(~Content.Rating, ncol = 3)
+@
+
+We can see that this pattern mostly repeats across all content ratings, though it can also be observed
+that apps with a content rating of "Adults only 18+" have a higher concentration of reviews lower than 4.
+This can be analysed further with a bar chart as shown in Figure \ref{fig:barContentRatings}.
+
+
+<<barContentRatings, size = "footnotesize", fig.cap = "Average review score for each content rating">>=
+ratingInstalls <- dataDf %>%
+    group_by(Content.Rating) %>%
+    summarise(avgRating = mean(Rating))
+
+ggplot(ratingInstalls, aes(x = Content.Rating, y = avgRating, 
+                           fill = Content.Rating)) +
+    geom_bar(stat = "identity") +
+    geom_text(aes(label = round(avgRating, 3)), 
+              position = position_stack(vjust = 0.5)) +
+    labs(x = "Content age rating", y = "Average review score", 
+         title = "Average review score by content age rating") +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1), 
+          legend.position = "none")
+@
+
+"Adults only" is indeed the lowest rated category. This subverts the expectation
+stated in Section \ref{sec:questions}. This is likely due to the trends in Figure \ref{fig:avgRatingCategory} where Dating
+apps were rated lower than all others. Dating apps are all 18+ by nature, so they would bring down
+the average of their associated content rating. 
+
+
+\pagebreak
+\subsection{Does app size play a role in install count?}
+
+<<installsBySizeThresholds,  fig.cap = "Boxplot of app size distributions across install thresholds" >>=
+# Filter out apps that vary in size.
+# Because "Varies with device" was changed to 0 earlier, remove 0.
+installsSize <- dataDf %>%    
+filter(numSize != 0) %>%
+group_by(installThresholds, numSize) 
+
+ggplot(installsSize, aes(x=installThresholds, y=numSize)) + 
+    geom_boxplot(fill='skyblue') +
+    labs(title = "App installs by size", x = "Installs", 
+         y = "Size in MB") +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1))
+@
+
+<<halfInstallsByNumSize1, fig.cap = "Size distribution across apps between 1 and 1 million installs">>=
+doesNotVary <- dataDf %>%
+# Grab non-varying sizes by filtering 0 out, 
+# then grab the first eight factor levels.
+filter(numSize != "0" & installThresholds %in% c("1 - 500", 
+"500 - 1K", "1K - 10K",
+"10K - 50K", "50K - 100K", "100K - 500K", 
+"500K - 1M", "1M - 10M"))
+
+ggplot(doesNotVary, aes(x = numSize)) +
+    geom_histogram(fill = "purple", color = "black", binwidth = 4) +
+    labs(title = "Histogram of size distribution (1 - 1M installs)",
+         x = "Size (in MB)", y = "Amount of apps") +
+    theme_minimal() +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+    facet_wrap(~installThresholds, ncol = 3)
+@
+
+
+<<halfInstallsByNumSize2, fig.cap = "Size distribution across apps between 1 million and 1 billion installs">>=
+doesNotVary <- dataDf %>%
+# Grab the other factor levels by filtering to those NOT in this list.
+filter(numSize != "0" & !installThresholds %in% c("1 - 500", 
+"500 - 1K", "1K - 10K",
+"10K - 50K", "50K - 100K", "100K - 500K", 
+"500K - 1M", "1M - 10M"))
+
+ggplot(doesNotVary, aes(x = numSize)) +
+    geom_histogram(fill = "purple", color = "black", binwidth = 4) +
+    labs(x = "Size (in MB)", y = "Amount of apps", 
+        title = "Histogram of size distribution (1M - 1B installs)") +
+    theme_minimal() +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+    facet_wrap(~installThresholds, ncol = 2)
+@
+
+<<avgSizeInstall,  fig.cap = "Average size of apps by install threshold">>=
+
+installsSize <- installsSize %>%
+    group_by(installThresholds) %>%
+    summarise(avgSize = mean(numSize))
+
+ggplot(installsSize, aes(x = avgSize, y = installThresholds, 
+                         fill = installThresholds)) +
+    geom_bar(stat = "summary", fun = mean) +
+    geom_text(aes(label = round(avgSize, 3)), 
+              position = position_stack(vjust = 0.5)) +
+    labs(title = "Average size of apps by install threshold",
+         x = "Size in MB", y = "Installs") +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1), 
+          legend.position = "none")
+@
+
+Interestingly, we can observe a mostly positive correlation between app size and install count,
+with the average sizes of apps mostly increasing by small amounts, except for apps with between
+100 million and 1 billion downloads, which both sit around the 44/45 megabyte size on average. 
+This suggests that it is important to ensure that while apps do have a variety of features that would
+increase their size, it is important to optimise it where possible due to the limited storage space available 
+on mobile devices that could cause the user to uninstall apps in favour of others.
+
+
+\chapter{Summary and conclusion}
+% Put the chapter name in the header.
+\markboth{Summary and conclusion}{}
+
+
+
+\section{Summary}
+\begin{itemize}
+    \item Is there a positive correlation between the average review score of an app and its install count? 
+    \begin{itemize}
+        \item Expected: Yes, as it is harder to weigh the average down when the volume
+        of installs increases.
+        \item Actual: Yes, there is a positive correlation between the two.
+    \end{itemize}
+    \item Which category of app has the highest review score on average?
+    \begin{itemize}
+        \item Expected: Games are likely to have the highest review scores from users
+        enjoying their experiences.
+        \item Actual: Events apps have the highest review score on average due to a low sample size.
+        \item Of the top five categories, however, Games are rated the highest.
+    \end{itemize}
+    \item What is the distribution of prices? Are there certain prices used by many apps?
+    \begin{itemize}
+        \item Expected: If an app is not free, it would likely be under \$3 to ensure
+        people buy it.
+        \item Actual: The majority of apps are priced at \$2.99, \$0.99 or \$4.99.
+    \end{itemize}
+    \item Do paid apps receive higher or lower review score on average?
+    \begin{itemize}
+        \item Expected: No, as users may be more harsh with their reviews if they paid
+        for the app.
+        \item Actual: Paid apps actually do receive higher average ratings, perhaps due to users being more
+                      forgiving of products that they paid money for.
+    \end{itemize}
+    \item Is there a correlation between an app's content rating and it's review score?
+    \begin{itemize}
+        \item Expected: Yes, with adult apps likely being higher rated because children
+        would be unlikely to have accounts.
+        \item Actual: Yes, though it is somewhat minor. Expectations were defied due to "Adults only" apps
+                      actually being the lowest rated on average.
+    \end{itemize}
+    \item Does app size play a role in install count?
+    \begin{itemize}
+        \item Expected: Yes, as users would likely not want to download very large
+        apps due to internet speeds and device storage.
+        \item Actual: The data showed a positive correlation between average size and install count to a plateau of approximately 49MB.
+    \end{itemize}
+\end{itemize}
+
+\section{Conclusion}
+
+This report has analyzed a dataset of Google Play Store apps,
+revealing valuable insights into app characteristics, user ratings, and trends. 
+We observed the distributions of data across the dataset, revealing trends in 
+review scores and install counts with categories, prices, age ratings and app size.
+Overall, this exploration of the Google Play Store data highlights valuable trends
+for app developers and users alike. Developers can leverage these insights to 
+identify key focus points in the development process, such as tailoring their apps to be for certain age 
+groups or pricing them at certain costs. For users, understanding these
+trends can inform their app selection process, leading them towards apps that better meet their needs.
+
+
+\large\textbf{Rename variables to be relevant to the graph they are for. Word count troubles; 
+you're within 10\% over, but that still puts you at 3300/3000.}\normalsize
+
+\printbibliography{}
+
+\end{document}

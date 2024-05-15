@@ -1,0 +1,429 @@
+% Why do we need to submit this? It's not part of the markscheme and you wouldn't
+% usually give out your TeX code, just the PDF.
+
+% -------------------------------------------------------------------------------
+% Establish page structure & font.
+\documentclass[12pt]{report}\usepackage[]{graphicx}\usepackage[]{xcolor}
+% maxwidth is the original width if it is less than linewidth
+% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+\let\hlipl\hlkwb
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
+
+\usepackage[a4paper, margin=3cm]{geometry} % Page structure
+
+\usepackage{graphicx} % Required for inserting images
+\graphicspath{{images/}} % Any additional images I use (BCU logo, etc) are from here.
+
+\usepackage[utf8]{inputenc} % UTF-8 encoding
+\usepackage[T1]{fontenc} % T1 font
+\usepackage{float}  % Allows for floats to be positioned using [H], which correctly
+                    % positions them relative to their location within my LaTeX code.
+\usepackage{subcaption}
+
+% -------------------------------------------------------------------------------
+% Declare biblatex with custom Harvard BCU styling for referencing.
+\usepackage[
+    useprefix=true,
+    maxcitenames=3,
+    maxbibnames=99,
+    style=authoryear,
+    dashed=false, 
+    natbib=true,
+    url=false,
+    backend=biber
+]{biblatex}
+
+% Additional styling options to ensure Harvard referencing format.
+\renewbibmacro*{volume+number+eid}{
+    \printfield{volume}
+    \setunit*{\addnbspace}
+    \printfield{number}
+    \setunit{\addcomma\space}
+    \printfield{eid}}
+\DeclareFieldFormat[article]{number}{\mkbibparens{#1}}
+
+% Declare report.bib as the bibliography source, to be called later via \printbibliography
+\addbibresource{report.bib}
+
+% Also import hyperref, used for embedding URLs.
+\usepackage{hyperref}
+
+% Set certain colours up for links, whether they link to within the document (citations, contents page)
+% or to an external resource (websites)
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black, % Contents page
+    urlcolor=blue, % URLs
+    citecolor=black, % Citations
+}
+
+% -------------------------------------------------------------------------------
+% To prevent "Chapter N" display for each chapter
+\usepackage[compact]{titlesec}
+\usepackage{wasysym}
+\usepackage{import}
+
+\titlespacing*{\chapter}{0pt}{-2cm}{0.5cm}
+\titleformat{\chapter}[display]
+{\normalfont\bfseries}{}{0pt}{\Huge}
+
+% -------------------------------------------------------------------------------
+% Custom macro to make an un-numbered footnote.
+
+\newcommand\blfootnote[1]{
+    \begingroup
+    \renewcommand\thefootnote{}\footnote{#1}
+    \addtocounter{footnote}{-1}
+    \endgroup
+}
+
+% -------------------------------------------------------------------------------
+% Fancy headers; used to show my name, BCU logo and current chapter for the page.
+\usepackage{fancyhdr}
+\usepackage{calc}
+\pagestyle{fancy}
+
+\setlength\headheight{37pt} % Set custom header height to fit the image.
+
+\renewcommand{\chaptermark}[1]{%
+    \markboth{#1}{}} % Include chapter name.
+
+
+% Lewis Higgins - ID 22133848           [BCU LOGO]                [CHAPTER NAME]
+\lhead{Lewis Higgins - ID 22133848~~~~~~~~~~~~~~~\includegraphics[width=1.75cm]{bcu logo}}
+\fancyhead[R]{\leftmark}
+
+
+% Temp for pagecolor command
+\usepackage{xcolor}
+
+\usepackage{listings}
+
+% -------------------------------------------------------------------------------
+
+\title{Visualising Trends in Netflix's Content Library}
+\author{Lewis Higgins - Student ID 22133848}
+\date{May 2024}
+
+% -------------------------------------------------------------------------------
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\begin{document}
+
+
+
+
+
+
+ \pagecolor{yellow} % Change in final
+
+
+
+    \makeatletter
+    \begin{titlepage}
+        \begin{center}
+            \includegraphics[width=0.7\linewidth]{bcu logo}\\[7ex]
+            {\huge \bfseries  \@title }\\[2ex]
+            {\large \bfseries  DRAFT VERSION }\\[30ex]
+            {\@author}\\[2ex]
+            {CMP5352 - Data Visualisation}\\[10ex]
+            {Word count: XXXX}\\[10ex]
+        \end{center}
+    \end{titlepage}
+    \makeatother
+    \thispagestyle{empty}
+    \newpage
+
+  \pagecolor{white} % Change in final
+
+    \begin{abstract}
+
+    As of March 31, 2024, Netflix is the most popular television streaming service
+    in the world~\autocite{NetflixSubStats}, with over 269,000,000 active paid memberships. 
+    This report aims to analyse the library of content found on Netflix and identify 
+    key factors associated with the viewership of this content in the interests of furthering
+    profit in the sector.
+
+    \end{abstract} 
+    
+    % Page counter trick so that the contents page doesn't increment it.
+    \setcounter{page}{0}
+
+    \tableofcontents
+    \thispagestyle{empty}
+
+    % Declaring un-numbered chapter because I prefer how it looks.
+    \chapter*{Introduction}
+    % Add it to the contents, because un-numbered chapters aren't by default.
+    \addcontentsline{toc}{chapter}{Introduction}
+    % Put the chapter name in the header.
+    \markboth{Introduction}{}
+    
+    Data visualisation is a field of data science wherein large datasets are parsed
+    using code (most commonly written in Python or R) to produce clear visualisations
+    interpretable to a wide audience, even if they do not have in-depth knowledge
+    of the dataset. \\
+
+    \noindent This report specifically aims to produce visualisations based on an
+    analysis of a large dataset based on the content library available on the Netflix online streaming service. 
+    The ever-evolving landscape of streaming services versus traditional television has positioned Netflix
+    as a giant in the industry. Central to its success is a vast content library, 
+    encompassing a diverse range of movies, TV shows, documentaries, and more. This report delves 
+    into a comprehensive dataset of Netflix's content library, aiming to uncover valuable insights 
+    and trends. Through exploratory data analysis, the composition of the library will 
+    be examined, including factors such as content popularity by genre and release dates.
+    This exploration will not only shed light on Netflix's content strategy but also provide 
+    potential indicators of current and future trends within the streaming service and the
+    broader entertainment market.\\
+
+    
+
+    \noindent This report is split across three sections:
+    \begin{itemize}
+        \item The \textbf{motivation and objectives} of this report.
+        \item The \textbf{results from experiments} on the dataset.
+        \item A \textbf{summary} of overall findings.
+    \end{itemize}
+
+    \pagebreak
+
+    \chapter{Motivation and objectives}
+
+    % Put the chapter name in the header.
+    \markboth{Motivation and objectives}{}
+    
+    The dominance of Netflix in the entertainment industry is undeniable; as the most popular online streaming
+    service with over 269 million active paid memberships \autocite{NetflixSubStats}, it is essential to identify
+    what they are doing correctly in the interests of furthering the industry and understanding the preferred
+    content of their millions of subscribers.\\
+
+    
+    \noindent The dataset in use is \href{https://www.kaggle.com/datasets/shivamb/netflix-shows/data}{sourced from Kaggle}, a 
+    public dataset-sharing website. It contains 8807 rows with twelve columns of data:
+    
+    \begin{itemize}
+        \item show\_id - A unique ID for each row of the dataset.
+        \item type - "Movie" or "TV Show"
+        \item title - The title of the content
+        \item director - The director of the content
+        \item cast - Actors featured in the content
+        \item country - Country of production
+        \item date\_added - The date when Netflix added the content to the service
+        \item release\_year - The date when the content originally released
+        \item rating - The age rating of the content
+        \item duration - Duration in minutes (for movies) or seasons (for TV shows)
+        \item listed\_in - The genre of the content
+        \item description - A large text description of the content.
+    \end{itemize}
+
+    % Within this report, data pertaining to the content library of TV shows and movies on Netflix will be analysed
+    % to identify key factors in the success of said content. 
+    % Netflix is a massive service used by hundreds of millions of people worldwide, and it is therefore
+    % important to identify their successes, and how they optimize their content to maximise viewership, revenue 
+    % and profit.
+
+    \section{Key questions conerning the data}
+    \begin{itemize}
+        \item How has the content library grown over time?
+        \item Which month of the year has the most releases?
+        \item Which \textbf{content type} (movies / TV shows) is more frequent?
+        \item Which genres are the most frequent?
+        \item What is the age rating distribution of the content library?
+    \end{itemize}
+
+    \pagebreak
+    
+    \chapter{Experimental results}
+
+    % Put the chapter name in the header.
+    \markboth{Experimental results}{}
+
+    
+
+\section{Data wrangling}
+    To be able to analyse the data, it is essential that the data is first in a state that
+    can be analysed effectively. To do so, the data must be explored to identify any potential
+    issues, and any that are found must be cleaned.
+    
+    \subsection{Data exploration}
+    A good step to take in the initial exploration of the data is to identify if there are any missing values
+    in certain columns. To do so, we can convert any instance of a blank string into R's recognised "NA" type and
+    then use is.na() to identify how many there are.
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{# Convert blank strings to NA.}
+\hlstd{dataDf[dataDf} \hlopt{==} \hlstr{""}\hlstd{]} \hlkwb{<-} \hlnum{NA}
+
+\hlcom{# Identify rows containing NA.}
+\hlstd{naRows} \hlkwb{<-} \hlstd{dataDf[}\hlkwd{rowSums}\hlstd{(}\hlkwd{is.na}\hlstd{(dataDf)} \hlopt{>} \hlnum{0}\hlstd{),]}
+\hlkwd{nrow}\hlstd{(naRows)}
+\end{alltt}
+\begin{verbatim}
+[1] 3475
+\end{verbatim}
+\begin{alltt}
+\hlkwd{nrow}\hlstd{(naRows)}\hlopt{/}\hlkwd{nrow}\hlstd{(dataDf)}\hlopt{*}\hlnum{100}
+\end{alltt}
+\begin{verbatim}
+[1] 39.46
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+    
+    We can identify that this dataset has 3475 rows where at least one column has missing data, equating to 
+    39.46\% of the dataset. To analyse this in further detail to see specifically which columns contain
+    missing data, the naniar package can be used to generate a tibble of where the data is missing.
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{table}[H]
+\centering
+\caption{\label{tab:unnamed-chunk-2}Missing variable summary of the dataset}
+\centering
+\begin{tabular}[t]{l|r|r}
+\hline
+variable & n\_miss & pct\_miss\\
+\hline
+director & 2634 & 29.9\\
+\hline
+country & 831 & 9.44\\
+\hline
+cast & 825 & 9.37\\
+\hline
+date\_added & 10 & 0.114\\
+\hline
+rating & 4 & 0.0454\\
+\hline
+duration & 3 & 0.0341\\
+\hline
+show\_id & 0 & 0\\
+\hline
+type & 0 & 0\\
+\hline
+title & 0 & 0\\
+\hline
+release\_year & 0 & 0\\
+\hline
+listed\_in & 0 & 0\\
+\hline
+description & 0 & 0\\
+\hline
+\end{tabular}
+\end{table}
+
+\end{knitrout}
+
+    % unique(dataDf$rating)
+    
+      
+\begin{knitrout}\footnotesize
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{# Factorise categorical columns before the summary for cleaner output.}
+\hlstd{factorCols} \hlkwb{<-} \hlkwd{c}\hlstd{(}\hlstr{"type"}\hlstd{,} \hlstr{"country"}\hlstd{,} \hlstr{"release_year"}\hlstd{,} \hlstr{"rating"}\hlstd{,} \hlstr{"duration"}\hlstd{)}
+\hlstd{dataDf} \hlkwb{<-} \hlstd{dataDf} \hlopt{%>%}
+    \hlkwd{mutate}\hlstd{(}\hlkwd{across}\hlstd{(}\hlkwd{all_of}\hlstd{(factorCols), as.factor))}
+
+\hlcom{# Convert date_added to a date format using Lubridate.}
+\hlstd{dataDf}\hlopt{$}\hlstd{date_added} \hlkwb{<-} \hlkwd{mdy}\hlstd{(dataDf}\hlopt{$}\hlstd{date_added)}
+
+
+\hlkwd{str}\hlstd{(dataDf,} \hlkwc{vec.len} \hlstd{=} \hlnum{1}\hlstd{,} \hlkwc{width} \hlstd{=} \hlnum{70}\hlstd{,} \hlkwc{strict.width} \hlstd{=} \hlstr{"cut"}\hlstd{)}
+\end{alltt}
+\begin{verbatim}
+'data.frame':	8807 obs. of  12 variables:
+ $ show_id     : chr  "s1" ...
+ $ type        : Factor w/ 2 levels "Movie","TV Show": 1 2 ...
+ $ title       : chr  "Dick Johnson Is Dead" ...
+ $ director    : chr  "Kirsten Johnson" ...
+ $ cast        : chr  NA ...
+ $ country     : Factor w/ 748 levels ", France, Algeria",..: 604 42..
+ $ date_added  : Date, format: "2021-09-25" ...
+ $ release_year: Factor w/ 74 levels "1925","1942",..: 73 74 ...
+ $ rating      : Factor w/ 17 levels "66 min","74 min",..: 8 12 ...
+ $ duration    : Factor w/ 220 levels "1 Season","10 min",..: 211 11..
+ $ listed_in   : chr  "Documentaries" ...
+ $ description : chr  "As her father nears the end of his life, fil"..
+\end{verbatim}
+\begin{alltt}
+\hlcom{# The 'cast' column contains Unicode characters that cause other miscellaneous}
+\hlcom{# errors later, so the Unicode characters in each row will be removed by}
+\hlcom{# running a gsub on the cast column to remove them.  dataDf$cast <-}
+\hlcom{# sapply(dataDf$cast, gsub, pattern = '<U\textbackslash{}\textbackslash{}+200B>', replacement= ' ')}
+
+
+\hlcom{# summary(dataDf)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+
+    \subsection{Data cleaning}
+
+    \section{Visualisations}
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
+
+{\centering \includegraphics[width=0.75\linewidth]{C:/Users/Lewis/DataspellProjects/DataVis/Assignment/RNW/figures/unnamed-chunk-3-1} 
+
+}
+
+
+\end{knitrout}
+
+    \chapter{Summary and conclusion}
+    % Add it to the contents, because un-numbered chapters are not by default.
+    \addcontentsline{toc}{chapter}{Summary and conclusion}
+    % Put the chapter name in the header.
+    \markboth{Summary and conclusion}{}
+
+    aaaaa
+    
+    \printbibliography{}
+
+\end{document}

@@ -1,0 +1,107 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nyt/global//global/global/global}
+    \entry{PlayStoreDLs}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=1c35cf4fe15004152bb542f52a1b1d72}{%
+           family={Ceci},
+           familyi={C\bibinitperiod},
+           given={Laura},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{1c35cf4fe15004152bb542f52a1b1d72}
+      \strng{fullhash}{1c35cf4fe15004152bb542f52a1b1d72}
+      \strng{fullhashraw}{1c35cf4fe15004152bb542f52a1b1d72}
+      \strng{bibnamehash}{1c35cf4fe15004152bb542f52a1b1d72}
+      \strng{authorbibnamehash}{1c35cf4fe15004152bb542f52a1b1d72}
+      \strng{authornamehash}{1c35cf4fe15004152bb542f52a1b1d72}
+      \strng{authorfullhash}{1c35cf4fe15004152bb542f52a1b1d72}
+      \strng{authorfullhashraw}{1c35cf4fe15004152bb542f52a1b1d72}
+      \field{extraname}{1}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradate}{1}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{29}
+      \field{month}{8}
+      \field{title}{Number of Apple App Store and Google Play mobile app downloads worldwide from 3rd quarter 2016 to 1st quarter 2023}
+      \field{urlday}{10}
+      \field{urlmonth}{5}
+      \field{urlyear}{2024}
+      \field{year}{2023}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.statista.com/statistics/695094/quarterly-number-of-mobile-app-downloads-store/
+      \endverb
+      \verb{url}
+      \verb https://www.statista.com/statistics/695094/quarterly-number-of-mobile-app-downloads-store/
+      \endverb
+    \endentry
+    \entry{PlayStoreAppCount}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=1c35cf4fe15004152bb542f52a1b1d72}{%
+           family={Ceci},
+           familyi={C\bibinitperiod},
+           given={Laura},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{1c35cf4fe15004152bb542f52a1b1d72}
+      \strng{fullhash}{1c35cf4fe15004152bb542f52a1b1d72}
+      \strng{fullhashraw}{1c35cf4fe15004152bb542f52a1b1d72}
+      \strng{bibnamehash}{1c35cf4fe15004152bb542f52a1b1d72}
+      \strng{authorbibnamehash}{1c35cf4fe15004152bb542f52a1b1d72}
+      \strng{authornamehash}{1c35cf4fe15004152bb542f52a1b1d72}
+      \strng{authorfullhash}{1c35cf4fe15004152bb542f52a1b1d72}
+      \strng{authorfullhashraw}{1c35cf4fe15004152bb542f52a1b1d72}
+      \field{extraname}{2}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradate}{2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{8}
+      \field{month}{12}
+      \field{title}{Number of available apps in the Google Play Store from 2nd quarter 2015 to 3rd quarter 2022}
+      \field{urlday}{10}
+      \field{urlmonth}{5}
+      \field{urlyear}{2024}
+      \field{year}{2023}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.statista.com/statistics/289418/number-of-available-apps-in-the-google-play-store-quarter/
+      \endverb
+      \verb{url}
+      \verb https://www.statista.com/statistics/289418/number-of-available-apps-in-the-google-play-store-quarter/
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
