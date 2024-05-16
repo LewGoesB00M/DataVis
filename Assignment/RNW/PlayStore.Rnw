@@ -90,11 +90,8 @@
 \fancyhead[R]{\leftmark}
 
 
-% Temp for pagecolor command
-\usepackage{xcolor}
-
-\usepackage{listings}
-
+% -------------------------------------------------------------------------------
+%TC:envir knitrout* [ignore] knitrout
 % -------------------------------------------------------------------------------
 
 \title{Visualising Trends in Apps on the Google Play Store}
@@ -117,7 +114,7 @@
 options(digits = 4, warn = -1) 
 
 # Load these ahead of time.
-pacman::p_load(data.table, knitr, kableExtra, tidyverse, naniar, varhandle, ggmosaic) 
+pacman::p_load(data.table, knitr, kableExtra, tidyverse, naniar, varhandle) 
 
 
 path <- "C:/Users/Lewis/DataspellProjects/DataVis/Assignment/RNW"
@@ -148,7 +145,7 @@ knitr::opts_chunk$set(fig.align = 'center', # Center figures
         {\huge \bfseries  \@title }\\[30ex]
         {\@author}\\[2ex]
         {CMP5352 - Data Visualisation}\\[10ex]
-        {Word count: XXXX}\\[10ex]
+        {Word count of RNW file (excluding code, figures, and tables): 3299}\\[10ex]
     \end{center}
 \end{titlepage}
 \makeatother
@@ -158,8 +155,9 @@ knitr::opts_chunk$set(fig.align = 'center', # Center figures
 \begin{abstract}
 
     This report delves into a dataset containing information
-    on various apps from the Google Play Store. By leveraging Exploratory Data Analysis (EDA)
-    and data visualization techniques, the report aims to uncover insights and trends within 
+    on a wide variety of apps from the Google Play Store. 
+    By leveraging Exploratory Data Analysis (EDA) and data visualization techniques, 
+    the report aims to uncover insights and trends within 
     the Play Store ecosystem based on data such as review scores, install counts and app
     categories.
 
@@ -188,7 +186,7 @@ analysis of a large dataset based on the content available on the Google Play St
 where users of Android mobile devices can download a wide variety of apps to suit their needs. 
 The mobile app industry is an enormous market to be involved in, with over 27 billion 
 downloads occurring on the Play Store in Q1 2023 alone \autocite{PlayStoreDLs}. This report delves 
-into a comprehensive dataset of apps available on the Play store, aiming to uncover valuable insights 
+into a comprehensive dataset of apps available on the Play Store, aiming to uncover valuable insights 
 and trends. Through exploratory data analysis, the composition of the store will 
 be examined, including factors such as app reviews in comparison to their install counts, as well as 
 additional insights such as app pricing and how it affects user counts.
@@ -205,7 +203,8 @@ and the broader mobile market.\\
 \end{itemize}
 
 \noindent This report was compiled as a .Rnw file, meaning that all R code used in this
-report is embedded into the PDF and readable within the report.
+report is embedded into the PDF and readable within the report. A webapp where data can 
+be generated from the dataset is attached with this PDF within the "Shiny" folder.
 
 \pagebreak
 
@@ -219,7 +218,7 @@ The Google Play Store is a massive market to tap into, hosting over 3.5 million 
 to ensure that content released on the store can be properly optimised to maximise install count and 
 review scores, which will ultimately increase profit.\\
 
-\noindent The dataset in use is \href{https://www.kaggle.com/datasets/lava18/google-play-store-apps/data}{sourced from Kaggle}, a 
+\noindent The dataset used is \href{https://www.kaggle.com/datasets/lava18/google-play-store-apps/data}{sourced from Kaggle}, a 
 public dataset-sharing website. It contains 9660 unique values with 13 columns of data:
 
 \begin{itemize}
@@ -299,10 +298,10 @@ nrow(naRows)/nrow(dataDf)*100
 @
 
 We can identify that this dataset has 1481 rows where at least one column has missing data, equating to 
-13.66\% of the dataset. To analyse this in further detail to see specifically which columns contain
-missing data, the naniar package can be used to generate a tibble of where the data is missing.
+13.66\% of the dataset. To analyse this in further detail,
+the naniar package can be used to generate a tibble of where the data is missing.
 
-<<missingVars, size = "footnotesize">>=
+<<missingVars, echo = FALSE, size = "footnotesize">>=
 kable(miss_var_summary(dataDf), 
      caption = "Missing variable summary of the dataset", "latex") %>%
 kable_styling(latex_options = "HOLD_position") 
@@ -628,6 +627,7 @@ notVarying <- dataDf %>%
 filter(numVer != "Varies with device") %>%
 
 # Convert values greater than 4 to 4, and values less than 4 to 1.
+# Unfactor comes from the varhandle package, and can return numerics.
 mutate(numVer = if_else(unfactor(numVer) >= 4.0, ">= 4.0", "< 4.0")) %>%
 group_by(numVer) %>%
 summarise(count = n())
@@ -678,7 +678,7 @@ kable(pieData, caption = "Paid and free app distribution", "latex") %>%
 kable_styling(latex_options = "HOLD_position") 
 @
 
-Figure \ref{fig:pieType} and TAble \ref{tab:typeTbl} shows us the types of apps in the dataset, meaning 
+Figure \ref{fig:pieType} and Table \ref{tab:typeTbl} shows us the types of apps in the dataset, meaning 
 whether the apps are free to download or whether they cost money. We can see that free apps have a 
 93\% market share as opposed to paid apps that account for only 7\%.
 
@@ -768,7 +768,7 @@ ggplot(contentRatings, aes(x = "", y = count, fill = Content.Rating,
         geom_text(position = position_stack(vjust = 0.5)) +
         coord_polar("y", start = 0) +
         labs(title = "App content rating distribution",
-            fill = "Type") +
+            fill = "Content rating") +
     # Change the default blue colours
         scale_fill_brewer(palette = "Pastel1") +
         theme_void() # Hide the axes
@@ -783,7 +783,7 @@ target everyone aged 10 and above.
 \pagebreak 
 
 \section{Visualisations for question answers}\label{sec:answers}
-In this section, the questioned posed in Section \ref{sec:questions} will be answered
+In this section, the questions posed in Section \ref{sec:questions} will be answered
 using the data that has been analysed throughout this report.
 
 \subsection{Is there a correlation between the average review score of an app and its install
@@ -846,8 +846,8 @@ ggplot(filterReviews, aes(x = avgRating, y = Category, fill = Category)) +
     geom_bar(stat = "identity") +  
     geom_text(aes(label = round(avgRating, 3)),
               position = position_stack(vjust = 0.5)) +
-    labs(title = "Average Rating by App Category", x = "App Category", 
-         y = "Average Rating") +
+    labs(title = "Average Rating by App Category", y = "App Category", 
+         x = "Average Rating") +
     # Too many categories for a legend to reasonably fit.
     theme(legend.position = "none")
     
@@ -1067,7 +1067,7 @@ doesNotVary <- dataDf %>%
 filter(numSize != "0" & installThresholds %in% c("1 - 500", 
 "500 - 1K", "1K - 10K",
 "10K - 50K", "50K - 100K", "100K - 500K", 
-"500K - 1M", "1M - 10M"))
+"500K - 1M"))
 
 ggplot(doesNotVary, aes(x = numSize)) +
     geom_histogram(fill = "purple", color = "black", binwidth = 4) +
@@ -1081,11 +1081,10 @@ ggplot(doesNotVary, aes(x = numSize)) +
 
 <<halfInstallsByNumSize2, fig.cap = "Size distribution across apps between 1 million and 1 billion installs">>=
 doesNotVary <- dataDf %>%
-# Grab the other factor levels by filtering to those NOT in this list.
-filter(numSize != "0" & !installThresholds %in% c("1 - 500", 
-"500 - 1K", "1K - 10K",
-"10K - 50K", "50K - 100K", "100K - 500K", 
-"500K - 1M", "1M - 10M"))
+# Grab the other factor levels.
+filter(numSize != "0" & installThresholds %in% c("1M - 5M", 
+"5M - 10M", "10M - 50M", "50M - 100M",
+"100M - 500M", "500M - 1B"))
 
 ggplot(doesNotVary, aes(x = numSize)) +
     geom_histogram(fill = "purple", color = "black", binwidth = 4) +
@@ -1120,6 +1119,10 @@ This suggests that it is important to ensure that while apps do have a variety o
 increase their size, it is important to optimise it where possible due to the limited storage space available 
 on mobile devices that could cause the user to uninstall apps in favour of others.
 
+<<wrangledData, echo = FALSE, include = FALSE>>=
+dataDf <- subset(dataDf, select = -c(Size, Installs))
+write.csv(dataDf, paste0(pathdat, "/wrangledData.csv", sep = ""))
+@
 
 \chapter{Summary and conclusion}
 % Put the chapter name in the header.
@@ -1152,7 +1155,7 @@ on mobile devices that could cause the user to uninstall apps in favour of other
     \begin{itemize}
         \item Expected: No, as users may be more harsh with their reviews if they paid
         for the app.
-        \item Actual: Paid apps actually do receive higher average ratings, perhaps due to users being more
+        \item Actual: Paid apps actually do receive higher average ratings, perhaps due to users instead being more
                       forgiving of products that they paid money for.
     \end{itemize}
     \item Is there a correlation between an app's content rating and it's review score?
@@ -1175,17 +1178,16 @@ on mobile devices that could cause the user to uninstall apps in favour of other
 This report has analyzed a dataset of Google Play Store apps,
 revealing valuable insights into app characteristics, user ratings, and trends. 
 We observed the distributions of data across the dataset, revealing trends in 
-review scores and install counts with categories, prices, age ratings and app size.
-Overall, this exploration of the Google Play Store data highlights valuable trends
-for app developers and users alike. Developers can leverage these insights to 
+review scores and install counts with categories, prices, age ratings and app size, and showing 
+how they may not be as one would expect.
+Overall, this exploration of the Google Play Store data provides great benefit to
+app developers and users alike; developers can leverage these insights to 
 identify key focus points in the development process, such as tailoring their apps to be for certain age 
-groups or pricing them at certain costs. For users, understanding these
+groups or pricing them at certain costs, and for users, understanding these
 trends can inform their app selection process, leading them towards apps that better meet their needs.
-
-
-\large\textbf{Rename variables to be relevant to the graph they are for. Word count troubles; 
-you're within 10\% over, but that still puts you at 3300/3000.}\normalsize
 
 \printbibliography{}
 
 \end{document}
+
+
